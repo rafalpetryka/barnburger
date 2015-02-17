@@ -1,6 +1,8 @@
 <h1>Dodaj aktualności</h1>
 <%= form_for @news do |f| %>
   Wpisz tekst: <%= f.text_field :text %>
+  Wybierz datę wrzucenia <%= f.datetime_select :date, start_hour: 10 %>
+  
   <%= f.submit %>
 <% end %>
 

@@ -16,7 +16,7 @@ class NewsController < ApplicationController
     # @news = News.find(params[:id])
   end
   def news_params 
-		params.require(:news).permit(:text)
+		params.require(:news).permit(:text, :date)
 	end
 
 end
