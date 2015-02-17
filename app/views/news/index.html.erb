@@ -1,0 +1,12 @@
+<table>
+    <thead>
+        <th>Name</th>
+    </thead>
+    <tbody>
+<% @news.each do |news| %>
+    <tr>
+        <td><%= news.text %></td>
+    </tr>
+<% end %>
+    </tbody>
+</table>

@@ -1,0 +1,19 @@
+<h1>Dodaj aktualności</h1>
+<%= form_for @news do |f| %>
+  Wpisz tekst: <%= f.text_field :text %>
+  <%= f.submit %>
+<% end %>
+
+<!-- 
+   Prefix Verb   URI Pattern                Controller#Action
+    newses GET    /newses(.:format)          newses#index
+           POST   /newses(.:format)          newses#create
+ new_newse GET    /newses/new(.:format)      newses#new
+edit_newse GET    /newses/:id/edit(.:format) newses#edit
+     newse GET    /newses/:id(.:format)      newses#show
+           PATCH  /newses/:id(.:format)      newses#update
+           PUT    /newses/:id(.:format)      newses#update
+           DELETE /newses/:id(.:format)      newses#destroy
+main_index GET    /main/index(.:format)      main#index
+      root GET    /                          main#index
+ -->

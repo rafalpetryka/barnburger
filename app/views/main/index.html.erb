@@ -1,0 +1,289 @@
+<html lang="pl">
+	<head>
+		<meta name="description" content="Strona internetowa Barn Burger">
+		<meta name="keywords" content="Barn, Burger, Burgery, Burgers, Warszawa, Warsaw, Najlepszy burger, Najlepsze burgery, The best burger, The best burgers">
+		<meta name="author" content="IdeasFactory.pl Rafał Petryka">
+		<meta http-equiv="refresh" content="3600">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
+		<title>Barn Burger® &#127828; Warszawa ul. Złota 9</title>
+		<script type="text/javascript" src="assets/jquery-2.1.1.js"></script>
+		<!--
+		<script type="text/javascript" src="assets/lightbox.min.js"></script>
+		-->
+		<script type="text/javascript" src="rating/starrating.js"></script>
+		<script type="text/javascript" src="assets/jquery.stellar.min.js"></script>
+		<script type="text/javascript" src="assets/waypoints.js"></script>
+		<script type="text/javascript" src="assets/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="assets/main.js"></script>
+		<script type="text/javascript" src="assets/gallery.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/reset.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="rating/starrating.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="assets/lightbox.css">
+		<!-- <link rel='stylesheet' media='screen and (max-width: 640px)' href='assets/small.css'> -->
+		<link rel='stylesheet' media='screen and (min-width: 1px) and (max-width: 620px)' href='assets/small.css'>
+		<link rel='stylesheet' media='screen and (min-width: 620px) and (max-width: 849px)' href='assets/medium.css'>
+		<link rel='stylesheet' media='screen and (min-width: 850px)' href='assets/large.css'>
+		<!-- <link rel='stylesheet' href='assets/large.css'> -->
+		<link rel="shortcut icon" href="favicon_transparent.ico" type="image/icon">
+		<link rel="icon" href="favicon.ico" type="image/icon">
+	</head>
+	<body>
+		<!-- 		<?php 
+			// include update.php
+			include_once 'update.php';
+			// get all data from tabel
+			$arr_star = fetchStar();
+			?> -->
+		<!--do facebooka-->
+		<script>
+			(function(d, s, id) {
+			    var js, fjs = d.getElementsByTagName(s)[0];
+			    if (d.getElementById(id)) return;
+			    js = d.createElement(s);
+			    js.id = id;
+			    js.src = "//connect.facebook.net/pl_PL/all.js#xfbml=1";
+			    fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<!--koniec faceboka-->
+		<div class="main">
+			<div class="slide" id="home" data-slide="1" data-stellar-background-ratio="1">
+				<nav>
+					<ul class="navigation">
+						<li data-slide="1"><a href="#">Home</a>
+						</li>
+						<li data-slide="2"><a href="#">Menu</a>
+						</li>
+						<li data-slide="3"><a href="#">Galeria</a>
+						</li>
+						<li data-slide="4"><a href="#">Pasibrzuch</a>
+						</li>
+						<li data-slide="5"><a href="#">Kontakt</a>
+						</li>
+						<div class="link">
+							<a href="http://facebook.com/BarnBurger" target="_blank">Facebook</a>
+							<a href="http://pasibrzuch.barnburger.pl" target="_blank">Pasibrzuch</a>
+							<a href="http://mistrzostwa.barnburger.pl" target="_blank">Mistrzostwa</a>
+						</div>
+					</ul>
+				</nav>
+				<a href="http://en.barnburger.pl" target="_blank" id="english_version"><img src="assets/en.jpg"></a>
+				<img src="assets/logo.png" id="home-logo" alt="logo">
+				<div class="prawdziwa-historia">
+					<div class="tytul">Prawdziwa historia</div>
+					<p>Wszystkie burgery przygotowujemy codziennie na miejscu ze świeżo mielonej sezonowanej wołowiny najwyższej jakości rasy <span>Charolais</span>. Nasze bul0ki wzbogacone są błonnikiem. Do burgerów dorzucamy własny sos BBQ, salsę fresca, fryty oraz sałatkę Colesław. Steki kroimy z dojrzewającej wołowiny rasy <span>Hereford</span>. Domowej roboty fryty smażymy na oleju – NIE FILTRUJEMY – my go wymieniamy. Po prostu… A dodatkowo mamy soft taco z wołowiną lub kurczakiem</p>
+				</div>
+				<div class="aktualnosci">
+					<div class="tytul">Aktualności</div>
+					<ul>
+						<% i = 0 %>
+						
+						<% @news.order('created_at DESC').each do |news| %>
+							<% if i<4 %>
+								<li><%= news.text.html_safe %></li>
+								<% i+=1 %>
+							<% end %>
+						<% end %>
+					</ul>
+				</div>
+				<a class="button" data-slide="2" title=""></a>
+			</div>
+			<div class="slide" id="menu" data-slide="2" data-stellar-background-ratio="0.5">
+				<div class="menu-napis" id="odstep">Menu</div>
+				<div class="menu-1">
+					<div class="odstep">
+						<p>NAGI INSTYNKT (19zł)</p>
+						<?php  include_once 'rating/01.php'; ?>
+						warzywa, burger 200g + sos BBQ, salsa fresca, colesław, fryty
+						<p>SIR BURGER (21zł)</p>
+						<?php  include_once 'rating/02.php'; ?>
+						warzywa, burger 200g, ser + sos BBQ, salsa fresca, colesław, fryty
+						<p>MUPPET BURGER (23zł)</p>
+						<?php  include_once 'rating/03.php'; ?>
+						warzywa, burger 200g, ser, jalapeno, bekon + sos BBQ, salsa fresca, colesław, fryty
+						<p>HEART ATTACK (26zł)</p>
+						<?php  include_once 'rating/04.php'; ?>
+						warzywa, burger 200g, podwójny bekon, podwójny ser, chipsy + sos BBQ, salsa fresca, colesław, fryty
+						<p>SEX & VIOLENCE (26zł)</p>
+						<?php  include_once 'rating/05.php'; ?>
+						warzywa, burger 200g, rukola, mascarpone ziołowe, bekon, ser + sos BBQ, salsa fresca, colesław, fryty
+						<p>MAMAS, PAPAS & DUPAS BLADAS (26zł)</p>
+						<?php  include_once 'rating/06.php'; ?>
+						warzywa, burger 200g, ser, bekon, kiełbaska chorizo, guacamole + sos BBQ, colesław, fryty
+						<p>SEKRET ZDZICHA (26zł)</p>
+						<?php  include_once 'rating/07.php'; ?>
+						warzywa, burger 200g, ser, jajko sadzone, szpinak, bekon, sos holenderski + sos BBQ, salsa fresca, colesław, fryty
+						<p>POPEYE BURGER (21zł)</p>
+						<?php  include_once 'rating/08.php'; ?>
+						warzywa, ser z grilla, szpinak, chleb orkiszowy, ser + sos BBQ, salsa fresca, colesław, fryty
+						<p>PORANEK KOJOTA (26zł)</p>
+						<?php  include_once 'rating/09.php'; ?>
+						warzywa, burger 200g, bekon, sos serowy Cheddar, nachos i salsa fresca z jalapeno + sos BBQ, salsa fresca, colesław, fryty
+						<p>BYPASS CZYLI ROZJEMCA TASIEMCA (35zł)</p>
+						<?php  include_once 'rating/10.php'; ?>
+						<span>2 X BURGER 200g</span>, podwójny ser, podwójny bekon, duszona cebula, warzywa + sos BBQ, salsa fresca, colesław, fryty
+					</div>
+				</div>
+				<div class="menu-2">
+					<div class="odstep">
+						<p>SZPETNA HELA (26zł)</p>
+						<?php  include_once 'rating/11.php'; ?>
+						warzywa, burger 200g, 4 oryginalne sery (cheddar, mimolette, dor blue, mozzarella), pesto szczypiorkowe, bekon, rukola + sos BBQ, salsa fresca, colesław, fryty
+						<p>PONURY ŻNIWIARZ (26zł)</p>
+						<?php  include_once 'rating/12.php'; ?>
+						warzywa, burger 200g, ser, chutney z chilli z zielonego i czerwonego peperoncino, piri - piri, jalapeno i habanero, bekon, roszponka + sos BBQ, salsa fresca, colesław, fryty
+						<p>DIRTY HARRY (26zł)</p>
+						<?php  include_once 'rating/13.php'; ?>
+						warzywa, burger 200g, ser, remoulada, bekon, cebula krążki + sos BBQ, salsa fresca, colesław, fryty
+						<p>KUSZENIE GAŹDZINY (26zł)</p>
+						<?php  include_once 'rating/14.php'; ?>
+						warzywa, burger 200g, oscypek, żurawina, roszponka, krążki cebulowe + sos BBQ, salsa fresca, colesław, fryty
+						<p>GENDER BURGER (26zł)</p>
+						<?php  include_once 'rating/15.php'; ?>
+						burger 200g, pulled pork, bekon, cheddar + sos BBQ, salsa fresca, colesław, fryty
+						<p>RIB-EYE STEAK (39zł)</p>
+						<?php  include_once 'rating/16.php'; ?>
+						300g steka Antrykot + sos BBQ, salsa fresca, colesław, fryty
+						<p>TOP LION STEAK (39zł)</p>
+						<?php  include_once 'rating/17.php'; ?>
+						300g steka Rostbef + sos BBQ, salsa fresca, colesław, fryty
+						<p>SOFT TACO Z WOŁOWINĄ (21zł)</p>
+						<?php  include_once 'rating/18.php'; ?>
+						3 tortille pszenne, papryka, wołowina, cebula, ser, guacamole, salsa, śmietana, fryty
+						<p>SOFT TACO Z KUR WIELU (21zł)</p>
+						<?php  include_once 'rating/19.php'; ?>
+						3 tortille pszenne, papryka, kurczak, cebula, ser, guacamole, salsa, śmietana, fryty
+					</div>
+				</div>
+				<div class="sezonowe-napis">
+					Edycja limitowana
+					<div class="sezonowe-napis data">Od 1 Października</div>
+				</div>
+				<div class="menu-1b">
+					<div class="ostep">
+						<p>SOFT TACO Z KUR WIELU (21zł)</p>
+						<?php  include_once 'rating/19.php'; ?>
+						3 tortille pszenne, papryka, kurczak, cebula, ser, guacamole, salsa, śmietana, fryty
+					</div>
+				</div>
+				<div class="menu-2b">
+					<div class="odstep">
+						<p>SOFT TACO Z KUR WIELU (21zł)</p>
+						<?php  include_once 'rating/19.php'; ?>
+						3 tortille pszenne, papryka, kurczak, cebula, ser, guacamole, salsa, śmietana, fryty
+					</div>
+				</div>
+				<a class="button" data-slide="3" title=""></a>
+			</div>
+			<div class="slide" id="galeria" data-slide="3" data-stellar-background-ratio="0.5">
+				<div class="galeria-napis">Galeria</div>
+				<div class="galeria-1">
+					<div class="tytul">Menu</div>
+					<a href="assets/slide3/menu/01.jpg" data-lightbox="menu">
+						<div id="zdjecia1">
+							<img class="active" src="assets/slide3/menu/min/01.jpg" alt="">
+							<img src="assets/slide3/menu/min/02.jpg" alt="">
+							<img src="assets/slide3/menu/min/03.jpg" alt="">
+						</div>
+					</a>
+					<a href="assets/slide3/menu/02.jpg" data-lightbox="menu"></a>
+					<a href="assets/slide3/menu/03.jpg" data-lightbox="menu"></a>
+					<a href="assets/slide3/menu/04.jpg" data-lightbox="menu"></a>
+					<a href="assets/slide3/menu/05.jpg" data-lightbox="menu"></a>
+					<a href="assets/slide3/menu/06.jpg" data-lightbox="menu"></a>
+					<a href="assets/slide3/menu/07.jpg" data-lightbox="menu"></a>
+					<a href="assets/slide3/menu/08.jpg" data-lightbox="menu"></a>
+					<a href="assets/slide3/menu/09.jpg" data-lightbox="menu"></a>
+					<a href="assets/slide3/menu/10.jpg" data-lightbox="menu"></a>
+					<a href="assets/slide3/menu/11.jpg" data-lightbox="menu"></a>
+					<a href="assets/slide3/menu/12.jpg" data-lightbox="menu"></a>
+					<a href="assets/slide3/menu/13.jpg" data-lightbox="menu"></a>
+					<a href="assets/slide3/menu/14.jpg" data-lightbox="menu"></a>
+				</div>
+				<div class="galeria-2">
+					<div class="tytul">Lokal</div>
+					<a href="assets/slide3/lokal/01.jpg" data-lightbox="lokal">
+						<div id="zdjecia2">
+							<img class="active" src="assets/slide3/lokal/min/01.jpg" alt="">
+							<img src="assets/slide3/lokal/min/02.jpg" alt="">
+							<img src="assets/slide3/lokal/min/03.jpg" alt="">
+						</div>
+					</a>
+					<a href="assets/slide3/lokal/02.jpg" data-lightbox="lokal"></a>
+					<a href="assets/slide3/lokal/03.jpg" data-lightbox="lokal"></a>
+					<a href="assets/slide3/lokal/04.jpg" data-lightbox="lokal"></a>
+					<a href="assets/slide3/lokal/05.jpg" data-lightbox="lokal"></a>
+					<a href="assets/slide3/lokal/06.jpg" data-lightbox="lokal"></a>
+					<a href="assets/slide3/lokal/07.jpg" data-lightbox="lokal"></a>
+					<a href="assets/slide3/lokal/08.jpg" data-lightbox="lokal"></a>
+					<a href="assets/slide3/lokal/09.jpg" data-lightbox="lokal"></a>
+				</div>
+				<div class="galeria-3">
+					<div class="tytul">Mistrzostwa</div>
+					<a href="assets/slide3/mistrzostwa/01.jpg" data-lightbox="mistrzostwa">
+						<div id="zdjecia3">
+							<img class="active" src="assets/slide3/mistrzostwa/min/01.jpg" alt="">
+							<img src="assets/slide3/mistrzostwa/min/02.jpg" alt="">
+							<img src="assets/slide3/mistrzostwa/min/03.jpg" alt="">
+						</div>
+					</a>
+					<a href="assets/slide3/mistrzostwa/02.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/03.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/04.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/05.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/06.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/07.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/08.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/09.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/10.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/11.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/12.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/13.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/14.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/15.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/16.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/17.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/18.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/19.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/20.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/21.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/22.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/23.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/24.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/25.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/26.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/27.jpg" data-lightbox="mistrzostwa"></a>
+					<a href="assets/slide3/mistrzostwa/28.jpg" data-lightbox="mistrzostwa"></a>
+				</div>
+				<a class="button" data-slide="4" title=""></a>
+			</div>
+			<div class="slide" id="pasibrzuch" data-slide="4" data-stellar-background-ratio="0.5">
+				<div class="pasibrzuch-napis">Pasibrzuch</div>
+				<div class="pasibrzuch-text">Chcesz zmierzyć się z BYPASSEM, a dodatkowo wygrać atrakcyjna nagrodę? Dołącz do ponad 100 pasibrzuchów, wejdź na <a href="http://www.pasibrzuch.barnburger.pl" target="_blank">pasibrzuch.barnburger.pl</a>, zapoznaj się z regulaminem i aktualnym rekordem</div>
+				<a class="button" data-slide="5" title=""></a>
+			</div>
+			<div class="slide" id="kontakt" data-slide="5" data-stellar-background-ratio="0.5">
+				<div class="kontakt-napis">Kontakt</div>
+				<div class="kontakt-text">
+					<p>Godziny otwarcia</p>
+					Pon-Pt: 12<sup>00</sup>-22<sup>00</sup> <span>(grillujemy do 21:30)</span>
+					<br>Sob: 13<sup>00</sup>-22<sup>00</sup> <span>(grillujemy do 21:30)</span>
+					<br>Nd: 13<sup>00</sup>-21<sup>00</sup> <span>(grillujemy do 20:30)</span>
+					<p>Adres</p>
+					Warszawa ul. Złota 9
+					<br>Tel.: <a href="tel:888222750">888 222 750</a>
+					<br><a href="mailto:barnburger@barnburger.pl">barnburger@barnburger.pl</a>
+					<br>
+					<div class="fb-like" data-href="http://www.facebook.com/barnburger" data-send="true" data-width="400" data-show-faces="true" data-font="arial" data-colorscheme="dark"></div>
+				</div>
+				<div class="kontakt-mapka">
+					<p>Mapka</p>
+					<iframe src="https://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=Barn+Burger&amp;aq=&amp;sll=52.232978,21.011438&amp;sspn=0.007688,0.021136&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=52.232978,21.011438&amp;spn=0.006295,0.006295&amp;t=m&amp;iwloc=A&amp;output=embed"></iframe>
+				</div>
+				<a class="button last" data-slide="1" title=""></a>
+			</div>
+		</div>
+		<a href="http://ideasfactory.pl" target="_blank" id="ideasfactory">© IdeasFactory.pl</a>
+	</body>
+</html>
