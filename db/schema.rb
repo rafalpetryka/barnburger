@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219121554) do
+ActiveRecord::Schema.define(version: 20150219225115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "news", force: :cascade do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.text     "text"
     t.datetime "date"
     t.string   "link"
     t.string   "name_of_link"
+    t.text     "text_with_link"
   end
 
 end

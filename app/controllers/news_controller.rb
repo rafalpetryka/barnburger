@@ -5,15 +5,10 @@ class NewsController < ApplicationController
   end
   def create
   	@news = News.new(news_params)
-    if @news.text.include? "Menu"
-      # puts 'News zawiera Menu'
-      @news.text.sub! 'Menu', '<a href="#menu">Menu</a>'
-    elsif @news.text.include? "menu"
-      # puts 'News nie zawieta Menu'
-      @news.text.sub! 'menu', '<a href="#menu">menu</a>'
-    end
+    add_links
+
   	if @news.save
-  		redirect_to news_index
+  		redirect_to news_index_path
   	end
   end
   def index
@@ -27,7 +22,7 @@ class NewsController < ApplicationController
     if @news.present?
       @news.destroy
     end
-    redirect_to root_url
+    redirect_to news_index_path
     # @news.News.find(params[:id])
     # redirect_to root_path, notice: "Successfully deleted recipe"
   end
@@ -41,15 +36,39 @@ class NewsController < ApplicationController
 
   def update
     @news = News.find(params[:id])
+    add_links
     if @news.update(news_params)
-      redirect_to news_path, notice: "Edytowano aktualność"
+      redirect_to news_index_path, notice: "Edytowano aktualność"
     else
       render 'edit'
     end
   end
 
+  def add_links
+    @news.text_with_link=@news.text
+    if @news.text_with_link.include? "#Menu"
+      # puts 'News zawiera Menu'
+      @news.text_with_link.sub! '#Menu', '<a href="#menu">Menu</a>'
+    elsif @news.text_with_link.include? "#menu"
+      # puts 'News nie zawieta Menu'
+      @news.text_with_link.sub! '#menu', '<a href="#menu">menu</a>'
+    end
+
+    if @news.text_with_link.include? "#Link"
+      if !@news.link.include? "http"
+        @news.link="http://"+@news.link
+      end  
+      @news.text_with_link.sub! '#Link', '<a href="'+@news.link+'">'+@news.name_of_link+'</a>'
+    elsif @news.text_with_link.include? "#link"
+      if !@news.link.include? "http"
+        @news.link="http://"+@news.link
+      end  
+      @news.text_with_link.sub! '#link', '<a href="'+@news.link+'">'+@news.name_of_link+'</a>'
+    end
+  end
+
   def news_params 
-		params.require(:news).permit(:text, :date)
+		params.require(:news).permit(:text, :date, :link, :name_of_link)
 	end
 
 end

@@ -83,7 +83,7 @@
 							<% if i<4 %>
 							<%if news.date.to_i <= DateTime.now.to_i %>
 
-								<li><%= news.text.html_safe %></li>
+								<li><%= news.text_with_link.html_safe %></li>
 								<% i+=1 %>
 							<% end %>
 							<% end %>

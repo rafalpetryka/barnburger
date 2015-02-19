@@ -16,13 +16,14 @@
 
   <p>
     <%= f.label :text %><br>
-    <%= f.text_field :text, placeholder: News.last.text %>
+    
+    <%= f.text_area(:text, placeholder: News.last.text, size: '50x10') %>
   </p>
  
   <p>
     <%= f.label :date %><br>
 <!--     <%= f.datetime_select :date, start_hour: DateTime.now.hour, start_day: DateTime.now.day, start_minute: DateTime.now.minute %> -->
-      <%= f.datetime_select(:date, :default => { :year => DateTime.now.hour, :month => DateTime.now.month, :day => DateTime.now.day, :hour => DateTime.now.hour, :minute => DateTime.now.minute }) %>
+      <%= f.datetime_select(:date, :default => { :year => DateTime.now.year, :month => DateTime.now.month, :day => DateTime.now.day, :hour => DateTime.now.hour, :minute => DateTime.now.minute }, :use_month_names => ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad','Grudzień']) %>
   </p>
    <p>
     <%= f.label :link %><br>
