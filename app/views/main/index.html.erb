@@ -79,10 +79,9 @@
 					<ul>
 						<% i = 0 %>
 
-						<% @news.order('created_at DESC').each do |news| %>
+						<% @news.order('date DESC').each do |news| %>
 							<% if i<4 %>
-							<%=news.date%><br><%=Time.now%><br>
-							<%if news.date <= DateTime.now %>
+							<%if news.date.to_i <= DateTime.now.to_i %>
 
 								<li><%= news.text.html_safe %></li>
 								<% i+=1 %>
