@@ -1,0 +1,44 @@
+<%= form_for @news do |f|  %>
+ 
+  <% if @news.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@news.errors.count, "error") %> prohibited
+        this news from being saved:
+      </h2>
+      <ul>
+        <% @news.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_field :text, placeholder: News.last.text %>
+  </p>
+ 
+  <p>
+    <%= f.label :date %><br>
+<!--     <%= f.datetime_select :date, start_hour: DateTime.now.hour, start_day: DateTime.now.day, start_minute: DateTime.now.minute %> -->
+      <%= f.datetime_select(:date, :default => { :year => DateTime.now.hour, :month => DateTime.now.month, :day => DateTime.now.day, :hour => DateTime.now.hour, :minute => DateTime.now.minute }) %>
+  </p>
+   <p>
+    <%= f.label :link %><br>
+    <%= f.text_field :link, placeholder: "http://facebook.com/BarnBurger" %>
+  </p>
+ 
+   <p>
+    <%= f.label :name_of_link %><br>
+    <%= f.text_field :name_of_link, placeholder: "facebook" %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+   <h2>Tagi do tekstu</h2>
+  <h3>#Menu - wpisuje słówko menu z linkiem do menu</h3>
+  <h3>#Link - wpisuje link<h3>
+<% end %>
+ 

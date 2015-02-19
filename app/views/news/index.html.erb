@@ -1,3 +1,4 @@
+ <%= javascript_include_tag "rails" %>
 <table>
     <thead>
         <th>Name</th>
@@ -7,6 +8,8 @@
     <tr>
         <td><%= news.text %></td>
         <td><%= news.date %></td>
+        <td><%= link_to "Usuń", news_path(news), method: :delete, data: {confirm: "Jesteś pewny" }, class: "btn btn-default" %></td>
+        <td><%= link_to "Edytuj", edit_news_path(news), class: "btn btn-default" %></td>
     </tr>
 <% end %>
     </tbody>
