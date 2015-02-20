@@ -55,11 +55,13 @@ class NewsController < ApplicationController
     end
 
     if @news.text_with_link.include? "#Link"
+      puts "#Link"
       if !@news.link.include? "http"
         @news.link="http://"+@news.link
       end  
       @news.text_with_link.sub! '#Link', '<a href="'+@news.link+'">'+@news.name_of_link+'</a>'
     elsif @news.text_with_link.include? "#link"
+      puts "#link"
       if !@news.link.include? "http"
         @news.link="http://"+@news.link
       end  
