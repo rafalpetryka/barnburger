@@ -233,7 +233,6 @@ tbody tr:hover {
 
 .link{
   /*margin-top: 50px;*/
-  width: 50%;
   margin-bottom: 20px;
   font-size: 15px;
   color: #eee;
@@ -248,5 +247,8 @@ tbody tr:hover {
   text-decoration: none;
 }
 h2{
+  text-align: right;
+  width: 50%;
+  float:right;
   color: #ccc;
 }

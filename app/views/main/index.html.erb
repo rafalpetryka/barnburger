@@ -81,10 +81,12 @@
 
 						<% @news.order('date DESC').each do |news| %>
 							<% if i<4 %>
-							<%if news.date.to_i <= DateTime.now.to_i %>
+							<% if news.text_with_link != nil %>
+								<%if news.date.to_i <= DateTime.now.to_i %>
 
-								<li><%= news.text_with_link.html_safe %></li>
-								<% i+=1 %>
+									<li><%= news.text_with_link.html_safe %></li>
+									<% i+=1 %>
+								<% end %>
 							<% end %>
 							<% end %>
 						<% end %>

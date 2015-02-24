@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   resources :news
   get 'main/index'
   # post 'news/new/' => 'news#new'

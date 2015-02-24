@@ -8,6 +8,7 @@ layout "news_layout"
     add_links
 
   	if @news.save
+      flash[:success] = "Stworzono aktualność"
   		redirect_to news_index_path
   	end
   end
@@ -21,6 +22,9 @@ layout "news_layout"
     @news = News.find(params[:id])
     if @news.present?
       @news.destroy
+      flash[:success] = "Usunięto aktualność"
+    else
+      flash[:error] = "Nie udało się usunąć aktualności"
     end
     redirect_to news_index_path
     # @news.News.find(params[:id])

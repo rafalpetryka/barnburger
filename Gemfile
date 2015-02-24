@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 # gem 'htmlbeautifier'
+# gem 'bootstrap-sass'
+gem 'devise'
 gem 'execjs'
 gem 'therubyracer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
