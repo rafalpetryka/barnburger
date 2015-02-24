@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Barnburger
   class Application < Rails::Application
-    config.assets.precompile += %w( news/reset.css news/style.css )
+    config.assets.precompile += %w( news/reset.css news/style.css news/index.css )
     config.time_zone = 'Warsaw'
     # config.time_zone = 'UTC'
     # config.active_record.default_timezone = :utc

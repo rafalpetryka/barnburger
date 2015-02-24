@@ -1,6 +1,6 @@
-<style type="text/css">
-  body{background-color:#231f20;font-family:Tahoma;}.napis{text-align:center;margin-top:0px;margin-bottom:50px;font-size:30px;color:#ccc;}.napis span{margin-top:15px;color:#aaa;display:block;font-size:16px;}a{margin-top:15px;color:#aaa;display:block;font-size:16px;text-decoration:none;transition:all 0.5s ease;}a:hover{color:#000;}.form{text-align:center;font-size:16px;color:#fff;}.form input{font-size:14px;margin-bottom:15px;margin-top:5px;background-color:#333;color:#ccc;}.imie{width:400px;}.form input:last-child{margin-top:10px;height:30px;background-color:#333;color:#ccc;margin-bottom:0px;}.logo{position:fixed;left:0px;bottom:0px;}.logo img{width:30%;opacity:0.5;transition:all 0.5s ease;}.logo img:hover{opacity:1;}#ideasfactory{position:fixed;font-size:16px;right:2vh;bottom:2vh;z-index:2;font-family:"Trebuchet MS";-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";filter:alpha(opacity=70);opacity:0.7;text-shadow:0 0 5px black,0 0 10px black;color:#e38e55;text-decoration:none;}#ideasfactory:before{content:"Fabryka stron internetowych ";position:relative;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";opacity:0;top:-30px;color:#FFEC5F;-webkit-transition:all .5s;transition:all 0.5s;}#ideasfactory:hover:before{opacity:1;top:0px;}#ideasfactory:hover{color:#FFEC5F;opacity:1;}
-</style>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "news/style.css" %>
+<% end %>
     <div class="form">
 <%= form_for @news do |f|  %>
  

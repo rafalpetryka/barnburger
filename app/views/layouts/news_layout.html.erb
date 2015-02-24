@@ -1,10 +1,12 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Panel zarządzania - Barn Burger</title>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag "news/reset", "news/style" %>
+  <%= stylesheet_link_tag "news/reset" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= yield :head %>
 </head>
 <body>
 <%= link_to('Wyloguj', destroy_admin_session_path, :method => :delete,  style: "color: #ccc; text-decoration: none; float: right")%>  

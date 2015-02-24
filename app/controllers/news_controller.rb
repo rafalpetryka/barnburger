@@ -1,6 +1,7 @@
 class NewsController < ApplicationController
 layout "news_layout"
 before_action :authenticate_admin!
+
   def new
   	@news = News.new
   end
@@ -42,7 +43,10 @@ before_action :authenticate_admin!
   def update
     @news = News.find(params[:id])
     add_links
+
     if @news.update(news_params)
+      add_links
+      @news.update!(news_params)
       redirect_to news_index_path, notice: "Edytowano aktualność"
     else
       render 'edit'
@@ -50,7 +54,8 @@ before_action :authenticate_admin!
   end
 
   def add_links
-    @news.text_with_link=@news.text
+
+    @news.text_with_link = @news.text
     if @news.text_with_link.include? "#Menu"
       # puts 'News zawiera Menu'
       @news.text_with_link.sub! '#Menu', '<a href="#menu">Menu</a>'
