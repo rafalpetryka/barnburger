@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
 layout "news_layout"
+before_action :authenticate_admin!
   def new
   	@news = News.new
   end
