@@ -1,0 +1,98 @@
+            table { background:#231f20;
+            border:1px solid gray;
+            border-collapse:collapse;
+            color:#fff;
+            font:normal 12px verdana, arial, helvetica, sans-serif;
+            }
+            caption { border:1px solid #5C443A;
+            color:#5C443A;
+            font-weight:bold;
+            letter-spacing:20px;
+            padding:6px 4px 8px 0px;
+            text-align:center;
+            text-transform:uppercase;
+            }
+            td, th { color:#eee;
+            padding:.4em;
+            }
+            tr { border:1px dotted gray;
+            }
+            thead th, tfoot th { background:#5C443A;
+            color:#FFFFFF;
+            padding:3px 10px 3px 10px;
+            text-align:left;
+            text-transform:uppercase;
+            }
+            tbody td a { color:#363636;
+            text-decoration:none;
+            }
+            tbody td a:visited { color:gray;
+            text-decoration:line-through;
+            }
+            tbody td a:hover { text-decoration:underline;
+            }
+            tbody th a { color:#363636;
+            font-weight:normal;
+            text-decoration:none;
+            }
+            tbody th a:hover { color:#363636;
+            }
+            tbody td+td+td+td a { background-image:url('bullet_blue.png');
+            background-position:left center;
+            background-repeat:no-repeat;
+            color:#000;
+            padding-left:15px;
+            }
+            tbody td+td+td+td a:visited { background-image:url('bullet_white.png');
+            background-position:left center;
+            background-repeat:no-repeat;
+            }
+            tbody th, tbody td { text-align:left;
+            vertical-align:top;
+            }
+            tfoot td { background:#5C443A;
+            color:#FFFFFF;
+            padding-top:3px;
+            }
+            .odd { background:#fff;
+            }
+            tbody tr:hover { background:#000;
+            border:1px solid #000;
+            color:#000000;
+            }
+            #ideasfactory {
+    position: fixed;
+    font-size: 16px;
+    right: 2vh;
+    bottom: 2vh;
+    z-index: 2;
+    font-family: "Trebuchet MS";
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    text-shadow: 0 0 5px black, 0 0 10px black;
+    color: #e38e55;
+    /*z-index: 5;*/
+
+text-decoration: none;
+}
+#ideasfactory:before {
+    content: "Fabryka stron internetowych ";
+    position: relative;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    /*text-shadow: 0 0 2px black, 0 0 5px black, 0 0 10px black, 0 0 15px black;*/
+
+opacity: 0;
+    top: -30px;
+    color: #FFEC5F;
+    -webkit-transition: all .5s;
+    transition: all 0.5s;
+}
+#ideasfactory:hover:before {
+    opacity: 1;
+    top: 0px;
+}
+#ideasfactory:hover {
+    color: #FFEC5F;
+    opacity: 1;
+}

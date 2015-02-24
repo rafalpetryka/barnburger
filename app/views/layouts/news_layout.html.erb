@@ -2,12 +2,16 @@
 <html>
 <head>
   <title>Panel zarządzania - Barn Burger</title>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "news/reset", "news/style" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
 <body>
-
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
+<a href="http://barnburger.pl"><div class="logo"><img src="../img/logo.png" alt="logo"></div></a>
 <%= yield %>
-
+<a href="http://ideasfactory.pl" target="_blank" id="ideasfactory">© IdeasFactory.pl</a>
 </body>
 </html>

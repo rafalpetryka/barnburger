@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-
+layout "news_layout"
   def new
   	@news = News.new
   end
