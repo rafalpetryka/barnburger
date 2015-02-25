@@ -2,7 +2,7 @@ body {
   background-color: #231f20;
   font-family: "DKCrayonCrumble";
   font-size: 16px;
-  /*text-align:center;*/
+  text-align:center;
   /*font-family: Tahoma;*/
 }
 
@@ -17,9 +17,7 @@ p{
   line-height: 25px;
   font-size: 25px;
 }
-.form{
-  text-align: center;
-}
+
 .napis {
   text-align: center;
   margin-top: 70px;

@@ -1,0 +1,47 @@
+<div class="form">
+	<%= form_for @limited_burger do |f| %>
+		<% if @limited_burger.errors.any? %>
+			<div id="error_explanation">
+				<h2>
+					<%= pluralize(@limited_burger.errors.count, "error") %> prohibited
+					this limited_burger from being saved:
+				</h2>
+				<ul>
+					<% @limited_burger.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+
+		<p>
+			<%= f.label :date, "Wybierz datę kiedy mają się ukazać burgery" %><br>
+			<%= f.datetime_select(:date, :default => { :year => DateTime.now.year, :month => DateTime.now.month, :day => DateTime.now.day, :hour => DateTime.now.hour, :minute => DateTime.now.minute }, :use_month_names => ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad','Grudzień']) %>
+		</p>
+		<p>
+			<%= f.label :date_on_website, "Wpisz datę, która będzie widoczna na stronie (dzień i miesiac)" %><br>
+			<%= f.text_field :date_on_website, placeholder: LimitedBurger.last.date_on_website, size: 20 %>
+		</p>
+		<p>
+			<%= f.label :name1, "Wpisz nazwę pierwszego burgera z ceną w nawiasie" %><br>
+			<%= f.text_field :name1, placeholder: LimitedBurger.last.name1, size: 40 %>
+		</p>
+		<p>
+			<%= f.label :composition1, "Wpisz skład pierwszego burgera" %><br>
+			<%= f.text_area :composition1, placeholder: LimitedBurger.last.composition1, size: '80x7' %>
+		</p>
+		<p>
+			<%= f.label :name2, "Wpisz nazwę drugiego burgera z ceną w nawiasie" %><br>
+			<%= f.text_field :name2, placeholder: LimitedBurger.last.name2, size: 40 %>
+		</p>
+		<p>
+			<%= f.label :composition2, "Wpisz skład drugiego burgera" %><br>
+			<%= f.text_area :composition2, placeholder: LimitedBurger.last.composition2, size: '80x7' %>
+		</p>
+		<p>
+			<%= f.submit "Wyślij", class: "send_button" %>
+		</p>
+	<% end %>
+	<%= link_to 'Wróć', limited_burgers_path %>
+</div>
+

@@ -1,8 +1,6 @@
 body {
   background-color: #231f20;
   font-family: "DKCrayonCrumble";
-  font-size: 16px;
-  /*text-align:center;*/
   /*font-family: Tahoma;*/
 }
 
@@ -17,13 +15,11 @@ p{
   line-height: 25px;
   font-size: 25px;
 }
-.form{
-  text-align: center;
-}
+
 .napis {
   text-align: center;
-  margin-top: 70px;
-  margin-bottom: 70px;
+  margin-top: 50px;
+  margin-bottom: 100px;
   font-size: 50px;
   color: #ccc;
 }
@@ -120,12 +116,8 @@ table {
   border: 1px solid gray;
   border-collapse: collapse;
   color: #fff;
-  font: normal 14px verdana, arial, helvetica, sans-serif;
+  font: normal 12px verdana, arial, helvetica, sans-serif;
   width: 100%;
-}
-
-table a{
-  font-size: 14px;
 }
 
 caption {
@@ -156,7 +148,7 @@ thead th, tfoot th {
 }
 
 tbody td a {
-  color: #595959;
+  color: #363636;
   text-decoration: none;
 }
 
@@ -170,13 +162,13 @@ tbody td a:hover {
 }
 
 tbody th a {
-  color: #595959;
+  color: #363636;
   font-weight: normal;
   text-decoration: none;
 }
 
 tbody th a:hover {
-  color: #595959;
+  color: #363636;
 }
 
 tbody td+td+td+td a {
@@ -270,31 +262,15 @@ tbody tr:hover {
 }
 h2{
   color: #ccc;
-  font-weight: 100;
 }
 h3{
   color: #ccc;
 }
 a{
-  color: #C43C00;
+  color: #eee;
   text-decoration: none;
-  font-size:20px;
 }
 a:hover{
-  color: #C43C00;
+  color: #eee;
   text-decoration: none;
-}
-
-.send_button{
-  width: 200px;
-  height: 50px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  font-size: 20px;
-}
-
-.logout{
-  position: absolute;
-  top: 10px;
-  right: 10px
 }

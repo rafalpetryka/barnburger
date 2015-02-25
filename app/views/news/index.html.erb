@@ -2,7 +2,7 @@
 
     <tbody>
 
-    <%= link_to "Nowa aktualność", new_news_path, class: "link" %>
+    <%= link_to "Nowa aktualność", new_news_path %>
 
     <div class="napis">
         Lista aktualności
@@ -13,8 +13,8 @@
                 <td><%= news.text_with_link.html_safe %></td>
                 <td><%= news.date %></td>
                 
-                <td><%= link_to "Usuń", news_path(news), method: :delete, data: {confirm: "Jesteś pewny" }, class: "btn btn-default" %></td>
-                <td><%= link_to "Edytuj", edit_news_path(news), class: "btn btn-default" %></td>
+                <td><%= link_to "Usuń", news_path(news), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć aktualność?" } %></td>
+                <td><%= link_to "Edytuj", edit_news_path(news) %></td>
                 <% end %>
             </tr>
         <% end %>

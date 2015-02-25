@@ -4,11 +4,11 @@
 <head>
   <title>Panel zarządzania - Barn Burger</title>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag "news/reset", "news/index" %>
+  <%= stylesheet_link_tag "news/index" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
 <body>
-<%= link_to('Wyloguj', destroy_admin_session_path, :method => :delete,  style: "color: #ccc; text-decoration: none; float: right")%>  
+<%= link_to('Wyloguj', destroy_admin_session_path, :method => :delete,  class: "logout")%>  
 <% unless flash.blank? %>
     
     <h2><% flash.each do |key, value| %>

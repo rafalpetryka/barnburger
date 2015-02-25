@@ -1,10 +1,4 @@
-   <html>
-   <head>
-   <style>
-     body {text-align:center}
-   </style>  
-</head>
-<body>
+
     <div class="form">
 <%= form_for @news do |f|  %>
  
@@ -44,7 +38,7 @@
   </p>
  
   <p>
-    <%= f.submit "Wyślij", style: "width: 200px; height: 50px; margin-top: 50px; margin-bottom: 30px;"%>
+    <%= f.submit "Wyślij", class: "send_button"%>
   </p>
    <h2>Tagi do tekstu</h2>
   <h3>#Menu - wpisuje słówko menu z linkiem do menu</h3>
@@ -55,5 +49,3 @@
 </form>
 </div>
 <%= link_to 'Wróć', news_index_path %>
-</body>
-</html>
