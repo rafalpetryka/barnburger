@@ -1,6 +1,10 @@
-<% content_for :head do %>
-  <%= stylesheet_link_tag "news/style.css" %>
-<% end %>
+   <html>
+   <head>
+   <style>
+     body {text-align:center}
+   </style>  
+</head>
+<body>
     <div class="form">
 <%= form_for @news do |f|  %>
  
@@ -51,3 +55,5 @@
 </form>
 </div>
 <%= link_to 'Wróć', news_index_path %>
+</body>
+</html>
