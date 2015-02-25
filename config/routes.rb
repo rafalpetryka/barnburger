@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admins
   resources :news
+  resources :limited_burgers
   get 'main/index'
   # post 'news/new/' => 'news#new'
   # The priority is based upon order of creation: first created -> highest priority.

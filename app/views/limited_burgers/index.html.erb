@@ -1,0 +1,35 @@
+<table>
+
+    <tbody>
+
+    <%= link_to "Nowa limitowana edycja", new_limited_burger_path, class: "link" %>
+
+    <div class="napis">
+        Limitowana edycja
+    </div>
+    <tr bgcolor="#111">
+        <td>Kiedy bedzie na stronie</td>
+        <td>Napisana data na stronie od kiedy jest nowa edycja</td>
+        <td>Nazwa burgera 1</td>
+        <td>Skład burgera 1</td>
+        <td>Nazwa burgera 2</td>
+        <td>Skład burgera 2</td>
+    </tr>
+        <% @limited_burger.order('date DESC').each do |limited_burger| %>
+            <tr>
+            	
+                
+                <td><%= limited_burger.date %></td>
+                <td><%= limited_burger.date_on_website %></td>
+                <td><%= limited_burger.name1 %></td>
+                <td><%= limited_burger.composition1 %></td>
+                <td><%= limited_burger.name2 %></td>
+                <td><%= limited_burger.composition2 %></td>
+                <!-- <td><%= link_to "Usuń", limited_burger_path(limited_burger), method: :delete, data: {confirm: "Jesteś pewny" }, class: "btn btn-default" %></td> -->
+                <!-- <td><%= link_to "Edytuj", edit_limited_burger_path(limited_burger), class: "btn btn-default" %></td> -->
+                
+            </tr>
+        <% end %>
+        
+    </tbody>
+</table>
