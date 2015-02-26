@@ -41,6 +41,7 @@ class LimitedBurgersController < ApplicationController
 
 	def update
 		@limited_burger = LimitedBurger.find(params[:id])
+
 		if @limited_burger.update(limited_burger_params)
 			change_date_on_website
 
@@ -58,20 +59,11 @@ class LimitedBurgersController < ApplicationController
 	#zle dziala
 	def change_date_on_website
 		if @limited_burger.date_on_website.starts_with? "od "
-			puts "-----------------"
-			puts "zaczyna sie od od"
-			puts "-----------------"
 		elsif @limited_burger.date_on_website.starts_with? "Od "
-			puts "-----------------"
-			puts "zaczyna sie od Od"
-			puts "-----------------"
 			@limited_burger.date_on_website = @limited_burger.date_on_website[3, @limited_burger.date_on_website.length]
-			puts @limited_burger.date_on_website
 			@limited_burger.date_on_website = "od " + @limited_burger.date_on_website
+			@limited_burger.save
 		else
-			puts "-----------------"
-			puts "nie zaczyna sie od od"
-			puts "-----------------"
 			@limited_burger.date_on_website = "od "+@limited_burger.date_on_website
 			@limited_burger.save
 		end
