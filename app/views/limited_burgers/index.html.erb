@@ -17,13 +17,26 @@
     </tr>
         <% @limited_burger.order('date DESC').each do |limited_burger| %>
             <tr>
-            	
-                
-                <td><%= limited_burger.date %></td>
-                <td><%= limited_burger.date_on_website %></td>
-                <td><%= limited_burger.name1 %></td>
+                <td><%= limited_burger.date.strftime("%Y-%m-%d %H:%M") %></td>
+                <td>od <%= limited_burger.date_on_website.strftime("%d") %>
+                    <% @month = limited_burger.date_on_website.strftime("%m") %>
+                    <% if @month == "01" %>Stycznia
+                    <% elsif @month == "02" %>Lutego
+                    <% elsif @month == "03" %>Marca
+                    <% elsif @month == "04" %>Kwietnia
+                    <% elsif @month == "05" %>Maja
+                    <% elsif @month == "06" %>Czerwca
+                    <% elsif @month == "07" %>Lipca
+                    <% elsif @month == "08" %>Sierpnia
+                    <% elsif @month == "09" %>Września
+                    <% elsif @month == "10" %>Października
+                    <% elsif @month == "11" %>Listopada
+                    <% elsif @month == "12" %>Grudnia
+                    <% end %>
+                </td>
+                <td><%= limited_burger.name1 %> (<%= limited_burger.price1 %>zł)</td>
                 <td><%= limited_burger.composition1 %></td>
-                <td><%= limited_burger.name2 %></td>
+                <td><%= limited_burger.name2 %> (<%= limited_burger.price2 %>zł)</td>
                 <td><%= limited_burger.composition2 %></td>
                 <td><%= link_to "Usuń", limited_burger_path(limited_burger), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć edycję limitowaną?"}%></td>
                 <td><%= link_to "Edytuj", edit_limited_burger_path(limited_burger) %></td>

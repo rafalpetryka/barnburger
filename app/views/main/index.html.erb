@@ -161,42 +161,39 @@
 						3 tortille pszenne, papryka, kurczak, cebula, ser, guacamole, salsa, śmietana, fryty
 					</div>
 				</div>
-
-
-<!-- 
-						<% i = 0 %>
-
-						<% @news.order('date DESC').each do |news| %>
-							<% if i<4 %>
-							<% if news.text_with_link != nil %>
-								<%if news.date.to_i <= DateTime.now.to_i %>
-
-									<li><%= news.text_with_link.html_safe %></li>
-									<% i+=1 %>
-								<% end %>
-							<% end %>
-							<% end %>
-						<% end %> -->
-
-
 				<% i = 0 %>
 				<% @limited_burger.order('date DESC').each do |limited_burger| %>
 					<% if i == 0 %>
 						<% if limited_burger.date.to_i <= DateTime.now.to_i %>
 							<div class="sezonowe-napis">
 								Edycja limitowana
-								<div class="sezonowe-napis data"><%= limited_burger.date_on_website %></div>
+								<div class="sezonowe-napis data">od <%= limited_burger.date_on_website.strftime("%d") %>
+								<% @month = limited_burger.date_on_website.strftime("%m") %>
+								<% if @month == "01" %>Stycznia
+								<% elsif @month == "02" %>Lutego
+								<% elsif @month == "03" %>Marca
+								<% elsif @month == "04" %>Kwietnia
+								<% elsif @month == "05" %>Maja
+								<% elsif @month == "06" %>Czerwca
+								<% elsif @month == "07" %>Lipca
+								<% elsif @month == "08" %>Sierpnia
+								<% elsif @month == "09" %>Września
+								<% elsif @month == "10" %>Października
+								<% elsif @month == "11" %>Listopada
+								<% elsif @month == "12" %>Grudnia
+								<% end %>
+								</div>
 							</div>
 							<div class="menu-1b">
 								<div class="ostep">
-									<p><%= limited_burger.name1 %></p>
+									<p><%= limited_burger.name1 %> (<%= limited_burger.price1 %>zł)</p>
 									<?php  include_once 'rating/19.php'; ?>
 									<%= limited_burger.composition1 %>
 								</div>
 							</div>
 							<div class="menu-2b">
 								<div class="odstep">
-									<p><%= limited_burger.name2 %></p>
+									<p><%= limited_burger.name2 %> (<%= limited_burger.price1 %>zł)</p>
 									<?php  include_once 'rating/19.php'; ?>
 									<%= limited_burger.composition2 %>
 								</div>
@@ -206,7 +203,6 @@
 					<% end %>
 				<% end %>
 				</div>
-				<a class="button" data-slide="3" title=""></a>
 			</div>
 			<div class="slide" id="galeria" data-slide="3" data-stellar-background-ratio="0.5">
 				<div class="galeria-napis">Galeria</div>
@@ -288,12 +284,10 @@
 					<a href="assets/slide3/mistrzostwa/27.jpg" data-lightbox="mistrzostwa"></a>
 					<a href="assets/slide3/mistrzostwa/28.jpg" data-lightbox="mistrzostwa"></a>
 				</div>
-				<a class="button" data-slide="4" title=""></a>
 			</div>
 			<div class="slide" id="pasibrzuch" data-slide="4" data-stellar-background-ratio="0.5">
 				<div class="pasibrzuch-napis">Pasibrzuch</div>
 				<div class="pasibrzuch-text">Chcesz zmierzyć się z BYPASSEM, a dodatkowo wygrać atrakcyjna nagrodę? Dołącz do ponad 100 pasibrzuchów, wejdź na <a href="http://www.pasibrzuch.barnburger.pl" target="_blank">pasibrzuch.barnburger.pl</a>, zapoznaj się z regulaminem i aktualnym rekordem</div>
-				<a class="button" data-slide="5" title=""></a>
 			</div>
 			<div class="slide" id="kontakt" data-slide="5" data-stellar-background-ratio="0.5">
 				<div class="kontakt-napis">Kontakt</div>
@@ -311,7 +305,40 @@
 				</div>
 				<div class="kontakt-mapka">
 					<p>Mapka</p>
-					<iframe src="https://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=Barn+Burger&amp;aq=&amp;sll=52.232978,21.011438&amp;sspn=0.007688,0.021136&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=52.232978,21.011438&amp;spn=0.006295,0.006295&amp;t=m&amp;iwloc=A&amp;output=embed"></iframe>
+				    <div id="mapa-box" style="float:left;width:100%;height:50%;"></div>
+					<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+					<script type="text/javascript"> 
+					initialize();
+					  function initialize() {
+					  var myLatlng = new google.maps.LatLng(52.232710, 21.011438);
+					  var mapOptions = {
+					    zoom: 16,
+					    center: myLatlng,
+					    scrollwheel:true,
+					    styles: [{"stylers":[{"hue":"#ff8800"},{"gamma":0.4}]}],
+					    mapTypeId: google.maps.MapTypeId.ROADMAP
+					  }
+					 
+					  var map = new google.maps.Map(document.getElementById('mapa-box'), mapOptions);
+					 
+					  var infowindow = new google.maps.InfoWindow({
+					      content: '<div style="width:170px; height:70px">Barn Burger<br>ul. Złota 9<br>Warszawa<br>tel.: 888 222 750<br><a href="http://facebook.com/BarnBurger" target="_blank">facebook.com/BarnBurger</a></div>'
+					  });
+					  var image = 'http://barnburger.pl/img/mapslogo.png';
+					  var marker = new google.maps.Marker({
+					      position: myLatlng,
+					      map: map,
+					      icon: image,
+					      title: 'Barn Burger'
+					  });
+					  google.maps.event.addListener(marker, 'click', function() {
+					    infowindow.open(map,marker);
+					  });
+					}
+					 
+					google.maps.event.addDomListener(window, 'load', initialize);
+					</script>
+					<!-- <iframe src="https://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=Barn+Burger&amp;aq=&amp;sll=52.232978,21.011438&amp;sspn=0.007688,0.021136&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=52.232978,21.011438&amp;spn=0.006295,0.006295&amp;t=m&amp;iwloc=A&amp;output=embed"></iframe> -->
 				</div>
 				<a class="button last" data-slide="1" title=""></a>
 			</div>

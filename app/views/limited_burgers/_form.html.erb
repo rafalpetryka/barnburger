@@ -20,19 +20,21 @@
 		</p>
 		<p>
 			<%= f.label :date_on_website, "Wpisz datę, która będzie widoczna na stronie (dzień i miesiac)" %><br>
-			<%= f.text_field :date_on_website, placeholder: LimitedBurger.last.date_on_website, size: 20 %>
+			<%= f.date_select(:date_on_website, order: [:day, :month], :discard_year => true, :default => { :month => DateTime.now.month, :day => DateTime.now.day}, :use_month_names => ['Stycznia', 'Lutego', 'Marca', 'Kwietnia', 'Maja', 'Czerwca', 'Lipca', 'Sierpnia', 'Września', 'Października', 'Listopada','Grudnia']) %>
 		</p>
 		<p>
-			<%= f.label :name1, "Wpisz nazwę pierwszego burgera z ceną w nawiasie" %><br>
+			<%= f.label :name1, "Wpisz nazwę pierwszego burgera i wybierz cenę" %><br>
 			<%= f.text_field :name1, placeholder: LimitedBurger.last.name1, size: 40 %>
+			<%= f.number_field :price1, value: 26 %>
 		</p>
 		<p>
 			<%= f.label :composition1, "Wpisz skład pierwszego burgera" %><br>
 			<%= f.text_area :composition1, placeholder: LimitedBurger.last.composition1, size: '80x7' %>
 		</p>
 		<p>
-			<%= f.label :name2, "Wpisz nazwę drugiego burgera z ceną w nawiasie" %><br>
+			<%= f.label :name2, "Wpisz nazwę drugiego burgera i wybierz cenę" %><br>
 			<%= f.text_field :name2, placeholder: LimitedBurger.last.name2, size: 40 %>
+			<%= f.number_field :price2, value: 26 %>
 		</p>
 		<p>
 			<%= f.label :composition2, "Wpisz skład drugiego burgera" %><br>

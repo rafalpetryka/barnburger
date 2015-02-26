@@ -11,7 +11,7 @@
             <tr>
             	<% if news.text_with_link != nil %>
                 <td><%= news.text_with_link.html_safe %></td>
-                <td><%= news.date %></td>
+                <td><%= news.date.strftime("%Y-%m-%d %H:%M") %></td>
                 
                 <td><%= link_to "Usuń", news_path(news), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć aktualność?" } %></td>
                 <td><%= link_to "Edytuj", edit_news_path(news) %></td>

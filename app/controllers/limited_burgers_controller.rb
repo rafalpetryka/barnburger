@@ -43,7 +43,7 @@ class LimitedBurgersController < ApplicationController
 		@limited_burger = LimitedBurger.find(params[:id])
 
 		if @limited_burger.update(limited_burger_params)
-			change_date_on_website
+			# change_date_on_website
 
 			# @limited_burger.update!(limited_burger_params)
 			redirect_to limited_burgers_path, notice: "Edytowano limitowaną edycję"
@@ -53,19 +53,11 @@ class LimitedBurgersController < ApplicationController
 	end
 
 	def limited_burger_params
-		params.require(:limited_burger).permit(:date, :date_on_website, :name1, :name2, :composition1, :composition2)
+		params.require(:limited_burger).permit(:date, :date_on_website, :name1, :name2, :composition1, :composition2, :price1, :price2)
 	end
 
 	#zle dziala
-	def change_date_on_website
-		if @limited_burger.date_on_website.starts_with? "od "
-		elsif @limited_burger.date_on_website.starts_with? "Od "
-			@limited_burger.date_on_website = @limited_burger.date_on_website[3, @limited_burger.date_on_website.length]
-			@limited_burger.date_on_website = "od " + @limited_burger.date_on_website
-			@limited_burger.save
-		else
-			@limited_burger.date_on_website = "od "+@limited_burger.date_on_website
-			@limited_burger.save
-		end
+	def check_if_names_have_price
+		
 	end
 end
