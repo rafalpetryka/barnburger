@@ -161,23 +161,50 @@
 						3 tortille pszenne, papryka, kurczak, cebula, ser, guacamole, salsa, śmietana, fryty
 					</div>
 				</div>
-				<div class="sezonowe-napis">
-					Edycja limitowana
-					<div class="sezonowe-napis data">Od 1 Października</div>
-				</div>
-				<div class="menu-1b">
-					<div class="ostep">
-						<p>SOFT TACO Z KUR WIELU (21zł)</p>
-						<?php  include_once 'rating/19.php'; ?>
-						3 tortille pszenne, papryka, kurczak, cebula, ser, guacamole, salsa, śmietana, fryty
-					</div>
-				</div>
-				<div class="menu-2b">
-					<div class="odstep">
-						<p>SOFT TACO Z KUR WIELU (21zł)</p>
-						<?php  include_once 'rating/19.php'; ?>
-						3 tortille pszenne, papryka, kurczak, cebula, ser, guacamole, salsa, śmietana, fryty
-					</div>
+
+
+<!-- 
+						<% i = 0 %>
+
+						<% @news.order('date DESC').each do |news| %>
+							<% if i<4 %>
+							<% if news.text_with_link != nil %>
+								<%if news.date.to_i <= DateTime.now.to_i %>
+
+									<li><%= news.text_with_link.html_safe %></li>
+									<% i+=1 %>
+								<% end %>
+							<% end %>
+							<% end %>
+						<% end %> -->
+
+
+				<% i = 0 %>
+				<%= @limited_burger.order('date DESC').each do |limited_burger| %>
+					<% if i == 0 %>
+						<% if limited_burger.date.to_i <= DateTime.now.to_i %>
+							<div class="sezonowe-napis">
+								Edycja limitowana
+								<div class="sezonowe-napis data"><%= limited_burger.date_on_website %></div>
+							</div>
+							<div class="menu-1b">
+								<div class="ostep">
+									<p><%= limited_burger.name1 %></p>
+									<?php  include_once 'rating/19.php'; ?>
+									<%= limited_burger.composition1 %>
+								</div>
+							</div>
+							<div class="menu-2b">
+								<div class="odstep">
+									<p><%= limited_burger.name2 %></p>
+									<?php  include_once 'rating/19.php'; ?>
+									<%= limited_burger.composition2 %>
+								</div>
+							</div>
+							<% i += 1 %>
+						<% end %>
+					<% end %>
+				<% end %>
 				</div>
 				<a class="button" data-slide="3" title=""></a>
 			</div>

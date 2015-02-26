@@ -141,6 +141,20 @@ tbody th a:hover {
   color: #595959;
 }
 
+tbody td+td+td+td a {
+  background-image: url('bullet_blue.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+            /*color:#000;*/
+  padding-left: 15px;
+}
+
+tbody td+td+td+td a:visited {
+  background-image: url('bullet_white.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
 tbody th, tbody td {
   text-align: left;
   vertical-align: top;
