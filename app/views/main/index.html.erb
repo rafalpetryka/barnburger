@@ -180,7 +180,7 @@
 
 
 				<% i = 0 %>
-				<%= @limited_burger.order('date DESC').each do |limited_burger| %>
+				<% @limited_burger.order('date DESC').each do |limited_burger| %>
 					<% if i == 0 %>
 						<% if limited_burger.date.to_i <= DateTime.now.to_i %>
 							<div class="sezonowe-napis">
