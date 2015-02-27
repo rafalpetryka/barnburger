@@ -13,7 +13,7 @@ class LimitedBurgersController < ApplicationController
 	def create
 		@limited_burger = LimitedBurger.new(limited_burger_params)
 		if @limited_burger.save
-			flash[:success] = "Dodano limitowaną edycję"
+			flash[:success] = "Dodano edycję limitowaną"
 			redirect_to limited_burgers_path
 		end
 	end
@@ -30,7 +30,7 @@ class LimitedBurgersController < ApplicationController
 		@limited_burger = LimitedBurger.find(params[:id])
 		if @limited_burger.present?
 			@limited_burger.destroy
-			flash[:success] = "Usunięto limitowaną edycję"
+			flash[:success] = "Usunięto edycję limitowaną"
 		else
 			flash[:error] = "Nie udało się usunąć edycji limitowanej"
 		end
@@ -41,12 +41,9 @@ class LimitedBurgersController < ApplicationController
 
 	def update
 		@limited_burger = LimitedBurger.find(params[:id])
-
 		if @limited_burger.update(limited_burger_params)
-			# change_date_on_website
-
-			# @limited_burger.update!(limited_burger_params)
-			redirect_to limited_burgers_path, notice: "Edytowano limitowaną edycję"
+			flash[:success] = "Zaktualizowano edycję limitowaną"
+			redirect_to limited_burgers_path
 		else
 			render 'edit'
 		end
@@ -56,8 +53,4 @@ class LimitedBurgersController < ApplicationController
 		params.require(:limited_burger).permit(:date, :date_on_website, :name1, :name2, :composition1, :composition2, :price1, :price2)
 	end
 
-	#zle dziala
-	def check_if_names_have_price
-		
-	end
 end
