@@ -13,7 +13,7 @@ class BurgersController < ApplicationController
 		@burger.how_many_mark = @burger.how_many_mark+1
 		
 		if @burger.save
-			flash[:success] = "Dodano ocenę " + @mark.to_s
+			flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
 			redirect_to :back
 		end
 	end
