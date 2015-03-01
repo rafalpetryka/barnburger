@@ -70,9 +70,16 @@
 				</nav>
 				<a href="http://en.barnburger.pl" target="_blank" id="english_version"><img src="assets/en.jpg"></a>
 				<img src="assets/logo.png" id="home-logo" alt="logo">
+				<% unless flash.blank? %>
+    
+    <h2><% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    </h2>
+<% end %> 
 				<div class="prawdziwa-historia">
 					<div class="tytul">Prawdziwa historia</div>
-					<p>Wszystkie burgery przygotowujemy codziennie na miejscu ze świeżo mielonej sezonowanej wołowiny najwyższej jakości rasy <span>Charolais</span>. Nasze bul0ki wzbogacone są błonnikiem. Do burgerów dorzucamy własny sos BBQ, salsę fresca, fryty oraz sałatkę Colesław. Steki kroimy z dojrzewającej wołowiny rasy <span>Hereford</span>. Domowej roboty fryty smażymy na oleju – NIE FILTRUJEMY – my go wymieniamy. Po prostu… A dodatkowo mamy soft taco z wołowiną lub kurczakiem</p>
+					<p>Wszystkie burgery przygotowujemy codziennie na miejscu ze świeżo mielonej sezonowanej wołowiny najwyższej jakości rasy <span>Charolais</span>. Nasze bułki wzbogacone są błonnikiem. Do burgerów dorzucamy własny sos BBQ, salsę fresca, fryty oraz sałatkę Colesław. Steki kroimy z dojrzewającej wołowiny rasy <span>Hereford</span>. Domowej roboty fryty smażymy na oleju – NIE FILTRUJEMY – my go wymieniamy. Po prostu… A dodatkowo mamy soft taco z wołowiną lub kurczakiem</p>
 				</div>
 				<div class="aktualnosci">
 					<div class="tytul">Aktualności</div>
@@ -99,6 +106,8 @@
 				<div class="menu-1">
 					<div class="odstep">
 						<p>NAGI INSTYNKT (19zł)</p>
+
+						<%= render 'burgers/form' %>
 						<?php  include_once 'rating/01.php'; ?>
 						warzywa, burger 200g + sos BBQ, salsa fresca, colesław, fryty
 						<p>SIR BURGER (21zł)</p>

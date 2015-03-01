@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admins
   resources :news
+  resources :burgers
   resources :limited_burgers
   get 'main/index'
   # post 'news/new/' => 'news#new'

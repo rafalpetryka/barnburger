@@ -1,0 +1,17 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/assets/starrating.css" media="screen">
+</head>
+<body>
+	<ul class='star-rating' id="star-rating-1">
+		<li class="current-rating" id="current-rating" style="width:<%= @burger.average*25 %>px"></li>
+		<%= form_for @current_burger do |f|  %>
+			<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
+			<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
+			<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
+			<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
+			<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
+		<% end %>
+	</ul>
+</body>
+</html>

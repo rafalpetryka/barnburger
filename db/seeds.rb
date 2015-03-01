@@ -12,3 +12,6 @@ News.create(text_with_link: "Od jutra (8 stycznia) dwa nowe limitowane burgery! 
 News.create(text_with_link: "Nowa limitowana edycja od 29 stycznia. Zobacz <a href='#menu'>Menu</a>", text: "Nowa limitowana edycja od 29 stycznia. Zobacz <a href='#menu'>Menu</a>", date: DateTime.now)
 
 LimitedBurger.create(date: DateTime.now, date_on_website: Date.today, name1: "7 SINS", composition1: "burger 200g, cheddar, crack bacon (karmelizowany bekon z pieprzem), sos z musztardy francuskiej i czosnkiem niedźwiedzim, biała cebulka, sałata + sos BBQ, salsa fresca, colesław, fryty", name2: "GARBATO MAFIO", composition2: "burger 200g, ser, bekon, pastrami wołowe, papryka pieczona w balsamico, cebula czerwona, rukola, suszone pomidory, sałata + sos BBQ, salsa fresca, colesław, fryty", price1: 26, price2: 26)
+
+Burger.create(name: "NAGI INSTYNKT", composition: "warzywa, burger 200g + sos BBQ, salsa fresca, colesław, fryty", price: 19, how_many_mark: 0, average: 0)
+Burger.create(name: "SIR BURGER", composition: "warzywa, burger 200g, ser + sos BBQ, salsa fresca, colesław, fryty", price: 21, how_many_mark: 0, average: 0)
