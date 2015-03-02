@@ -21,20 +21,22 @@
 <style>
 .notifyjs-dark-base{
 	white-space: nowrap;
-			background-color: rgba(0, 0, 0, .5);
-			padding: 5px;
-			border-radius: 5px;
-			color: white;
-			font-family: DKCrayonCrumble;
-			font-size: 4vh;
-			padding: 10px;
-			padding-bottom: 0px;
-			transition: all .7s;
+	background-color: rgba(0, 0, 0, .5);
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+	font-family: DKCrayonCrumble;
+	font-size: 4vh;
+	padding: 10px;
+	padding-bottom: 0px;
+	transition: all .7s;
 }
 .notifyjs-dark-base:hover{
 	background-color: rgba(0, 0, 0, .9);
 }
-
+.notifyjs-datk-base span{
+	color: white;
+}
 </style>
 		<link rel="stylesheet" type="text/css" href="assets/reset.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="assets/starrating.css" media="screen">
@@ -56,17 +58,11 @@
 		}
 	});
 	text=text.replace("&amp;", "&");
-	$.notify(text, {autoHide: false, className: 'info', globalPosition: 'bottom left', autoHideDelay: 10000, showAnimation: 'slideDown', showDuration: 1000, style: 'dark'});
+	$.notify(text, {autoHide: true, className: 'info', globalPosition: 'bottom left', autoHideDelay: 10000, showAnimation: 'slideDown', showDuration: 1000, style: 'dark'});
 	}
 </script>
 	</head>
 	<body>
-		<!-- 		<?php 
-			// include update.php
-			include_once 'update.php';
-			// get all data from tabel
-			$arr_star = fetchStar();
-			?> -->
 		<!--do facebooka-->
 		<script>
 			(function(d, s, id) {
@@ -206,14 +202,14 @@
 							<div class="menu-1b">
 								<div class="ostep">
 									<p><%= limited_burger.name1 %> (<%= limited_burger.price1 %>zł)</p>
-									<?php  include_once 'rating/19.php'; ?>
+									
 									<%= limited_burger.composition1 %>
 								</div>
 							</div>
 							<div class="menu-2b">
 								<div class="odstep">
 									<p><%= limited_burger.name2 %> (<%= limited_burger.price1 %>zł)</p>
-									<?php  include_once 'rating/19.php'; ?>
+									
 									<%= limited_burger.composition2 %>
 								</div>
 							</div>

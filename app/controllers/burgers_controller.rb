@@ -32,8 +32,6 @@ class BurgersController < ApplicationController
 		@current_burger = Burger.new
 		# @burgers = Burger.find(:all)
 		@burger = Burger.find(params[:id])
-		
-		
 	end
 
 	def update
