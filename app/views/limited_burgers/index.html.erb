@@ -18,7 +18,7 @@
         <% @limited_burger.order('date DESC').each do |limited_burger| %>
             <tr>
                 <td><%= limited_burger.date.strftime("%Y-%m-%d %H:%M") %></td>
-                <td>od <%= limited_burger.date_on_website.strftime("%d") %>
+                <td>od <%= limited_burger.date_on_website.strftime("%e") %>
                     <% @month = limited_burger.date_on_website.strftime("%m") %>
                     <% if @month == "01" %>Stycznia
                     <% elsif @month == "02" %>Lutego

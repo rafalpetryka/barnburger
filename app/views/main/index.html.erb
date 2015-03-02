@@ -18,9 +18,26 @@
 		<script type="text/javascript" src="assets/main.js"></script>
 		<script type="text/javascript" src="assets/gallery.js"></script>
 		<script type="text/javascript" src="assets/notify.min.js"></script>
+<style>
+.notifyjs-dark-base{
+	white-space: nowrap;
+			background-color: rgba(0, 0, 0, .5);
+			padding: 5px;
+			border-radius: 5px;
+			color: white;
+			font-family: DKCrayonCrumble;
+			font-size: 4vh;
+			padding: 10px;
+			padding-bottom: 0px;
+			transition: all .7s;
+}
+.notifyjs-dark-base:hover{
+	background-color: rgba(0, 0, 0, .9);
+}
 
+</style>
 		<link rel="stylesheet" type="text/css" href="assets/reset.css" media="screen">
-		<link rel="stylesheet" type="text/css" href="rating/starrating.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="assets/starrating.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="assets/lightbox.css">
 		<!-- <link rel='stylesheet' media='screen and (max-width: 640px)' href='assets/small.css'> -->
 		<link rel='stylesheet' media='screen and (min-width: 1px) and (max-width: 620px)' href='assets/small.css'>
@@ -31,26 +48,17 @@
 		<link rel="icon" href="favicon.ico" type="image/icon">
 	
 <script>
-function flash_message(text){
-$.notify.addStyle('dark', {
-html: "<div><span data-notify-text/></div>",
-classes: {
-base: {
-"white-space": "nowrap",
-"background-color": "rgba(0, 0, 0, .5)",
-"padding": "5px",
-"border-radius": "5px",
-"color": "white",
-"font-family": "DKCrayonCrumble",
-"font-size": "4vh",
-"padding": "10px",
-"padding-bottom": "0px"
-}
-}
-});
-$.notify(text, {autoHide: true, className: 'info', globalPosition: 'bottom left', autoHideDelay: 10000, showAnimation: 'slideDown', showDuration: 1000, style: 'dark'});
-}
-    </script>
+	function flash_message(text){
+		$.notify.addStyle('dark', {
+			html: "<div><span data-notify-text/></div>",
+			classes: {
+			base: {}
+		}
+	});
+	text=text.replace("&amp;", "&");
+	$.notify(text, {autoHide: false, className: 'info', globalPosition: 'bottom left', autoHideDelay: 10000, showAnimation: 'slideDown', showDuration: 1000, style: 'dark'});
+	}
+</script>
 	</head>
 	<body>
 		<!-- 		<?php 
@@ -130,67 +138,46 @@ $.notify(text, {autoHide: true, className: 'info', globalPosition: 'bottom left'
 				<div class="menu-napis" id="odstep">Menu</div>
 				<div class="menu-1">
 					<div class="odstep">
-						<p><%= @burger.name %> (<%= @burger.price %>zł)</p>
-						<%= render 'burgers/form' %>
-						<%= @burger.composition %>
-						<p><%= @next_burger %></p>
-						<?php  include_once 'rating/02.php'; ?>
-						warzywa, burger 200g, ser + sos BBQ, salsa fresca, colesław, fryty
-						<p>MUPPET BURGER (23zł)</p>
-						<?php  include_once 'rating/03.php'; ?>
-						warzywa, burger 200g, ser, jalapeno, bekon + sos BBQ, salsa fresca, colesław, fryty
-						<p>HEART ATTACK (26zł)</p>
-						<?php  include_once 'rating/04.php'; ?>
-						warzywa, burger 200g, podwójny bekon, podwójny ser, chipsy + sos BBQ, salsa fresca, colesław, fryty
-						<p>SEX & VIOLENCE (26zł)</p>
-						<?php  include_once 'rating/05.php'; ?>
-						warzywa, burger 200g, rukola, mascarpone ziołowe, bekon, ser + sos BBQ, salsa fresca, colesław, fryty
-						<p>MAMAS, PAPAS & DUPAS BLADAS (26zł)</p>
-						<?php  include_once 'rating/06.php'; ?>
-						warzywa, burger 200g, ser, bekon, kiełbaska chorizo, guacamole + sos BBQ, colesław, fryty
-						<p>SEKRET ZDZICHA (26zł)</p>
-						<?php  include_once 'rating/07.php'; ?>
-						warzywa, burger 200g, ser, jajko sadzone, szpinak, bekon, sos holenderski + sos BBQ, salsa fresca, colesław, fryty
-						<p>POPEYE BURGER (21zł)</p>
-						<?php  include_once 'rating/08.php'; ?>
-						warzywa, ser z grilla, szpinak, chleb orkiszowy, ser + sos BBQ, salsa fresca, colesław, fryty
-						<p>PORANEK KOJOTA (26zł)</p>
-						<?php  include_once 'rating/09.php'; ?>
-						warzywa, burger 200g, bekon, sos serowy Cheddar, nachos i salsa fresca z jalapeno + sos BBQ, salsa fresca, colesław, fryty
-						<p>BYPASS CZYLI ROZJEMCA TASIEMCA (35zł)</p>
-						<?php  include_once 'rating/10.php'; ?>
-						<span>2 X BURGER 200g</span>, podwójny ser, podwójny bekon, duszona cebula, warzywa + sos BBQ, salsa fresca, colesław, fryty
+						<% how_many_burgers_in_first_column = 0 %>
+						<% @burgers.order('created_at ASC').each do |burgers| %>
+							<% if how_many_burgers_in_first_column < (@burgers.count / 2)+1 %>
+								<p><%= burgers.name %> (<%= burgers.price %>zł)</p>
+								<ul class='star-rating' id="star-rating-1">
+									<li class="current-rating" id="current-rating" style="width:<%= burgers.average*25 %>px"></li>
+									<%= form_for burgers do |f|  %>
+										<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
+										<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
+										<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
+										<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
+										<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
+									<% end %>
+								</ul>
+								<%= burgers.composition %>
+								<% how_many_burgers_in_first_column += 1 %>
+							<% end %>
+						<% end %>
 					</div>
 				</div>
 				<div class="menu-2">
 					<div class="odstep">
-						<p>SZPETNA HELA (26zł)</p>
-						<?php  include_once 'rating/11.php'; ?>
-						warzywa, burger 200g, 4 oryginalne sery (cheddar, mimolette, dor blue, mozzarella), pesto szczypiorkowe, bekon, rukola + sos BBQ, salsa fresca, colesław, fryty
-						<p>PONURY ŻNIWIARZ (26zł)</p>
-						<?php  include_once 'rating/12.php'; ?>
-						warzywa, burger 200g, ser, chutney z chilli z zielonego i czerwonego peperoncino, piri - piri, jalapeno i habanero, bekon, roszponka + sos BBQ, salsa fresca, colesław, fryty
-						<p>DIRTY HARRY (26zł)</p>
-						<?php  include_once 'rating/13.php'; ?>
-						warzywa, burger 200g, ser, remoulada, bekon, cebula krążki + sos BBQ, salsa fresca, colesław, fryty
-						<p>KUSZENIE GAŹDZINY (26zł)</p>
-						<?php  include_once 'rating/14.php'; ?>
-						warzywa, burger 200g, oscypek, żurawina, roszponka, krążki cebulowe + sos BBQ, salsa fresca, colesław, fryty
-						<p>GENDER BURGER (26zł)</p>
-						<?php  include_once 'rating/15.php'; ?>
-						burger 200g, pulled pork, bekon, cheddar + sos BBQ, salsa fresca, colesław, fryty
-						<p>RIB-EYE STEAK (39zł)</p>
-						<?php  include_once 'rating/16.php'; ?>
-						300g steka Antrykot + sos BBQ, salsa fresca, colesław, fryty
-						<p>TOP LION STEAK (39zł)</p>
-						<?php  include_once 'rating/17.php'; ?>
-						300g steka Rostbef + sos BBQ, salsa fresca, colesław, fryty
-						<p>SOFT TACO Z WOŁOWINĄ (21zł)</p>
-						<?php  include_once 'rating/18.php'; ?>
-						3 tortille pszenne, papryka, wołowina, cebula, ser, guacamole, salsa, śmietana, fryty
-						<p>SOFT TACO Z KUR WIELU (21zł)</p>
-						<?php  include_once 'rating/19.php'; ?>
-						3 tortille pszenne, papryka, kurczak, cebula, ser, guacamole, salsa, śmietana, fryty
+						<% how_many_burgers_in_second_column = 0 %>
+						<% @burgers.order('created_at ASC').each do |burgers| %>
+							<% if how_many_burgers_in_first_column <= how_many_burgers_in_second_column %>
+								<p><%= burgers.name %> (<%= burgers.price %>zł)</p>
+								<ul class='star-rating' id="star-rating-1">
+									<li class="current-rating" id="current-rating" style="width:<%= burgers.average*25 %>px"></li>
+									<%= form_for burgers do |f|  %>
+										<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
+										<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
+										<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
+										<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
+										<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
+									<% end %>
+								</ul>
+								<%= burgers.composition %>
+							<% end %>
+							<% how_many_burgers_in_second_column += 1 %>
+						<% end %>
 					</div>
 				</div>
 				<% i = 0 %>
@@ -199,7 +186,7 @@ $.notify(text, {autoHide: true, className: 'info', globalPosition: 'bottom left'
 						<% if limited_burger.date.to_i <= DateTime.now.to_i %>
 							<div class="sezonowe-napis">
 								Edycja limitowana
-								<div class="sezonowe-napis data">od <%= limited_burger.date_on_website.strftime("%d") %>
+								<div class="sezonowe-napis data">od <%= limited_burger.date_on_website.strftime("%e") %>
 								<% @month = limited_burger.date_on_website.strftime("%m") %>
 								<% if @month == "01" %>Stycznia
 								<% elsif @month == "02" %>Lutego

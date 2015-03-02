@@ -29,7 +29,7 @@ span {
     src: url(/assets/CabinSketch-Bold.eot?#iefix) format("embedded-opentype"), url(/assets/CabinSketch-Bold.woff) format("woff"), url(/assets/CabinSketch-Bold.ttf) format("truetype"), url(/assets/CabinSketch-Bold.svg#svgFontName) format("svg")
 }
 .navigation {
-    height: 50px;
+    height: 45px;
     font-family: DKCrayonCrumble;
     font-size: 20px;
     padding: 0;
@@ -48,6 +48,7 @@ span {
 .navigation li {
     display: inline-block;
     padding: 15px 20px;
+    padding-bottom: 10px;
 }
 .navigation .link {
     display: inline-block;

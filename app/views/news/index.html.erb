@@ -7,6 +7,10 @@
     <div class="napis">
         Lista aktualności
     </div>
+        <tr bgcolor="#111">
+            <td>Aktualność</td>
+            <td>Data na stronie</td>
+        </tr>
         <% @news.order('date DESC').each do |news| %>
             <tr>
             	<% if news.text_with_link != nil %>

@@ -1,8 +1,10 @@
 class BurgersController < ApplicationController
 	layout "news_layout"
 	def new
-		@burger = Burger.where(name: "NAGI INSTYNKT").first
-		@current_burger = Burger.new
+		# @burger = Burger.where(name: "NAGI INSTYNKT").first
+		# @current_burger = Burger.new
+		# # @burgers = Burger.find(:all)
+		# @burgers = Burger.find_by_id(params[:id])
 	end
 
 	def create
@@ -20,6 +22,30 @@ class BurgersController < ApplicationController
 
 	def find_burger
 		@current_burger = Burger.find(params[:id])
+	end
+
+	def show
+	end
+
+	def edit
+		# @burger = Burger.where(name: "NAGI INSTYNKT").first
+		@current_burger = Burger.new
+		# @burgers = Burger.find(:all)
+		@burger = Burger.find(params[:id])
+		
+		
+	end
+
+	def update
+		check_mark
+		@burger = Burger.find(params[:id])
+		@burger.average = (@burger.average * @burger.how_many_mark + @mark) / (@burger.how_many_mark + 1)
+		@burger.how_many_mark = @burger.how_many_mark+1
+		
+		if @burger.save
+			flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
+			redirect_to :root
+		end
 	end
 
 	def burger_params
