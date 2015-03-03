@@ -37,15 +37,38 @@ class BurgersController < ApplicationController
 	def update
 		check_mark
 		@burger = Burger.find(params[:id])
-		@burger.average = (@burger.average * @burger.how_many_mark + @mark) / (@burger.how_many_mark + 1)
-		@burger.how_many_mark = @burger.how_many_mark+1
+		
+		
 		unless cookies[@burger.name].blank?
-			flash[:success] = @burger.name + " nie otrzymał od Ciebie " + @mark.to_s
+			
+			if cookies[@burger.name].to_i == @mark.to_i
+				flash[:success] = "Twoja ocena "+ @burger.name + " nie zmieniła się " + @mark.to_s
+			else 
+				flash[:success] = "Twoja ocena "+ @burger.name + " została zmieniona na " + @mark.to_s
+				@cookie_mark = cookies[@burger.name]
+
+				puts "-----------------------"
+				puts @burger.average
+				puts @burger.how_many_mark
+				puts @mark
+				puts @cookie_mark.to_i
+				puts cookies[@burger.name]
+
+				puts "-----------------------"
+
+				@burger.average = (@burger.average * @burger.how_many_mark + @mark - @cookie_mark.to_i) / (@burger.how_many_mark)
+
+				cookies[@burger.name] = {
+		    		:value => @mark.to_s
+		    	}
+			end
 		else
 			cookies[@burger.name] = {
 		    	:value => @mark.to_s
 		    } 
 			flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
+			@burger.average = (@burger.average * @burger.how_many_mark + @mark) / (@burger.how_many_mark + 1)
+			@burger.how_many_mark = @burger.how_many_mark+1
 		end
 		if @burger.save
 			# flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
