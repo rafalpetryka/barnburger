@@ -39,10 +39,17 @@ class BurgersController < ApplicationController
 		@burger = Burger.find(params[:id])
 		@burger.average = (@burger.average * @burger.how_many_mark + @mark) / (@burger.how_many_mark + 1)
 		@burger.how_many_mark = @burger.how_many_mark+1
-		
-		if @burger.save
+		unless cookies[@burger.name].blank?
+			flash[:success] = @burger.name + " nie otrzymał od Ciebie " + @mark.to_s
+		else
+			cookies[@burger.name] = {
+		    	:value => @mark.to_s
+		    } 
 			flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
-			redirect_to :root
+		end
+		if @burger.save
+			# flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
+			redirect_to menu_path
 		end
 	end
 

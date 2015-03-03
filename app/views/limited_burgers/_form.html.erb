@@ -19,26 +19,26 @@
 			<%= f.datetime_select(:date, :default => { :year => DateTime.now.year, :month => DateTime.now.month, :day => DateTime.now.day, :hour => DateTime.now.hour, :minute => DateTime.now.minute }, :use_month_names => ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad','Grudzień']) %>
 		</p>
 		<p>
-			<%= f.label :date_on_website, "Wpisz datę, która będzie widoczna na stronie (dzień i miesiac)" %><br>
+			<%= f.label :date_on_website, "Wybierz datę, która będzie widoczna na stronie (dzień i miesiac)" %><br>
 			<%= f.date_select(:date_on_website, order: [:day, :month], :discard_year => true, :default => { :month => DateTime.now.month, :day => DateTime.now.day}, :use_month_names => ['Stycznia', 'Lutego', 'Marca', 'Kwietnia', 'Maja', 'Czerwca', 'Lipca', 'Sierpnia', 'Września', 'Października', 'Listopada','Grudnia']) %>
 		</p>
 		<p>
 			<%= f.label :name1, "Wpisz nazwę pierwszego burgera i wybierz cenę" %><br>
-			<%= f.text_field :name1, placeholder: LimitedBurger.last.name1, size: 40 %>
+			<%= f.text_field :name1, required: true, placeholder: LimitedBurger.last.name1, size: 40 %>
 			<%= f.number_field :price1, value: 26 %>
 		</p>
 		<p>
 			<%= f.label :composition1, "Wpisz skład pierwszego burgera" %><br>
-			<%= f.text_area :composition1, placeholder: LimitedBurger.last.composition1, size: '80x7' %>
+			<%= f.text_area :composition1, required: true, placeholder: LimitedBurger.last.composition1, size: '80x7' %>
 		</p>
 		<p>
 			<%= f.label :name2, "Wpisz nazwę drugiego burgera i wybierz cenę" %><br>
-			<%= f.text_field :name2, placeholder: LimitedBurger.last.name2, size: 40 %>
+			<%= f.text_field :name2, required: true, placeholder: LimitedBurger.last.name2, size: 40 %>
 			<%= f.number_field :price2, value: 26 %>
 		</p>
 		<p>
 			<%= f.label :composition2, "Wpisz skład drugiego burgera" %><br>
-			<%= f.text_area :composition2, placeholder: LimitedBurger.last.composition2, size: '80x7' %>
+			<%= f.text_area :composition2, required: true, placeholder: LimitedBurger.last.composition2, size: '80x7' %>
 		</p>
 		<p>
 			<%= f.submit "Wyślij", class: "send_button" %>

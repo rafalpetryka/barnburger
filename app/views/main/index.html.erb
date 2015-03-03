@@ -177,7 +177,7 @@
 					</div>
 				</div>
 				<% i = 0 %>
-				<% @limited_burger.order('date DESC').each do |limited_burger| %>
+				<% @limited_burgers.order('date DESC').each do |limited_burger| %>
 					<% if i == 0 %>
 						<% if limited_burger.date.to_i <= DateTime.now.to_i %>
 							<div class="sezonowe-napis">
@@ -202,14 +202,40 @@
 							<div class="menu-1b">
 								<div class="ostep">
 									<p><%= limited_burger.name1 %> (<%= limited_burger.price1 %>zł)</p>
-									
+									<ul class='star-rating' id="star-rating-1">
+										<% @limited_burgers_from_burger.each do |limited| %>
+											<% if limited.name == limited_burger.name1 %>
+												<li class="current-rating" id="current-rating" style="width:<%= limited.average*25 %>px"></li>
+												<%= form_for limited do |f|  %>
+													<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
+													<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
+													<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
+													<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
+													<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
+												<% end %>
+											<% end %>
+										<% end %>
+									</ul>
 									<%= limited_burger.composition1 %>
 								</div>
 							</div>
 							<div class="menu-2b">
 								<div class="odstep">
-									<p><%= limited_burger.name2 %> (<%= limited_burger.price1 %>zł)</p>
-									
+									<p><%= limited_burger.name2 %> (<%= limited_burger.price2 %>zł)</p>
+									<ul class='star-rating' id="star-rating-1">
+										<% @limited_burgers_from_burger.each do |limited| %>
+											<% if limited.name == limited_burger.name2 %>
+												<li class="current-rating" id="current-rating" style="width:<%= limited.average*25 %>px"></li>
+												<%= form_for limited do |f|  %>
+													<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
+													<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
+													<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
+													<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
+													<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
+												<% end %>
+											<% end %>
+										<% end %>
+									</ul>									
 									<%= limited_burger.composition2 %>
 								</div>
 							</div>

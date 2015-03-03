@@ -19,7 +19,7 @@
   <p>
         <%= f.label :text, "Tekst"%><br>
     
-    <%= f.text_area(:text, placeholder: News.last.text, size: '50x10') %>
+    <%= f.text_area(:text, required: true, placeholder: News.last.text, size: '50x10') %>
   </p>
  
   <p>
