@@ -9,6 +9,8 @@ class MainController < ApplicationController
   	@burgers = Burger.where(limited: false)
  #  	@previous_burger = Burger.where('id < ?', params[:id]).last
 	# @next_burger = Burger.where('id > ?', params[:id]).first
+
+  
   end
 
 end

@@ -106,4 +106,8 @@ puts cookies[@burger.name]
 			@mark = 5
 		end
 	end
+
+	def add_favourite_burger
+		cookies["favourite_burgers"] = cookies["favourite_burgers"].to_s+" "+@burger.name
+	end
 end
