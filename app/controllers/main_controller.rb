@@ -1,4 +1,5 @@
 class MainController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:index]
   def index
   	@current_burger = Burger.new
   	# @burger = Burger.where(name: "SIR BURGER").first

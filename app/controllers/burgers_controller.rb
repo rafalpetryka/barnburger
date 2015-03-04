@@ -1,5 +1,7 @@
 class BurgersController < ApplicationController
+	# skip_before_action :verify_authenticity_token
 	layout "news_layout"
+	# before_action :check_cookie
 	def new
 		# @burger = Burger.where(name: "NAGI INSTYNKT").first
 		# @current_burger = Burger.new
@@ -42,27 +44,25 @@ class BurgersController < ApplicationController
 		unless cookies[@burger.name].blank?
 			
 			if cookies[@burger.name].to_i == @mark.to_i
+				puts "-----------------"
+				puts "if"
+				puts "-----------------"
 				flash[:success] = "Twoja ocena "+ @burger.name + " nie zmieniła się " + @mark.to_s
 			else 
+				puts "-----------------"
+				puts "else"
+				puts "-----------------"
 				flash[:success] = "Twoja ocena "+ @burger.name + " została zmieniona na " + @mark.to_s
 				@cookie_mark = cookies[@burger.name]
-
-				puts "-----------------------"
-				puts @burger.average
-				puts @burger.how_many_mark
-				puts @mark
-				puts @cookie_mark.to_i
-				puts cookies[@burger.name]
-
-				puts "-----------------------"
-
 				@burger.average = (@burger.average * @burger.how_many_mark + @mark - @cookie_mark.to_i) / (@burger.how_many_mark)
-
 				cookies[@burger.name] = {
 		    		:value => @mark.to_s
 		    	}
 			end
 		else
+			puts "-----------------"
+				puts "else2"
+				puts "-----------------"
 			cookies[@burger.name] = {
 		    	:value => @mark.to_s
 		    } 
@@ -70,7 +70,13 @@ class BurgersController < ApplicationController
 			@burger.average = (@burger.average * @burger.how_many_mark + @mark) / (@burger.how_many_mark + 1)
 			@burger.how_many_mark = @burger.how_many_mark+1
 		end
+
+puts cookies[@burger.name]
+
 		if @burger.save
+			puts "-----------------"
+				puts "save"
+				puts "-----------------"
 			# flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
 			redirect_to menu_path
 		end
@@ -79,6 +85,12 @@ class BurgersController < ApplicationController
 	def burger_params
 		params.require(:burger).permit(:name, :composition, :price, :how_many_mark, :average)
 	end
+
+	# def check_cookie
+	# 	respond_to do |format|
+	#     format.js { render :js => "my_function();" }
+	# end
+	# end
 
 	def check_mark
 		@mark = 0
