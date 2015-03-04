@@ -449,6 +449,7 @@ float: left;
     font-size: 30px;
     font-size: 3vh;
     color: #d07639;
+    margin-bottom: 3%;
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out
 }

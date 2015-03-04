@@ -60,6 +60,18 @@
 	text=text.replace("&amp;", "&");
 	$.notify(text, {autoHide: true, className: 'info', globalPosition: 'bottom left', autoHideDelay: 10000, showAnimation: 'slideDown', showDuration: 1000, style: 'dark'});
 	}
+	function add_to_favourite_burger(name){
+		if (document.cookie.indexOf(name.replace(",", ""))!=-1){
+			document.cookie = "fav_"+name.replace(",", "")+"="+"-1";
+		}else{
+			document.cookie = "fav_"+name.replace(",", "")+"="+"1";
+			$(name.replace(",", "")).slideDown(function() {
+			    setTimeout(function() {
+			        $(name.replace(",", "")).slideUp();
+			    }, 5000);
+			});
+		}
+	}
 </script>
 	</head>
 	<body>
@@ -142,7 +154,9 @@
 						<% how_many_burgers_in_first_column = 0 %>
 						<% @burgers.order('created_at ASC').each do |burgers| %>
 							<% if how_many_burgers_in_first_column < (@burgers.count / 2)+1 %>
-								<p><%= burgers.name %> (<%= burgers.price %>zł)</p>
+								<p onClick="add_to_favourite_burger('<%=burgers.name%>');window.location.reload();">
+								<%= "<font color='e38e55'>♥</font> ".html_safe if cookies["fav_"+burgers.name.tr(",", "")].to_i==1 %>
+								<%= burgers.name %> (<%= burgers.price %>zł)</p>
 								<ul class='star-rating' id="star-rating-1">
 									<li class="current-rating" id="current-rating" style="width:<%= burgers.average*25 %>px"></li>
 									<% unless cookies["_barnburger_session"].to_s == "" %>
@@ -166,7 +180,9 @@
 						<% how_many_burgers_in_second_column = 0 %>
 						<% @burgers.order('created_at ASC').each do |burgers| %>
 							<% if how_many_burgers_in_first_column <= how_many_burgers_in_second_column %>
-								<p><%= burgers.name %> (<%= burgers.price %>zł)</p>
+								<p onClick="add_to_favourite_burger('<%=burgers.name%>');window.location.reload();">
+								<%= "<font color='e38e55'>♥</font> ".html_safe if cookies["fav_"+burgers.name.tr(",", "")].to_i==1 %>
+								<%= burgers.name %> (<%= burgers.price %>zł)</p>
 								<ul class='star-rating' id="star-rating-1">
 									<li class="current-rating" id="current-rating" style="width:<%= burgers.average*25 %>px"></li>
 									<% unless cookies["_barnburger_session"].to_s == "" %>
@@ -210,7 +226,9 @@
 							</div>
 							<div class="menu-1b">
 								<div class="ostep">
-									<p><%= limited_burger.name1 %> (<%= limited_burger.price1 %>zł)</p>
+									<p onClick="add_to_favourite_burger('<%=limited_burger.name1%>');window.location.reload();">
+									<%= "<font color='e38e55'>♥</font> ".html_safe if cookies["fav_"+limited_burger.name1.tr(",", "")].to_i==1 %>
+									<%= limited_burger.name1 %> (<%= limited_burger.price1 %>zł)</p>
 									<ul class='star-rating' id="star-rating-1">
 										<% @limited_burgers_from_burger.each do |limited| %>
 											<% if limited.name == limited_burger.name1 %>
@@ -232,7 +250,9 @@
 							</div>
 							<div class="menu-2b">
 								<div class="odstep">
-									<p><%= limited_burger.name2 %> (<%= limited_burger.price2 %>zł)</p>
+									<p onClick="add_to_favourite_burger('<%=limited_burger.name2%>');window.location.reload();">
+									<%= "<font color='e38e55'>♥</font> ".html_safe if cookies["fav_"+limited_burger.name2.tr(",", "")].to_i==1 %>
+									<%= limited_burger.name2 %> (<%= limited_burger.price2 %>zł)</p>
 									<ul class='star-rating' id="star-rating-1">
 										<% @limited_burgers_from_burger.each do |limited| %>
 											<% if limited.name == limited_burger.name2 %>
