@@ -375,8 +375,22 @@ float: left;
     margin-bottom: 0%;
     margin-top: 3%;
     padding-right: 3%;
+    content: "";
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out
+}
+.menu-1 p:after {
+    content: "\00a0♥";
+    opacity: 0;
+    top: -20px;
+    -webkit-transition: all 250ms;
+    transition: all 250ms;
+}
+.menu-1 p:hover:after{
+    opacity: .5;
+    top: 0px;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
 .menu-1 p:hover {
     color: #e38e55
@@ -410,8 +424,22 @@ float: left;
     margin-bottom: 0%;
     margin-top: 3%;
     padding-right: 3%;
+    content: "";
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out
+}
+.menu-2 p:after {
+    content: "\00a0♥";
+    opacity: 0;
+    top: -20px;
+    -webkit-transition: all 250ms;
+    transition: all 250ms;
+}
+.menu-2 p:hover:after{
+    opacity: .5;
+    top: 0px;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
 .menu-2 p:hover {
     color: #e38e55
@@ -432,6 +460,7 @@ float: left;
     margin-top: 0;
     font-size: 30px;
     font-size: 3vh;
+    margin-bottom: 3%;
     color: #d07639;
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out
@@ -444,8 +473,7 @@ float: left;
     width: 40%;
     height: auto;
     /*overflow-y: auto;*/
-
-float: left;
+    float: left;
     display: inline-block;
     font-family: "DKCrayonCrumble";
     color: #a2a2a2;
@@ -469,8 +497,22 @@ float: left;
     margin-bottom: 0%;
     margin-top: 3%;
     padding-right: 3%;
+    content: "";
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out
+}
+.menu-1b p:after {
+    content: "\00a0♥";
+    opacity: 0;
+    top: -20px;
+    -webkit-transition: all 250ms;
+    transition: all 250ms;
+}
+.menu-1b p:hover:after{
+    opacity: .5;
+    top: 0px;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
 .menu-1b p:hover {
     color: #e38e55
@@ -505,8 +547,22 @@ float: left;
     margin-bottom: 0%;
     margin-top: 3%;
     padding-right: 3%;
+    content: "";
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out
+}
+.menu-2b p:after {
+    content: "\00a0♥";
+    opacity: 0;
+    top: -20px;
+    -webkit-transition: all 250ms;
+    transition: all 250ms;
+}
+.menu-2b p:hover:after{
+    opacity: .5;
+    top: 0px;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
 .menu-2b p:hover {
     color: #e38e55
