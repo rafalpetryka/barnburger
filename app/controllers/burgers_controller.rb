@@ -2,7 +2,14 @@ class BurgersController < ApplicationController
 	# skip_before_action :verify_authenticity_token
 	layout "news_layout"
 	# before_action :check_cookie
+	before_action :authenticate_admin!
+
+	def index
+		@burgers = Burger.all
+	end
+
 	def new
+		@burger = Burger.new
 		# @burger = Burger.where(name: "NAGI INSTYNKT").first
 		# @current_burger = Burger.new
 		# # @burgers = Burger.find(:all)
@@ -10,20 +17,39 @@ class BurgersController < ApplicationController
 	end
 
 	def create
-		check_mark
-		@current_burger = Burger.new(params[:burger])
-		@burger = Burger.where(name: "NAGI INSTYNKT").first
-		@burger.average = (@burger.average * @burger.how_many_mark + @mark) / (@burger.how_many_mark + 1)
-		@burger.how_many_mark = @burger.how_many_mark+1
-		
+		@burger = Burger.new(burger_params)
+		@burger.average = 5.0 if @burger.average > 5.0
+		@burger.how_many_mark = 5 if @burger.how_many_mark < 1
+		@burger.limited = 0
 		if @burger.save
-			flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
-			redirect_to :back
+			flash[:success] = "Dodano burgera"
+			redirect_to burgers_path
 		end
+		# check_mark
+		# @current_burger = Burger.new(params[:burger])
+		# @burger = Burger.where(name: "NAGI INSTYNKT").first
+		# @burger.average = (@burger.average * @burger.how_many_mark + @mark) / (@burger.how_many_mark + 1)
+		# @burger.how_many_mark = @burger.how_many_mark+1
+		
+		# if @burger.save
+		# 	flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
+		# 	redirect_to :back
+		# end
 	end
 
 	def find_burger
 		@current_burger = Burger.find(params[:id])
+	end
+
+	def destroy
+		@burger = Burger.find(params[:id])
+		if @burger.present?
+			@burger.destroy
+			flash[:success] = "Usunięto burgera"
+		else
+			flash[:success] = "Nie udało się usunąć burgera"
+		end
+		redirect_to burgers_path
 	end
 
 	def show
@@ -40,45 +66,53 @@ class BurgersController < ApplicationController
 		check_mark
 		@burger = Burger.find(params[:id])
 		
-		
-		unless cookies[@burger.name].blank?
-			
-			if cookies[@burger.name].to_i == @mark.to_i
+		unless @mark == 0
+			unless cookies[@burger.name].blank?
+				
+				if cookies[@burger.name].to_i == @mark.to_i
+					puts "-----------------"
+					puts "if"
+					puts "-----------------"
+					flash[:success] = "Twoja ocena "+ @burger.name + " nie zmieniła się " + @mark.to_s
+				else 
+					puts "-----------------"
+					puts "else"
+					puts "-----------------"
+					flash[:success] = "Twoja ocena "+ @burger.name + " została zmieniona na " + @mark.to_s
+					@cookie_mark = cookies[@burger.name]
+					@burger.average = (@burger.average * @burger.how_many_mark + @mark - @cookie_mark.to_i) / (@burger.how_many_mark)
+					cookies[@burger.name] = {
+			    		:value => @mark.to_s
+			    	}
+				end
+			else
 				puts "-----------------"
-				puts "if"
-				puts "-----------------"
-				flash[:success] = "Twoja ocena "+ @burger.name + " nie zmieniła się " + @mark.to_s
-			else 
-				puts "-----------------"
-				puts "else"
-				puts "-----------------"
-				flash[:success] = "Twoja ocena "+ @burger.name + " została zmieniona na " + @mark.to_s
-				@cookie_mark = cookies[@burger.name]
-				@burger.average = (@burger.average * @burger.how_many_mark + @mark - @cookie_mark.to_i) / (@burger.how_many_mark)
+					puts "else2"
+					puts "-----------------"
 				cookies[@burger.name] = {
-		    		:value => @mark.to_s
-		    	}
+			    	:value => @mark.to_s
+			    } 
+				flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
+				@burger.average = (@burger.average * @burger.how_many_mark + @mark) / (@burger.how_many_mark + 1)
+				@burger.how_many_mark = @burger.how_many_mark+1
+			end
+
+			puts cookies[@burger.name]
+
+			if @burger.save
+				puts "-----------------"
+					puts "save"
+					puts "-----------------"
+				# flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
+				redirect_to menu_path
 			end
 		else
-			puts "-----------------"
-				puts "else2"
-				puts "-----------------"
-			cookies[@burger.name] = {
-		    	:value => @mark.to_s
-		    } 
-			flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
-			@burger.average = (@burger.average * @burger.how_many_mark + @mark) / (@burger.how_many_mark + 1)
-			@burger.how_many_mark = @burger.how_many_mark+1
-		end
-
-puts cookies[@burger.name]
-
-		if @burger.save
-			puts "-----------------"
-				puts "save"
-				puts "-----------------"
-			# flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
-			redirect_to menu_path
+			if @burger.update(burger_params)
+				flash[:success] = "Zaktualizowano burgera"
+				redirect_to burgers_path
+			else
+				render 'edit'
+			end
 		end
 	end
 
@@ -107,7 +141,4 @@ puts cookies[@burger.name]
 		end
 	end
 
-	def add_favourite_burger
-		cookies["favourite_burgers"] = cookies["favourite_burgers"].to_s+" "+@burger.name
-	end
 end

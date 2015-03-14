@@ -395,7 +395,8 @@ float: left;
     transition: all 0.3s ease-out
 }
 .menu-1 p:hover {
-    color: #e38e55
+    color: #e38e55;
+    cursor: pointer;
 }
 .menu-2 {
     margin-left: 10%;
@@ -430,7 +431,8 @@ float: left;
     transition: all 0.3s ease-out
 }
 .menu-2 p:hover {
-    color: #e38e55
+    color: #e38e55;
+    cursor: pointer;
 }
 .sezonowe-napis {
     width: 100%;
@@ -490,7 +492,8 @@ float: left;
     transition: all 0.3s ease-out
 }
 .menu-1b p:hover {
-    color: #e38e55
+    color: #e38e55;
+    cursor: pointer;
 }
 .menu-2b {
     margin-left: 10%;
@@ -526,7 +529,8 @@ float: left;
     transition: all 0.3s ease-out
 }
 .menu-2b p:hover {
-    color: #e38e55
+    color: #e38e55;
+    cursor: pointer;
 }
 #galeria {
     background-image: url(/assets/slide3/bg_med.jpg);

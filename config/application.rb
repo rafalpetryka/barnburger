@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Barnburger
   class Application < Rails::Application
+    config.i18n.default_locale = 'pl'
     config.assets.precompile += %w( news/reset.css news/style.css news/index.css )
     config.time_zone = 'Warsaw'
     # config.time_zone = 'UTC'

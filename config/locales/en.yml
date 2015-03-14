@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  real_story:
+    title: "True story bro"
+    description: "All the burgers are prepared daily, on the spot with freshly seasonal ground beef of the highest quality - the <span>Charolais</span> breed. Our rolls are enriched by dietary fiber. We throw our own BBQ sauce, salsa fresca, chips/fries and coleslaw into the burgers. Steaks cut from maturing race <span>Hereford</span>. Homemade fries fried in oil – WE DO NOT FILTER – we exchange it. Just like that… And additionally we have soft taco with beef or chicken"

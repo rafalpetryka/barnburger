@@ -1,0 +1,29 @@
+pl:
+  real_story:
+    title: "Prawdziwa historia"
+    description: "Wszystkie burgery przygotowujemy codziennie na miejscu ze świeżo mielonej sezonowanej wołowiny najwyższej jakości rasy <span>Charolais</span>. Nasze bulki wzbogacone są błonnikiem. Do burgerów dorzucamy własny sos BBQ, salsę fresca, fryty oraz sałatkę Colesław. Steki kroimy z dojrzewającej wołowiny rasy <span>Hereford</span>. Domowej roboty fryty smażymy na oleju – NIE FILTRUJEMY – my go wymieniamy. Po prostu… A dodatkowo mamy soft taco z wołowiną lub kurczakiem"
+  news:
+    title: "Aktualności"
+  limited:
+    title: "Edycja limitowana"
+  gallery:
+    title: "Galeria"
+    menu: "Menu"
+    place: "Lokal"
+    championship: "Mistrzostwa"
+  pasibrzuch:
+    title: "Pasibrzuch"
+    text: "Chcesz zmierzyć się z BYPASSEM, a dodatkowo wygrać atrakcyjna nagrodę? Dołącz do ponad 100 pasibrzuchów, wejdź na <a href='http://www.pasibrzuch.barnburger.pl' target='_blank'>pasibrzuch.barnburger.pl</a>, zapoznaj się z regulaminem i aktualnym rekordem"
+  contact:
+    title: "Kontakt"
+    opening_hours:
+      title: "Godziny otwarcia"
+      mon_fri: "Pon-Pt"
+      sat: "Sob"
+      sun: "Nd"
+      order_up_to: "grillujemy do"
+  address:
+    title: "Adres"
+    description: "Warszawa ul. Złota 9"
+  map:
+    title: "Mapka"

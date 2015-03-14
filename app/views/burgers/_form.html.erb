@@ -1,18 +1,52 @@
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="/assets/starrating.css" media="screen">
 
-</head>
-<body>
-	<ul class='star-rating' id="star-rating-1">
-		<li class="current-rating" id="current-rating" style="width:<%= @burger.average*25 %>px"></li>
-		<%= form_for @current_burger do |f|  %>
-			<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
-			<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
-			<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
-			<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
-			<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
-		<% end %>
-	</ul>
-</body>
-</html>
+    <div class="form">
+<%= form_for @burger do |f|  %>
+ 
+  <% if @burger.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@burger.errors.count, "error") %> prohibited
+        this news from being saved:
+      </h2>
+      <ul>
+        <% @burger.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  	<p>
+   		<%= f.label :name, "Nazwa"%><br>  
+    	<%= f.text_field(:name, required: true, placeholder: Burger.last.name, size: 50) %>
+  	</p>
+
+	<p>
+   		<%= f.label :composition, "Skład"%><br>  
+    	<%= f.text_area(:composition, required: true, placeholder: Burger.last.composition, size: "50x10") %>
+  	</p>
+
+  	<p>
+   		<%= f.label :price, "Cena"%><br>  
+		<%= f.number_field :price, required: true, value: 26 %>	
+  	</p>
+
+  	<p>
+  		<%= f.label :how_many_mark, "Ilość ocen (zmień jeśli chcesz inna liczbę ocen tego burgera na stronie)" %><br>
+  		<%= f.number_field :how_many_mark, required: true, value: 5 %>
+  	</p>
+
+  	<p>
+  		<%= f.label :average, "Średnia z ocen (zmień jeśli chcesz inną średnią tego burgera na stronie)" %><br>
+  		<%= f.text_field :average, required: true, value: rand(4.0..5.0) %>
+  	</p>
+ 
+  <p>
+    <%= f.submit "Wyślij", class: "send_button"%>
+  </p>
+
+<% end %>
+<%= link_to 'Wróć', burgers_path %>
+</form>
+</div>
+
