@@ -1,0 +1,2 @@
+module EnglishNewsHelper
+end

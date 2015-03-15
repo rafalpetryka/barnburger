@@ -1,0 +1,27 @@
+<table>
+
+    <tbody>
+
+    <%= link_to "Nowa aktualność po angielsku", new_english_news_path %>
+
+    <div class="napis">
+        Lista aktualności po angielsku
+    </div>
+        <tr bgcolor="#111">
+            <td>Aktualność po angielsku</td>
+            <td>Data na stronie</td>
+        </tr>
+        <% @english_news.order('date DESC').each do |english_news| %>
+            <tr>
+            	<% if english_news.text_with_link != nil %>
+                <td><%= english_news.text_with_link.html_safe %></td>
+                <td><%= english_news.date.strftime("%Y-%m-%d %H:%M") %></td>
+                
+                <td><%= link_to "Usuń", english_news_path(english_news), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć aktualność?\n#{english_news.text_with_link.html_safe}" } %></td>
+                <td><%= link_to "Edytuj", edit_english_news_path(english_news) %></td>
+                <% end %>
+            </tr>
+        <% end %>
+        
+    </tbody>
+</table>

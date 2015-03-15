@@ -1,0 +1,51 @@
+
+    <div class="form">
+<%= form_for @english_news do |f|  %>
+ 
+  <% if @english_news.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@english_news.errors.count, "error") %> prohibited
+        this news from being saved:
+      </h2>
+      <ul>
+        <% @english_news.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+        <%= f.label :text, "Tekst"%><br>
+    
+    <%= f.text_area(:text, required: true, placeholder: EnglishNews.last.text, size: '50x10') %>
+  </p>
+ 
+  <p>
+    <%= f.label :date, "Data pojawienia aktualności"%><br>
+<!--     <%= f.datetime_select :date, start_hour: DateTime.now.hour, start_day: DateTime.now.day, start_minute: DateTime.now.minute %> -->
+      <%= f.datetime_select(:date, :default => { :year => DateTime.now.year, :month => DateTime.now.month, :day => DateTime.now.day, :hour => DateTime.now.hour, :minute => DateTime.now.minute }, :use_month_names => ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad','Grudzień']) %>
+  </p>
+   <p>
+    <%= f.label :link, "Link (opcjonalnie)" %><br>
+    <%= f.text_field :link, placeholder: "http://facebook.com/BarnBurger", size: 40 %>
+  </p>
+ 
+   <p>
+    <%= f.label :name_of_link, "Nazwa linku (opcjonalnie)"%><br>
+    <%= f.text_field :name_of_link, placeholder: "facebook", size: 40 %>
+  </p>
+ 
+  <p>
+    <%= f.submit "Wyślij", class: "send_button"%>
+  </p>
+   <h2>Tagi do tekstu</h2>
+  <h3>#Menu - wpisuje słówko menu z linkiem do menu</h3>
+  <h3>#Link - wpisuje link</h3>
+
+<% end %>
+<%= link_to 'Wróć', english_news_index_path %>
+</form>
+</div>
+

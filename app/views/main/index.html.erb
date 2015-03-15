@@ -114,9 +114,10 @@
 					</ul>
 				</nav>
 				<br><br><br>
-				<%= link_to_unless_current "English", locale: "en" %>
-				<%= link_to_unless_current "Polski", locale: "pl" %>
-				<a href="http://en.barnburger.pl" target="_blank" id="english_version"><img src="/assets/en.jpg"></a>
+				<div class="english_version">
+				<%= link_to_unless_current image_tag('en.jpg'), locale: "en" %>
+				</div>
+				<!-- <%= link_to_unless_current "Polski", locale: "pl" %> -->
 				<img src="/assets/logo.png" id="home-logo" alt="logo">
 				<% unless flash.blank? %>
 						<% flash.each do |key, value| %>
@@ -133,9 +134,10 @@
 				<div class="aktualnosci">
 					<div class="tytul"><%= t "news.title" %></div>
 					<ul>
-						<% if I18n.locale.to_s == "pl" %>
-							<% i = 0 %>
-
+						<% i = 0 %>
+						<% unless I18n.locale.to_s == "pl" %>
+							<% @news = @english_news %>
+						<% end %>
 							<% @news.order('date DESC').each do |news| %>
 								<% if i<4 %>
 								<% if news.text_with_link != nil %>
@@ -147,7 +149,6 @@
 								<% end %>
 								<% end %>
 							<% end %>
-						<% end %>
 					</ul>
 				</div>
 				<a class="button" data-slide="2" title=""></a>
@@ -218,22 +219,24 @@
 						<% if limited_burger.date.to_i <= DateTime.now.to_i %>
 							<div class="sezonowe-napis">
 								<%= t "limited.title" %>
-								<div class="sezonowe-napis data">od <%= limited_burger.date_on_website.strftime("%e") %>
-								<% @month = limited_burger.date_on_website.strftime("%m") %>
-								<% if @month == "01" %>Stycznia
-								<% elsif @month == "02" %>Lutego
-								<% elsif @month == "03" %>Marca
-								<% elsif @month == "04" %>Kwietnia
-								<% elsif @month == "05" %>Maja
-								<% elsif @month == "06" %>Czerwca
-								<% elsif @month == "07" %>Lipca
-								<% elsif @month == "08" %>Sierpnia
-								<% elsif @month == "09" %>Września
-								<% elsif @month == "10" %>Października
-								<% elsif @month == "11" %>Listopada
-								<% elsif @month == "12" %>Grudnia
+								<% if I18n.locale.to_s == "pl" %>
+									<div class="sezonowe-napis data">od <%= limited_burger.date_on_website.strftime("%e") %>
+									<% @month = limited_burger.date_on_website.strftime("%m") %>
+									<% if @month == "01" %>Stycznia
+									<% elsif @month == "02" %>Lutego
+									<% elsif @month == "03" %>Marca
+									<% elsif @month == "04" %>Kwietnia
+									<% elsif @month == "05" %>Maja
+									<% elsif @month == "06" %>Czerwca
+									<% elsif @month == "07" %>Lipca
+									<% elsif @month == "08" %>Sierpnia
+									<% elsif @month == "09" %>Września
+									<% elsif @month == "10" %>Października
+									<% elsif @month == "11" %>Listopada
+									<% elsif @month == "12" %>Grudnia
+									<% end %>
+									</div>
 								<% end %>
-								</div>
 							</div>
 							<div class="menu-1b">
 								<div class="ostep">

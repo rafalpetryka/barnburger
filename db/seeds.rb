@@ -10,7 +10,9 @@ News.delete_all
 News.create(text_with_link: "24, 25 i 26 grudnia Barn Burger będzie zamknięty", text: "24, 25 i 26 grudnia Barn Burger będzie zamknięty", date: DateTime.now-5.days)
 News.create(text_with_link: "<a href='https://www.facebook.com/BarnBurger/photos/a.441810219170805.104287.431519026866591/907029125982243/?type=1'>6 stycznia</a> Barn będzie nieczynny", text: "<a href='https://www.facebook.com/BarnBurger/photos/a.441810219170805.104287.431519026866591/907029125982243/?type=1'>6 stycznia</a> Barn będzie nieczynny", date: DateTime.now-4.days)
 News.create(text_with_link: "Od jutra (8 stycznia) dwa nowe limitowane burgery! Zobacz ich skład w zakładce <a href='#menu'>Menu</a>", text: "Od jutra (8 stycznia) dwa nowe limitowane burgery! Zobacz ich skład w zakładce <a href='#menu'>Menu</a>", date: DateTime.now-2.days)
-News.create(text_with_link: "Nowa limitowana edycja od 29 stycznia. Zobacz <a href='#menu'>Menu</a>", text: "Nowa limitowana edycja od 29 stycznia. Zobacz <a href='#menu'>Menu</a>", date: DateTime.now)
+News.create(text_with_link: "Nowa limitowana edycja od 29 stycznia. Zobacz <a href='#menu'>Menu</a>", text: "Nowa limitowana edycja od 29 stycznia. Zobacz <a href='#menu'>Menu</a>", date: DateTime.now-1.days)
+News.create(text_with_link: "<a href='http://facebook.com/BarnBurger/photos/p.937853186233170/937853186233170/'>Dwa nowe limitowane burgery</a> już od 3 marca. Więcej w <a href='#menu'>menu</a>",text: "<a href='http://facebook.com/BarnBurger/photos/p.937853186233170/937853186233170/'>Dwa nowe limitowane burgery</a> już od 3 marca. Więcej w <a href='#menu'>menu</a>", date: DateTime.now)
+
 
 LimitedBurger.delete_all
 LimitedBurger.create(date: DateTime.now, date_on_website: Date.today, name1: "7 SINS", composition1: "burger 200g, cheddar, crack bacon (karmelizowany bekon z pieprzem), sos z musztardy francuskiej i czosnkiem niedźwiedzim, biała cebulka, sałata + sos BBQ, salsa fresca, colesław, fryty", name2: "GARBATO MAFIO", composition2: "burger 200g, ser, bekon, pastrami wołowe, papryka pieczona w balsamico, cebula czerwona, rukola, suszone pomidory, sałata + sos BBQ, salsa fresca, colesław, fryty", price1: 26, price2: 26, how_many_mark1: 5, average1: rand(3.75..5), how_many_mark2: 5, average2: rand(3.75..5))
@@ -35,3 +37,13 @@ Burger.create(name: "RIB-EYE STEAK", composition: "300g steka Antrykot + sos BBQ
 Burger.create(name: "TOP LION STEAK", composition: "300g steka Rostbef + sos BBQ, salsa fresca, colesław, fryty ", price: 39, how_many_mark: 5, average: rand(3.75..5), limited: false)
 Burger.create(name: "SOFT TACO Z WOŁOWINĄ", composition: "3 tortille pszenne, papryka, wołowina, cebula, ser, guacamole, salsa, śmietana, fryty ", price: 21, how_many_mark: 5, average: rand(3.75..5), limited: false)
 Burger.create(name: "SOFT TACO Z KUR WIELU", composition: "3 tortille pszenne, papryka, kurczak, cebula, ser, guacamole, salsa, śmietana, fryty ", price: 21, how_many_mark: 5, average: rand(3.75..5), limited: false)
+
+EnglishNews.delete_all
+EnglishNews.create(text_with_link: "<a href='http://facebook.com/BarnBurger/photos/p.937853186233170/937853186233170/'>Two new limited burgers</a> from 3rd March. See more on the <a href='#menu'>menu</a>", text: "<a href='http://facebook.com/BarnBurger/photos/p.937853186233170/937853186233170/'>Two new limited burgers</a> from 3rd March. See more on the <a href='#menu'>menu</a>", date: DateTime.now-5.days)
+EnglishNews.create(text_with_link: "29th January we welcome to the new Limited Burgers - check out the burgers in <a href='#menu'>Menu</a> bookmark", text: "29th January we welcome to the new Limited Burgers - check out the burgers in <a href='#menu'>Menu</a> bookmark", date: DateTime.now-4.days)
+EnglishNews.create(text_with_link: "Tomorrow (8th January) we welcome to new <a href='#menu'>LIMITED EDITION :)</a>", text: "Tomorrow (8th January) we welcome to new <a href='#menu'>LIMITED EDITION :)</a>", date: DateTime.now-3.days)
+EnglishNews.create(text_with_link: "January 6th Barn Burger will be closed", text: "January 6th Barn Burger will be closed", date: DateTime.now-2.days)
+
+EnglishLimitedBurger.delete_all
+EnglishLimitedBurger.create(date: DateTime.now, date_on_website: Date.today, name1: "7 SINS", composition1: "burger 200g, cheddar, crack bacon (karmelizowany bekon z pieprzem), sos z musztardy francuskiej i czosnkiem niedźwiedzim, biała cebulka, sałata + sos BBQ, salsa fresca, colesław, fryty", name2: "GARBATO MAFIO", composition2: "burger 200g, ser, bekon, pastrami wołowe, papryka pieczona w balsamico, cebula czerwona, rukola, suszone pomidory, sałata + sos BBQ, salsa fresca, colesław, fryty", price1: 26, price2: 26, how_many_mark1: 5, average1: rand(3.75..5), how_many_mark2: 5, average2: rand(3.75..5))
+

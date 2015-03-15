@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   resources :news
   resources :burgers
   resources :limited_burgers
+  resources :english_news
   get 'main/index' => 'main#index'
-
+  get 'manager' => 'manager#index'
   get "menu" => redirect("http://localhost:3000/#menu")
   # post 'news/new/' => 'news#new'
   # The priority is based upon order of creation: first created -> highest priority.

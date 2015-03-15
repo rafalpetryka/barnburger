@@ -18,8 +18,32 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   real_story:
     title: "True story bro"
     description: "All the burgers are prepared daily, on the spot with freshly seasonal ground beef of the highest quality - the <span>Charolais</span> breed. Our rolls are enriched by dietary fiber. We throw our own BBQ sauce, salsa fresca, chips/fries and coleslaw into the burgers. Steaks cut from maturing race <span>Hereford</span>. Homemade fries fried in oil – WE DO NOT FILTER – we exchange it. Just like that… And additionally we have soft taco with beef or chicken"
+  news:
+    title: "News"
+  limited:
+    title: "Limited edition"
+  gallery:
+    title: "Gallery"
+    menu: "Menu"
+    place: "Place"
+    championship: "Championship"
+  pasibrzuch:
+    title: "Pasibrzuch"
+    text: "Do you wanna deal with BYPASS, plus win an attractive price? Join to more then 100 of people, visit <a href='http://www.pasibrzuch.barnburger.pl' target='_blank'>pasibrzuch.barnburger.pl</a>, read the rules, and check out current record"
+  contact:
+    title: "Contact"
+    opening_hours:
+      title: "Opening hours"
+      mon_fri: "Mon-Fri"
+      sat: "Sat"
+      sun: "Sun"
+      order_up_to: "order up to"
+  address:
+    title: "Address"
+    description: "Warsaw st. Złota 9"
+  map:
+    title: "Map"
