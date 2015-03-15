@@ -1,0 +1,2 @@
+module EnglishBurgerHelper
+end

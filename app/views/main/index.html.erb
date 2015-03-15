@@ -96,20 +96,20 @@
 			<div class="slide" id="home" data-slide="1" data-stellar-background-ratio="1">
 				<nav>
 					<ul class="navigation">
-						<li data-slide="1"><a href="#">Home</a>
+						<li data-slide="1"><a href="#"><%= (I18n.locale.to_s == "pl") ? "Start" : "Home" %></a>
 						</li>
 						<li data-slide="2"><a href="#">Menu</a>
 						</li>
-						<li data-slide="3"><a href="#">Galeria</a>
+						<li data-slide="3"><a href="#"><%= (I18n.locale.to_s == "pl") ? "Galeria" : "Gallery" %></a>
 						</li>
 						<li data-slide="4"><a href="#">Pasibrzuch</a>
 						</li>
-						<li data-slide="5"><a href="#">Kontakt</a>
+						<li data-slide="5"><a href="#"><%= (I18n.locale.to_s == "pl") ? "Kontakt" : "Contact" %></a>
 						</li>
 						<div class="link">
 							<a href="http://facebook.com/BarnBurger" target="_blank">Facebook</a>
 							<a href="http://pasibrzuch.barnburger.pl" target="_blank">Pasibrzuch</a>
-							<a href="http://mistrzostwa.barnburger.pl" target="_blank">Mistrzostwa</a>
+							<a href="http://mistrzostwa.barnburger.pl" target="_blank"><%= (I18n.locale.to_s == "pl") ? "Mistrzostwa" : "Championships" %></a>
 						</div>
 					</ul>
 				</nav>
@@ -138,17 +138,17 @@
 						<% unless I18n.locale.to_s == "pl" %>
 							<% @news = @english_news %>
 						<% end %>
-							<% @news.order('date DESC').each do |news| %>
-								<% if i<4 %>
-								<% if news.text_with_link != nil %>
-									<%if news.date.to_i <= DateTime.now.to_i %>
+						<% @news.order('date DESC').each do |news| %>
+							<% if i<4 %>
+							<% if news.text_with_link != nil %>
+								<%if news.date.to_i <= DateTime.now.to_i %>
 
-										<li><%= news.text_with_link.html_safe %></li>
-										<% i+=1 %>
-									<% end %>
-								<% end %>
+									<li><%= news.text_with_link.html_safe %></li>
+									<% i+=1 %>
 								<% end %>
 							<% end %>
+							<% end %>
+						<% end %>
 					</ul>
 				</div>
 				<a class="button" data-slide="2" title=""></a>
@@ -157,63 +157,68 @@
 				<div class="menu-napis" id="odstep">Menu</div>
 				<div class="menu-1">
 					<div class="odstep">
-						<% if I18n.locale.to_s == "pl" %>
-							<% how_many_burgers_in_first_column = 0 %>
-							<% @burgers.order('created_at ASC').each do |burgers| %>
-								<% if how_many_burgers_in_first_column < (@burgers.count / 2)+1 %>
-									<p onClick="add_to_favourite_burger('<%=burgers.name%>');window.location.reload();">
-									<%= "<font color='e38e55'>&#10025;".html_safe if cookies["fav_"+burgers.name.tr(",", "")].to_i==1 %>
-									<%= burgers.name %> (<%= burgers.price %>zł)</p>
-									<%= "</font>".html_safe if cookies["fav_"+burgers.name.tr(",", "")].to_i==1 %>
-									<ul class='star-rating' id="star-rating-1">
-										<li class="current-rating" id="current-rating" style="width:<%= burgers.average*25 %>px"></li>
-										<% unless cookies["_barnburger_session"].to_s == "" %>
-											<%= form_for burgers do |f|  %>
-												<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
-												<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
-												<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
-												<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
-												<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
-											<% end %>
+						<% unless I18n.locale.to_s == "pl" %>
+							<% @burgers = @english_burgers %>
+						<% end %>
+						<% how_many_burgers_in_first_column = 0 %>
+						<% @burgers.order('created_at ASC').each do |burgers| %>
+							<% if how_many_burgers_in_first_column < (@burgers.count / 2)+1 %>
+								<p onClick="add_to_favourite_burger('<%=burgers.name%>');window.location.reload();">
+								<%= "<font color='e38e55'>&#10025;".html_safe if cookies["fav_"+burgers.name.tr(",", "")].to_i==1 %>
+								<%= burgers.name %> (<%= burgers.price %>zł)</p>
+								<%= "</font>".html_safe if cookies["fav_"+burgers.name.tr(",", "")].to_i==1 %>
+								<ul class='star-rating' id="star-rating-1">
+									<li class="current-rating" id="current-rating" style="width:<%= burgers.average*25 %>px"></li>
+									<% unless cookies["_barnburger_session"].to_s == "" %>
+										<%= form_for burgers do |f|  %>
+											<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
+											<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
+											<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
+											<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
+											<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
 										<% end %>
-									</ul>
-									<%= burgers.composition %>
-									<% how_many_burgers_in_first_column += 1 %>
-								<% end %>
+									<% end %>
+								</ul>
+								<%= burgers.composition %>
+								<% how_many_burgers_in_first_column += 1 %>
 							<% end %>
 						<% end %>
 					</div>
 				</div>
 				<div class="menu-2">
 					<div class="odstep">
-						<% if I18n.locale.to_s == "pl" %>
-							<% how_many_burgers_in_second_column = 0 %>
-							<% @burgers.order('created_at ASC').each do |burgers| %>
-								<% if how_many_burgers_in_first_column <= how_many_burgers_in_second_column %>
-									<p onClick="add_to_favourite_burger('<%=burgers.name%>');window.location.reload();">
-									<%= "<font color='e38e55'>&#10025;".html_safe if cookies["fav_"+burgers.name.tr(",", "")].to_i==1 %>
-									<%= burgers.name %> (<%= burgers.price %>zł)</p>
-									<%= "</font>".html_safe if cookies["fav_"+burgers.name.tr(",", "")].to_i==1 %>
-									<ul class='star-rating' id="star-rating-1">
-										<li class="current-rating" id="current-rating" style="width:<%= burgers.average*25 %>px"></li>
-										<% unless cookies["_barnburger_session"].to_s == "" %>
-											<%= form_for burgers do |f|  %>
-												<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
-												<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
-												<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
-												<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
-												<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
-											<% end %>
+						<% unless I18n.locale.to_s == "pl" %>
+							<% @burgers = @english_burgers %>
+						<% end %>
+						<% how_many_burgers_in_second_column = 0 %>
+						<% @burgers.order('created_at ASC').each do |burgers| %>
+							<% if how_many_burgers_in_first_column <= how_many_burgers_in_second_column %>
+								<p onClick="add_to_favourite_burger('<%=burgers.name%>');window.location.reload();">
+								<%= "<font color='e38e55'>&#10025;".html_safe if cookies["fav_"+burgers.name.tr(",", "")].to_i==1 %>
+								<%= burgers.name %> (<%= burgers.price %>zł)</p>
+								<%= "</font>".html_safe if cookies["fav_"+burgers.name.tr(",", "")].to_i==1 %>
+								<ul class='star-rating' id="star-rating-1">
+									<li class="current-rating" id="current-rating" style="width:<%= burgers.average*25 %>px"></li>
+									<% unless cookies["_barnburger_session"].to_s == "" %>
+										<%= form_for burgers do |f|  %>
+											<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
+											<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
+											<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
+											<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
+											<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
 										<% end %>
-									</ul>
-									<%= burgers.composition %>
-								<% end %>
-								<% how_many_burgers_in_second_column += 1 %>
+									<% end %>
+								</ul>
+								<%= burgers.composition %>
 							<% end %>
+							<% how_many_burgers_in_second_column += 1 %>
 						<% end %>
 					</div>
 				</div>
 				<% i = 0 %>
+				<% unless I18n.locale.to_s == "pl" %>
+						<% @limited_burgers = @english_limited_burgers %>
+				<% end %>
 				<% @limited_burgers.order('date DESC').each do |limited_burger| %>
 					<% if i == 0 %>
 						<% if limited_burger.date.to_i <= DateTime.now.to_i %>
@@ -236,11 +241,40 @@
 									<% elsif @month == "12" %>Grudnia
 									<% end %>
 									</div>
+								<% else %>
+
+									<div class="sezonowe-napis data">from 
+									<% @day = limited_burger.date_on_website.strftime("%e") %>
+									<% case @day %>
+									<% when 1 %>
+										<%= @day+"st" %>
+									<% when 2 %>
+										<%= @day+"nd" %>
+									<% when 3 %>
+										<%= @day+"rd" %>
+									<% else %>
+										<%= @day+"th" %>
+									<% end %>
+									<% @month = limited_burger.date_on_website.strftime("%m") %>
+									<% if @month == "01" %>January
+									<% elsif @month == "02" %>February
+									<% elsif @month == "03" %>March
+									<% elsif @month == "04" %>April
+									<% elsif @month == "05" %>May
+									<% elsif @month == "06" %>June
+									<% elsif @month == "07" %>July
+									<% elsif @month == "08" %>August
+									<% elsif @month == "09" %>September
+									<% elsif @month == "10" %>October
+									<% elsif @month == "11" %>November
+									<% elsif @month == "12" %>December
+									<% end %>
+									</div>
 								<% end %>
 							</div>
 							<div class="menu-1b">
 								<div class="ostep">
-									<% if I18n.locale.to_s == "pl" %>
+									
 										<p onClick="add_to_favourite_burger('<%=limited_burger.name1%>');window.location.reload();">
 										<%= "<font color='e38e55'>&#10025; ".html_safe if cookies["fav_"+limited_burger.name1.tr(",", "")].to_i==1 %>
 										<%= limited_burger.name1 %> (<%= limited_burger.price1 %>zł)</p>
@@ -262,12 +296,12 @@
 											<% end %>
 										</ul>
 										<%= limited_burger.composition1 %>
-									<% end %>
+									
 								</div>
 							</div>
 							<div class="menu-2b">
 								<div class="odstep">
-									<% if I18n.locale.to_s == "pl" %>
+									
 										<p onClick="add_to_favourite_burger('<%=limited_burger.name2%>');window.location.reload();">
 										<%= "<font color='e38e55'>&#10025;".html_safe if cookies["fav_"+limited_burger.name2.tr(",", "")].to_i==1 %>
 										<%= limited_burger.name2 %> (<%= limited_burger.price2 %>zł)</p>
@@ -289,7 +323,7 @@
 											<% end %>
 										</ul>									
 										<%= limited_burger.composition2 %>
-									<% end %>
+									
 								</div>
 							</div>
 							<% i += 1 %>
@@ -342,7 +376,7 @@
 					<a href="/assets/slide3/lokal/09.jpg" data-lightbox="lokal"></a>
 				</div>
 				<div class="galeria-3">
-					<div class="tytul"><%= t "gallery.championship" %></div>
+					<div class="tytul"><%= t "gallery.championships" %></div>
 					<a href="/assets/slide3/mistrzostwa/01.jpg" data-lightbox="mistrzostwa">
 						<div id="zdjecia3">
 							<img class="active" src="/assets/slide3/mistrzostwa/min/01.jpg" alt="">

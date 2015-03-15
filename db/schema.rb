@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315180555) do
+ActiveRecord::Schema.define(version: 20150315212042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,12 +37,40 @@ ActiveRecord::Schema.define(version: 20150315180555) do
   create_table "burgers", force: :cascade do |t|
     t.string   "name"
     t.text     "composition"
-    t.text     "price"
+    t.integer  "price"
     t.integer  "how_many_mark"
     t.float    "average"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.boolean  "limited"
+  end
+
+  create_table "english_burgers", force: :cascade do |t|
+    t.string   "name"
+    t.text     "composition"
+    t.integer  "price"
+    t.integer  "how_many_mark"
+    t.float    "average"
+    t.boolean  "limited"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "english_limited_burgers", force: :cascade do |t|
+    t.datetime "date"
+    t.date     "date_on_website"
+    t.string   "name1"
+    t.string   "name2"
+    t.string   "composition1"
+    t.string   "composition2"
+    t.integer  "price1"
+    t.integer  "price2"
+    t.integer  "how_many_mark1"
+    t.integer  "how_many_mark2"
+    t.float    "average1"
+    t.float    "average2"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "english_news", force: :cascade do |t|

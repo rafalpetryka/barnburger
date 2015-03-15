@@ -1,0 +1,29 @@
+<table>
+
+    <tbody>
+
+    <%= link_to "Nowy burger po angielsku", new_english_burger_path %>
+
+    <div class="napis">
+        Burgery po angielsku
+    </div>
+    <tr bgcolor="#111">
+        <td>Nazwa i cena</td>
+        <td>Skład</td>
+        <td>Ilość ocen</td>
+        <td>Średnia z ocen</td>
+    </tr>
+        <% @english_burgers.order('created_at ASC').each do |burger| %>
+            <tr>
+                <td><%= burger.name %> (<%= burger.price %>zł)</td>
+                <td><%= burger.composition %></td>
+                <td><%= burger.how_many_mark %></td>
+                <td><%= burger.average %></td>
+                 <td><%= link_to "Usuń", english_burger_path(burger), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć burgera: #{burger.name}"}%></td>
+                <td><%= link_to "Edytuj", edit_english_burger_path(burger) %></td>
+                
+            </tr>
+        <% end %>
+        
+    </tbody>
+</table>

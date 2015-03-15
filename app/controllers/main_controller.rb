@@ -11,6 +11,8 @@ class MainController < ApplicationController
   	@limited_burgers = LimitedBurger.all
   	@limited_burgers_from_burger = Burger.where(limited: true)
   	@burgers = Burger.where(limited: false)
+    @english_burgers = EnglishBurger.where(limited: false)
+    @english_limited_burgers = EnglishLimitedBurger.all
  #  	@previous_burger = Burger.where('id < ?', params[:id]).last
 	# @next_burger = Burger.where('id > ?', params[:id]).first
 
