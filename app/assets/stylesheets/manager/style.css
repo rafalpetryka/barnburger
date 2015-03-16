@@ -52,6 +52,18 @@ body {
 .logo img:hover{
     opacity: 1;
 }
+.left-column{
+    width:33%;
+    float:left;
+}
+.middle-column{
+    width: 33%;
+    float:left;
+}
+.right-column{
+    width: 33%;
+    float:right;
+}
 #ideasfactory {
     position: fixed;
     font-size: 16px;

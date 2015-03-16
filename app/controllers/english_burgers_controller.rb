@@ -92,7 +92,7 @@ class EnglishBurgersController < ApplicationController
 				cookies[@english_burger.name] = {
 			    	:value => @mark.to_s
 			    } 
-				flash[:success] = @english_burger.name + " received from You " + @mark.to_s
+				flash[:success] = @english_burger.name + " received " + @mark.to_s + " from You"
 				@english_burger.average = (@english_burger.average * @english_burger.how_many_mark + @mark) / (@english_burger.how_many_mark + 1)
 				@english_burger.how_many_mark = @english_burger.how_many_mark+1
 			end

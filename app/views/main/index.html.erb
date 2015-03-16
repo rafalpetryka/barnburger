@@ -8,36 +8,33 @@
 		<meta charset="UTF-8">
 		<title>Barn Burger® &#127828; Warszawa ul. Złota 9</title>
 		<script type="text/javascript" src="/assets/jquery-2.1.1.js"></script>
-		
 		<script type="text/javascript" src="/assets/lightbox.min.js"></script>
-		
-<!--		<script type="text/javascript" src="rating/starrating.js"></script> -->
 		<script type="text/javascript" src="/assets/jquery.stellar.min.js"></script>
 		<script type="text/javascript" src="/assets/waypoints.js"></script>
 		<script type="text/javascript" src="/assets/jquery.easing.1.3.js"></script>
 		<script type="text/javascript" src="/assets/main.js"></script>
 		<script type="text/javascript" src="/assets/gallery.js"></script>
 		<script type="text/javascript" src="/assets/notify.min.js"></script>
-<style>
-.notifyjs-dark-base{
-	white-space: nowrap;
-	background-color: rgba(0, 0, 0, .5);
-	padding: 5px;
-	border-radius: 5px;
-	color: white;
-	font-family: DKCrayonCrumble;
-	font-size: 4vh;
-	padding: 10px;
-	padding-bottom: 0px;
-	transition: all .7s;
-}
-.notifyjs-dark-base:hover{
-	background-color: rgba(0, 0, 0, .9);
-}
-.notifyjs-datk-base span{
-	color: white;
-}
-</style>
+		<style>
+		.notifyjs-dark-base{
+			white-space: nowrap;
+			background-color: rgba(0, 0, 0, .5);
+			padding: 5px;
+			border-radius: 5px;
+			color: white;
+			font-family: DKCrayonCrumble;
+			font-size: 4vh;
+			padding: 10px;
+			padding-bottom: 0px;
+			transition: all .7s;
+		}
+		.notifyjs-dark-base:hover{
+			background-color: rgba(0, 0, 0, .9);
+		}
+		.notifyjs-datk-base span{
+			color: white;
+		}
+		</style>
 		<link rel="stylesheet" type="text/css" href="/assets/reset.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="/assets/starrating.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="/assets/lightbox.css">
@@ -47,38 +44,33 @@
 		<link rel='stylesheet' media='screen and (min-width: 850px)' href='/assets/large.css'>
 		<!-- <link rel='stylesheet' href='/assets/large.css'> -->
 		<link rel="shortcut icon" href="/favicon_transparent.ico" type="image/icon">
-		<link rel="icon" href="/favicon.ico" type="image/icon">
-		
-<script>
-	function flash_message(text){
-		$.notify.addStyle('dark', {
-			html: "<div><span data-notify-text/></div>",
-			classes: {
-			base: {}
-		}
-	});
-	text=text.replace("&amp;", "&");
-	$.notify(text, {autoHide: true, className: 'info', globalPosition: 'bottom left', autoHideDelay: 10000, showAnimation: 'slideDown', showDuration: 1000, style: 'dark'});
-	}
-	function add_to_favourite_burger(name){
-		if (document.cookie.indexOf(name.replace(",", ""))!=-1){
-			document.cookie = "fav_"+name.replace(",", "")+"="+"-1";
-		}else{
-			document.cookie = "fav_"+name.replace(",", "")+"="+"1";
-			$(name.replace(",", "")).slideDown(function() {
-			    setTimeout(function() {
-			        $(name.replace(",", "")).slideUp();
-			    }, 5000);
+		<link rel="icon" href="/favicon.ico" type="image/icon">	
+		<script>
+			function flash_message(text){
+				$.notify.addStyle('dark', {
+					html: "<div><span data-notify-text/></div>",
+					classes: {
+					base: {}
+				}
 			});
-		}
-	}
-</script>
+			text=text.replace("&amp;", "&");
+			$.notify(text, {autoHide: true, className: 'info', globalPosition: 'bottom left', autoHideDelay: 10000, showAnimation: 'slideDown', showDuration: 1000, style: 'dark'});
+			}
+			function add_to_favourite_burger(name){
+				if (document.cookie.indexOf(name.replace(",", ""))!=-1){
+					document.cookie = "fav_"+name.replace(",", "")+"="+"-1";
+				}else{
+					document.cookie = "fav_"+name.replace(",", "")+"="+"1";
+					$(name.replace(",", "")).slideDown(function() {
+					    setTimeout(function() {
+					        $(name.replace(",", "")).slideUp();
+					    }, 5000);
+					});
+				}
+			}
+		</script>
 	</head>
-	<body>
-	
-
-
-				
+	<body>			
 		<!--do facebooka-->
 		<script>
 			(function(d, s, id) {
@@ -90,7 +82,6 @@
 			    fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
 		</script>
-
 		<!--koniec faceboka-->
 		<div class="main">
 			<div class="slide" id="home" data-slide="1" data-stellar-background-ratio="1">
@@ -116,6 +107,7 @@
 				<br><br><br>
 				<div class="english_version">
 				<%= link_to image_tag('en.jpg'), "http://localhost:3000/?locale=en", locale: "en" %>
+				<%= link_to image_tag('pl.jpg'), "http://localhost:3000/?locale=pl", locale: "pl" %>
 				</div>
 				<!-- <%= link_to_unless_current "Polski", locale: "pl" %> -->
 				<img src="/assets/logo.png" id="home-logo" alt="logo">
@@ -273,57 +265,53 @@
 								<% end %>
 							</div>
 							<div class="menu-1b">
-								<div class="ostep">
-									
-										<p onClick="add_to_favourite_burger('<%=limited_burger.name1%>');window.location.reload();">
-										<%= "<font color='e38e55'>&#10025; ".html_safe if cookies["fav_"+limited_burger.name1.tr(",", "")].to_i==1 %>
-										<%= limited_burger.name1 %> (<%= limited_burger.price1 %>zł)</p>
-										<%= "</font>".html_safe if cookies["fav_"+limited_burger.name1.tr(",", "")].to_i==1 %>
-										<ul class='star-rating' id="star-rating-1">
-											<% @limited_burgers_from_burger.each do |limited| %>
-												<% if limited.name == limited_burger.name1 %>
-													<li class="current-rating" id="current-rating" style="width:<%= limited.average*25 %>px"></li>
-													<% unless cookies["_barnburger_session"].to_s == "" %>
-														<%= form_for limited do |f|  %>
-															<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
-															<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
-															<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
-															<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
-															<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
-														<% end %>
+								<div class="ostep">	
+									<p onClick="add_to_favourite_burger('<%=limited_burger.name1%>');window.location.reload();">
+									<%= "<font color='e38e55'>&#10025; ".html_safe if cookies["fav_"+limited_burger.name1.tr(",", "")].to_i==1 %>
+									<%= limited_burger.name1 %> (<%= limited_burger.price1 %>zł)</p>
+									<%= "</font>".html_safe if cookies["fav_"+limited_burger.name1.tr(",", "")].to_i==1 %>
+									<ul class='star-rating' id="star-rating-1">
+										<% @limited_burgers_from_burger.each do |limited| %>
+											<% if limited.name == limited_burger.name1 %>
+												<li class="current-rating" id="current-rating" style="width:<%= limited.average*25 %>px"></li>
+												<% unless cookies["_barnburger_session"].to_s == "" %>
+													<%= form_for limited do |f|  %>
+														<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
+														<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
+														<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
+														<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
+														<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
 													<% end %>
 												<% end %>
 											<% end %>
-										</ul>
-										<%= limited_burger.composition1 %>
-									
+										<% end %>
+									</ul>
+									<%= limited_burger.composition1 %>
 								</div>
 							</div>
 							<div class="menu-2b">
 								<div class="odstep">
-									
-										<p onClick="add_to_favourite_burger('<%=limited_burger.name2%>');window.location.reload();">
-										<%= "<font color='e38e55'>&#10025;".html_safe if cookies["fav_"+limited_burger.name2.tr(",", "")].to_i==1 %>
-										<%= limited_burger.name2 %> (<%= limited_burger.price2 %>zł)</p>
-										<%= "</font>".html_safe if cookies["fav_"+limited_burger.name2.tr(",", "")].to_i==1 %>
-										<ul class='star-rating' id="star-rating-1">
-											<% @limited_burgers_from_burger.each do |limited| %>
-												<% if limited.name == limited_burger.name2 %>
-													<li class="current-rating" id="current-rating" style="width:<%= limited.average*25 %>px"></li>
-													<% unless cookies["_barnburger_session"].to_s == "" %>
-														<%= form_for limited do |f|  %>
-															<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
-															<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
-															<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
-															<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
-															<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
-														<% end %>
+									<p onClick="add_to_favourite_burger('<%=limited_burger.name2%>');window.location.reload();">
+									<%= "<font color='e38e55'>&#10025;".html_safe if cookies["fav_"+limited_burger.name2.tr(",", "")].to_i==1 %>
+									<%= limited_burger.name2 %> (<%= limited_burger.price2 %>zł)</p>
+									<%= "</font>".html_safe if cookies["fav_"+limited_burger.name2.tr(",", "")].to_i==1 %>
+									<ul class='star-rating' id="star-rating-1">
+										<% @limited_burgers_from_burger.each do |limited| %>
+											<% if limited.name == limited_burger.name2 %>
+												<li class="current-rating" id="current-rating" style="width:<%= limited.average*25 %>px"></li>
+												<% unless cookies["_barnburger_session"].to_s == "" %>
+													<%= form_for limited do |f|  %>
+														<li><%= f.submit "1", class: "one-star", name: "one_star" %></li>
+														<li><%= f.submit "2", class: "two-star", name: "two_star" %></li>
+														<li><%= f.submit "3", class: "three-star", name: "three_star" %></li>
+														<li><%= f.submit "4", class: "four-star", name: "four_star" %></li>
+														<li><%= f.submit "5", class: "five-star", name: "five_star" %></li>
 													<% end %>
 												<% end %>
 											<% end %>
-										</ul>									
-										<%= limited_burger.composition2 %>
-									
+										<% end %>
+									</ul>									
+									<%= limited_burger.composition2 %>
 								</div>
 							</div>
 							<% i += 1 %>
@@ -466,7 +454,6 @@
 					 
 					google.maps.event.addDomListener(window, 'load', initialize);
 					</script>
-<!-- 					<iframe src="https://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=Barn+Burger&amp;aq=&amp;sll=52.232978,21.011438&amp;sspn=0.007688,0.021136&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=52.232978,21.011438&amp;spn=0.006295,0.006295&amp;t=m&amp;iwloc=A&amp;output=embed"></iframe> -->
 				</div>
 				<a class="button last" data-slide="1" title=""></a>
 			</div>

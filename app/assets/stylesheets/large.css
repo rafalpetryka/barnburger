@@ -165,25 +165,22 @@ span {
     /*height: auto;*/
     position: fixed;
     right: 5px;
-    top: 55px;
+    top: 52px;
     z-index: 2;
-    filter: alpha(opacity=70);
+}
+
+.english_version img{
+    width: 5vw;
+    height: 3vw;
+        filter: alpha(opacity=70);
     opacity: 0.4;
     color: #e38e55;
     transition: all .4s ease-out;
 }
 
-.english_version img{
-    width: 10vw;
-    height: auto;
+.english_version img:hover{
+     opacity: 1;
 }
-
-.english_version:hover {
-    opacity: 1;
-    /*margin-right: 5vw;*/
-}
-
-
 
 #ideasfactory {
     position: fixed;

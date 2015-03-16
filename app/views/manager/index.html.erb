@@ -11,47 +11,52 @@
 <body>
     <a href="http://barnburger.pl"><div class="logo"><img src="/assets/logo_bb.png" alt="logo"></div></a>
     <div class="napis">Panel zarządzania - Barn Burger</div>
-    <div class="item"><a href="faktura/index.php"><img src="/assets/wypisz_fakture.png" alt="wypisz_fakture">Wypisz fakturę</a></div>
-    <div class="item"><a href="faktura/dane.php"><img src="/assets/lista_fakturobiorcow.png" alt="lista_fakturobiorcow">Zobacz listę fakturobiorców</a></div>
-    <div class="item"><a href="http://poczta.ideasfactory.pl"><img src="/assets/sprawdz_poczte.png" alt="sprawdz_poczte">Sprawdź pocztę</a></div>
-    <div class="item"><a href="pasibrzuch/dodaj_pasibrzucha.php"><img src="/assets/dodaj_pasibrzucha.png" alt="dodaj_pasibrzucha">Dodaj pasibrzucha</a></div>
-    <div class="item">
-		<%= link_to news_index_path do %>
-	    	<%= image_tag 'dodaj_pasibrzucha.png', alt: 'Aktualności' %>
-	    	Aktualności
-		<% end %>
+    <div class="left-column">
+        <div class="item"><a href="faktura/index.php"><img src="/assets/wypisz_fakture.png" alt="wypisz_fakture">Wypisz fakturę</a></div>
+        <div class="item"><a href="faktura/dane.php"><img src="/assets/lista_fakturobiorcow.png" alt="lista_fakturobiorcow">Zobacz listę fakturobiorców</a></div>
+        <div class="item"><a href="http://poczta.ideasfactory.pl"><img src="/assets/sprawdz_poczte.png" alt="sprawdz_poczte">Sprawdź pocztę</a></div>
+        <div class="item"><a href="pasibrzuch/dodaj_pasibrzucha.php"><img src="/assets/dodaj_pasibrzucha.png" alt="dodaj_pasibrzucha">Dodaj pasibrzucha</a></div>
     </div>
-    <div class="item">
-    	<%= link_to limited_burgers_path do %>
-    		<%= image_tag 'dodaj_pasibrzucha.png', alt: 'Limitowane burgery' %>
-    		Limitowane burgery
-    	<% end %>
+    <div class="middle-column">
+        <div class="item">
+    		<%= link_to news_index_path do %>
+    	    	<%= image_tag 'news_pl.png', alt: 'Aktualności' %>
+    	    	Aktualności
+    		<% end %>
+        </div>
+        <div class="item">
+        	<%= link_to limited_burgers_path do %>
+        		<%= image_tag 'limited_pl.png', alt: 'Limitowane burgery' %>
+        		Limitowane burgery
+        	<% end %>
+        </div>
+        <div class="item">
+            <%= link_to burgers_path do %>
+                <%= image_tag 'menu_pl.png', alt: 'Menu' %>
+                Menu
+            <% end %>
+        </div>
     </div>
-    <div class="item">
-        <%= link_to burgers_path do %>
-            <%= image_tag 'dodaj_pasibrzucha.png', alt: 'Menu' %>
-            Menu
-        <% end %>
+    <div class="right-column">
+        <div class="item">
+            <%= link_to english_news_index_path do %>
+                <%= image_tag 'news_en.png', alt: 'Aktualności po angielsku' %>
+                Aktualności po angielsku
+            <% end %>
+        </div>
+        <div class="item">
+            <%= link_to english_limited_burgers_path do %>
+                <%= image_tag 'limited_en.png', alt: 'Limitowane burgery po angielsku' %>
+                Limitowane burgery po angielsku
+            <% end %>
+        </div>
+        <div class="item">
+            <%= link_to english_burgers_path do %>
+                <%= image_tag 'menu_en.png', alt: 'Menu po angielsku' %>
+                Menu po angielsku
+            <% end %>
+        </div>
     </div>
-    <div class="item">
-        <%= link_to english_news_index_path do %>
-            <%= image_tag 'dodaj_pasibrzucha.png', alt: 'Aktualności po angielsku' %>
-            Aktualności po angielsku
-        <% end %>
-    </div>
-    <div class="item">
-        <%= link_to english_burgers_path do %>
-            <%= image_tag 'dodaj_pasibrzucha.png', alt: 'Menu po angielsku' %>
-            Menu po angielsku
-        <% end %>
-    </div>
-    <div class="item">
-        <%= link_to english_limited_burgers_path do %>
-            <%= image_tag 'dodaj_pasibrzucha.png', alt: 'Limitowane burgery po angielsku' %>
-            Limitowane burgery po angielsku
-        <% end %>
-    </div>
-
 
     <!-- <div class="item"><a href="pasibrzuch/dodaj_pasibrzucha.php"><img src="/assets/dodaj_pasibrzucha.png" alt="dodaj_pasibrzucha">Newsy</a></div> -->
     <a href="http://ideasfactory.pl" target="_blank" id="ideasfactory">© IdeasFactory.pl</a>
