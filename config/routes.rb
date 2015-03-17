@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :english_news
   resources :english_limited_burgers
   resources :english_burgers
+  get 'privacy' => 'main#privacy'
   get 'main/index' => 'main#index'
   get 'manager' => 'manager#index'
   get "menu" => redirect("http://localhost:3000/#menu")

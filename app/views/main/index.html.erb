@@ -15,6 +15,7 @@
 		<script type="text/javascript" src="/assets/main.js"></script>
 		<script type="text/javascript" src="/assets/gallery.js"></script>
 		<script type="text/javascript" src="/assets/notify.min.js"></script>
+		<script type="text/javascript" src="/assets/jquery.cookiesdirective.js"></script>
 		<style>
 		.notifyjs-dark-base{
 			white-space: nowrap;
@@ -70,7 +71,30 @@
 			}
 		</script>
 	</head>
-	<body>			
+	<body>
+	<div id="eantics"></div>
+	<script type="text/javascript">
+	// Using $(document).ready never hurts
+	$(document).ready(function(){
+
+		// Cookie setting script wrapper
+		var cookieScripts = function () {
+			// Internal javascript called
+			console.log("Running");
+		}
+		
+		$.cookiesDirective({
+			// privacyPolicyUri: 'myprivacypolicy.html',
+			explicitConsent: false,
+			position : 'bottom',
+			scriptWrapper: cookieScripts, 
+			// cookieScripts: 'Google Analytics, My Stats Ultimate ', 
+			backgroundColor: '#000',
+			linkColor: '#ffffff'
+		});
+	});
+	</script>
+
 		<!--do facebooka-->
 		<script>
 			(function(d, s, id) {

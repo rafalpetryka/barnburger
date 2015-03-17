@@ -805,7 +805,7 @@ z-index: 3
     margin-bottom: 80px;
 }
 .fb-like {
-    margin-top: 5%
+    display: none;
 }
 : : -webkit-scrollbar {
     width: 6px;

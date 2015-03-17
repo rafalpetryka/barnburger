@@ -5,6 +5,7 @@
 input {
     z-index: 999;
     background: none;
+    color: white;
 }
 input.two-star{
     margin-left: 25px;
