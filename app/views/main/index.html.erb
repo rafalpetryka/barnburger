@@ -200,7 +200,7 @@
 										<% end %>
 									<% end %>
 								</ul>
-								<%= burgers.composition %>
+								<%= burgers.composition.html_safe %>
 								<% how_many_burgers_in_first_column += 1 %>
 							<% end %>
 						<% end %>
@@ -230,7 +230,7 @@
 										<% end %>
 									<% end %>
 								</ul>
-								<%= burgers.composition %>
+								<%= burgers.composition.html_safe %>
 							<% end %>
 							<% how_many_burgers_in_second_column += 1 %>
 						<% end %>
@@ -315,7 +315,7 @@
 											<% end %>
 										<% end %>
 									</ul>
-									<%= limited_burger.composition1 %>
+									<%= limited_burger.composition1.html_safe %>
 								</div>
 							</div>
 							<div class="menu-2b">
@@ -340,7 +340,7 @@
 											<% end %>
 										<% end %>
 									</ul>									
-									<%= limited_burger.composition2 %>
+									<%= limited_burger.composition2.html_safe %>
 								</div>
 							</div>
 							<% i += 1 %>
