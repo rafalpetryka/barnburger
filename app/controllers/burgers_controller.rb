@@ -2,7 +2,7 @@ class BurgersController < ApplicationController
 	# skip_before_action :verify_authenticity_token
 	layout "news_layout"
 	# before_action :check_cookie
-	before_action :authenticate_admin!
+	before_action :authenticate_admin!, only: [:new, :create, :find_burger, :destroy, :edit]
 
 	def index
 		@burgers = Burger.all
