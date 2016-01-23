@@ -35,7 +35,7 @@
 		.notifyjs-datk-base span{
 			color: white;
 		}
-		input[type='submit'] { 
+		input[type='submit'] {
         	font-family: DKCrayonCrumble;
         	font-size:13pt;
         	height: 22px;
@@ -50,7 +50,7 @@
 		<link rel='stylesheet' media='screen and (min-width: 850px)' href='/assets/large.css'>
 		<!-- <link rel='stylesheet' href='/assets/large.css'> -->
 		<link rel="shortcut icon" href="/favicon_transparent.ico" type="image/icon">
-		<link rel="icon" href="/favicon.ico" type="image/icon">	
+		<link rel="icon" href="/favicon.ico" type="image/icon">
 		<script>
 			function flash_message(text){
 				$.notify.addStyle('dark', {
@@ -87,13 +87,13 @@
 			// Internal javascript called
 			console.log("Running");
 		}
-		
+
 		$.cookiesDirective({
 			// privacyPolicyUri: 'myprivacypolicy.html',
 			explicitConsent: false,
 			position : 'bottom',
-			scriptWrapper: cookieScripts, 
-			// cookieScripts: 'Google Analytics, My Stats Ultimate ', 
+			scriptWrapper: cookieScripts,
+			// cookieScripts: 'Google Analytics, My Stats Ultimate ',
 			backgroundColor: '#000',
 			linkColor: '#ffffff'
 		});
@@ -147,7 +147,7 @@
 								flash_message(val);
 							</script>
 				    	<% end %>
-				<% end %> 
+				<% end %>
 				<div class="prawdziwa-historia">
 					<div class="tytul"><%= t "real_story.title" %></div>
 					<p><%= raw t "real_story.description" %></p>
@@ -264,7 +264,7 @@
 									</div>
 								<% else %>
 
-									<div class="sezonowe-napis data">from 
+									<div class="sezonowe-napis data">from
 									<% @day = limited_burger.date_on_website.strftime("%e") %>
 									<% case @day %>
 									<% when 1 %>
@@ -294,7 +294,7 @@
 								<% end %>
 							</div>
 							<div class="menu-1b">
-								<div class="ostep">	
+								<div class="ostep">
 									<p onClick="add_to_favourite_burger('<%=limited_burger.name1%>');window.location.reload();">
 									<%= "<font color='e38e55'>&#10025; ".html_safe if cookies["fav_"+limited_burger.name1.tr(",", "")].to_i==1 %>
 									<%= limited_burger.name1 %> (<%= limited_burger.price1 %>zł)</p>
@@ -339,7 +339,7 @@
 												<% end %>
 											<% end %>
 										<% end %>
-									</ul>									
+									</ul>
 									<%= limited_burger.composition2.html_safe %>
 								</div>
 							</div>
@@ -452,7 +452,7 @@
 					<p><%= t "map.title" %></p>
 				    <div id="mapa-box" style="float:left;width:100%;height:50vh;"></div>
 					<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-					<script type="text/javascript"> 
+					<script type="text/javascript">
 					initialize();
 					  function initialize() {
 					  var myLatlng = new google.maps.LatLng(52.232710, 21.011438);
@@ -463,13 +463,13 @@
 					    styles: [{"stylers":[{"hue":"#ff8800"},{"gamma":0.4}]}],
 					    mapTypeId: google.maps.MapTypeId.ROADMAP
 					  }
-					 
+
 					  var map = new google.maps.Map(document.getElementById('mapa-box'), mapOptions);
-					 
+
 					  var infowindow = new google.maps.InfoWindow({
 					      content: '<div style="width:170px; height:70px">Barn Burger<br>ul. Złota 9<br>Warszawa<br>tel.: 888 222 750<br><a href="http://facebook.com/BarnBurger" target="_blank">facebook.com/BarnBurger</a></div>'
 					  });
-					  var image = 'http://barnburger.pl/img/mapslogo.png';
+					  var image = '<%= image_path "burger_maps.png" %>';
 					  var marker = new google.maps.Marker({
 					      position: myLatlng,
 					      map: map,
@@ -480,7 +480,7 @@
 					    infowindow.open(map,marker);
 					  });
 					}
-					 
+
 					google.maps.event.addDomListener(window, 'load', initialize);
 					</script>
 				</div>
