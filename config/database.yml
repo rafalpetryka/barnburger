@@ -5,16 +5,13 @@
 #   gem 'sqlite3'
 #
 
-test:
+default: &default
   # adapter: sqlite3
   # pool: 5
   # timeout: 5000
   adapter: postgresql
   encoding: unicode
-  database: barnburger_development
   pool: 5
-  username: postgres
-  password: postgres
 
 development:
   adapter: postgresql
@@ -24,11 +21,8 @@ development:
   username: postgres
   password: postgres
 
-
-# production:
-#   adapter: postgresql
-#   encoding: unicode
-#   database: barnburger_prod
-#   pool: 5
-#   username: postgres
-#   password: postgres
+production:
+  <<: *default
+  database: barnburger_production
+  username: barnburger
+  password: <%= ENV['BARNBURGER_DATABASE_PASSWORD'] %>
