@@ -486,10 +486,12 @@
 					<script type="text/javascript">
 					initialize();
 					  function initialize() {
-					  var myLatlng = new google.maps.LatLng(52.232710, 21.011438);
+					  var latLngZlota = new google.maps.LatLng(52.232710, 21.011438);
+					  var latLngZgoda = new google.maps.LatLng(52.232759, 21.013508);
+
 					  var mapOptions = {
-					    zoom: 16,
-					    center: myLatlng,
+					    zoom: 18,
+					    center: new google.maps.LatLng(52.232789, 21.012613),
 					    scrollwheel:true,
 					    styles: [{"stylers":[{"hue":"#ff8800"},{"gamma":0.4}]}],
 					    mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -497,18 +499,34 @@
 
 					  var map = new google.maps.Map(document.getElementById('mapa-box'), mapOptions);
 
-					  var infowindow = new google.maps.InfoWindow({
-					      content: '<div style="width:170px; height:70px">Barn Burger<br>ul. Złota 9<br>Warszawa<br>tel.: 888 222 750<br><a href="http://facebook.com/BarnBurger" target="_blank">facebook.com/BarnBurger</a></div>'
+					  var infoWindowZlota = new google.maps.InfoWindow({
+					      content: '<div style="width:170px; height:70px">Barn Burger<br>ul. Złota 9<br>Warszawa<br>tel.: <a href="tel:+48888222750">888 222 750</a><br><a href="http://facebook.com/BarnBurger" target="_blank">facebook.com/BarnBurger</a></div>'
 					  });
+					  var infoWindowZgoda = new google.maps.InfoWindow({
+					      content: '<div style="width:170px; height:70px">Barn Burger<br>ul. Zgoda 5<br>Warszawa<br>tel.: <a href="tel:+48571414121">571 414 121</a><br><a href="http://facebook.com/BarnBurger" target="_blank">facebook.com/BarnBurger</a></div>'
+					  });
+
 					  var image = '<%= image_path "burger_maps.png" %>';
-					  var marker = new google.maps.Marker({
-					      position: myLatlng,
+					  var markerZlota = new google.maps.Marker({
+					      position: latLngZlota,
 					      map: map,
 					      icon: image,
 					      title: 'Barn Burger'
 					  });
-					  google.maps.event.addListener(marker, 'click', function() {
-					    infowindow.open(map,marker);
+
+					  var markerZgoda = new google.maps.Marker({
+					      position: latLngZgoda,
+					      map: map,
+					      icon: image,
+					      title: 'Barn Burger'
+					  });
+
+					  google.maps.event.addListener(markerZlota, 'click', function() {
+					    infoWindowZlota.open(map,markerZlota);
+					  });
+
+					  google.maps.event.addListener(markerZgoda, 'click', function() {
+					    infoWindowZgoda.open(map,markerZgoda);
 					  });
 					}
 
