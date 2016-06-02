@@ -6,7 +6,7 @@
 		<meta http-equiv="refresh" content="3600">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="UTF-8">
-		<title>Barn Burger® &#127828; Warszawa ul. Złota 9</title>
+		<title>Barn Burger® &#127828; Warszawa ul. Złota 9 | Zgoda 5</title>
 		<script type="text/javascript" src="/assets/jquery-2.1.1.js"></script>
 		<script type="text/javascript" src="/assets/lightbox.min.js"></script>
 		<script type="text/javascript" src="/assets/jquery.stellar.min.js"></script>
@@ -458,16 +458,26 @@
 			<div class="slide" id="kontakt" data-slide="5" data-stellar-background-ratio="0.5">
 				<div class="kontakt-napis"><%= t "contact.title" %></div>
 				<div class="kontakt-text">
-					<p><%= t "contact.opening_hours.title" %></p>
-					<%= t "contact.opening_hours.mon_fri" %>: 12<sup>00</sup>-22<sup>00</sup> <span>(<%= t "contact.opening_hours.order_up_to" %> 21:30)</span>
-					<br><%= t "contact.opening_hours.sat" %>: 13<sup>00</sup>-22<sup>00</sup> <span>(<%= t "contact.opening_hours.order_up_to" %> 21:30)</span>
-					<br><%= t "contact.opening_hours.sun" %>: 13<sup>00</sup>-21<sup>00</sup> <span>(<%= t "contact.opening_hours.order_up_to" %> 20:30)</span>
-					<p><%= t "address.title" %></p>
-					<%= t "address.description" %>
+					<p><%= t "contact.zlota.opening_hours.title" %></p>
+					<p><%= t 'contact.opening_hours' %></p>
+					<%= t "contact.zlota.opening_hours.mon_fri" %>: 12<sup>00</sup>-22<sup>00</sup> <span>(<%= t "contact.zlota.opening_hours.order_up_to" %> 21:30)</span>
+					<br><%= t "contact.zlota.opening_hours.sat" %>: 13<sup>00</sup>-22<sup>00</sup> <span>(<%= t "contact.zlota.opening_hours.order_up_to" %> 21:30)</span>
+					<br><%= t "contact.zlota.opening_hours.sun" %>: 13<sup>00</sup>-21<sup>00</sup> <span>(<%= t "contact.zlota.opening_hours.order_up_to" %> 20:30)</span>
+					<p><%= t "contact.zlota.address.title" %></p>
+					<%= t "contact.zlota.address.description" %>
 					<br>Tel.: <a href="tel:888222750">888 222 750</a>
 					<br><a href="mailto:barnburger@barnburger.pl">barnburger@barnburger.pl</a>
-					<br>
-					<div class="fb-like" data-href="http://www.facebook.com/barnburger" data-send="true" data-width="400" data-show-faces="true" data-font="arial" data-colorscheme="dark"></div>
+				</div>
+				<div class="kontakt-text">
+					<p><%= t "contact.zgoda.opening_hours.title" %></p>
+					<p><%= t 'contact.opening_hours' %></p>
+					<%= t "contact.zgoda.opening_hours.mon_fri" %>: 12<sup>00</sup>-22<sup>00</sup> <span>(<%= t "contact.zgoda.opening_hours.order_up_to" %> 21:30)</span>
+					<br><%= t "contact.zgoda.opening_hours.sat" %>: 13<sup>00</sup>-22<sup>00</sup> <span>(<%= t "contact.zgoda.opening_hours.order_up_to" %> 21:30)</span>
+					<br><%= t "contact.zgoda.opening_hours.sun" %>: 13<sup>00</sup>-21<sup>00</sup> <span>(<%= t "contact.zgoda.opening_hours.order_up_to" %> 20:30)</span>
+					<p><%= t "contact.zgoda.address.title" %></p>
+					<%= t "contact.zgoda.address.description" %>
+					<br>Tel.: <a href="tel:571414121">571 414 121</a>
+					<br><a href="mailto:barnburger@barnburger.pl">barnburger@barnburger.pl</a>
 				</div>
 				<div class="kontakt-mapka">
 					<p><%= t "map.title" %></p>
@@ -505,6 +515,7 @@
 					google.maps.event.addDomListener(window, 'load', initialize);
 					</script>
 				</div>
+				<div class="fb-like" data-href="http://www.facebook.com/barnburger" data-send="true" data-width="400" data-show-faces="true" data-font="arial" data-colorscheme="dark"></div>
 				<a class="button last" data-slide="1" title=""></a>
 			</div>
 		</div>

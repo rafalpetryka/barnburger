@@ -15,16 +15,28 @@ pl:
     title: "Pasibrzuch"
     text: "Chcesz zmierzyć się z BYPASSEM, a dodatkowo wygrać atrakcyjna nagrodę? Dołącz do ponad 100 pasibrzuchów, wejdź na <a href='http://www.pasibrzuch.barnburger.pl' target='_blank'>pasibrzuch.barnburger.pl</a>, zapoznaj się z regulaminem i aktualnym rekordem"
   contact:
+    opening_hours: "Godziny otwarcia"
     title: "Kontakt"
-    opening_hours:
-      title: "Godziny otwarcia"
-      mon_fri: "Pon-Pt"
-      sat: "Sob"
-      sun: "Nd"
-      order_up_to: "grillujemy do"
-  address:
-    title: "Adres"
-    description: "Warszawa ul. Złota 9"
+    zgoda:
+      opening_hours:
+        title: "Zgoda 5"
+        mon_fri: "Pon-Pt"
+        sat: "Sob"
+        sun: "Nd"
+        order_up_to: "grillujemy do"
+      address:
+        title: "Adres"
+        description: "Warszawa ul. Zgoda 5"
+    zlota:
+      opening_hours:
+        title: "Złota 9"
+        mon_fri: "Pon-Pt"
+        sat: "Sob"
+        sun: "Nd"
+        order_up_to: "grillujemy do"
+      address:
+        title: "Adres"
+        description: "Warszawa ul. Złota 9"
   map:
     title: "Mapka"
   devise:
