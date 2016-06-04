@@ -5,6 +5,22 @@ html, body {
     margin: 0;
     background-color: #000;
 }
+h2{
+    font-family: DKCrayonCrumble;
+    margin-left: 10%;
+    width: 80%;
+    float: left;
+    display: inline-block;
+    font-family: DKCrayonCrumble;
+    color: #FFFFEC;
+    text-shadow: 0 0 15px #000, 0 0 5px #000, 0 0 2px black;
+    font-size: 100%;
+    font-size: 2vh;
+    line-height: 120%;
+    text-align: center;
+    margin-bottom: 3%;
+    font-weight: 100;
+}
 a {
     color: #e38e55;
     z-index: 5;
@@ -31,7 +47,7 @@ span {
 .navigation {
     height: auto;
     font-family: DKCrayonCrumble;
-    
+
     padding: 0;
     margin: 0;
     background-color: black;
@@ -364,7 +380,7 @@ overflow: none;
     font-size: 8vh;
     font-family: CabinSketch;
     text-shadow: 0 0 5px black, 0 0 10px black;
-    margin-bottom: 4%
+    margin-bottom: 1%
 }
 .menu-1 {
     margin-left: 5%;

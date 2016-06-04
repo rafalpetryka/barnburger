@@ -19,6 +19,7 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
+  menu_star: "Dishes with asterisk * only available in the restaurant on Zgoda 5 street"
   short_days:
     mon: "Mon"
     tue: "Tue"

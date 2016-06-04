@@ -1,4 +1,5 @@
 pl:
+  menu_star: "Dania z gwiazdką * dostępne tylko w lokalu przy ul. Zgoda 5"
   short_days:
     mon: "Pon"
     tue: "Wt"
@@ -77,10 +78,10 @@ pl:
       edit:
         are_you_sure: Jesteś pewny?
         cancel_my_account: Anuluj moje konto
-        currently_waiting_confirmation_for_email: 
+        currently_waiting_confirmation_for_email:
         leave_blank_if_you_don_t_want_to_change_it: pozostaw puste jeśli nie chcesz wprowadzać zmian
         title: Edytuj %{resource}
-        unhappy: 
+        unhappy:
         update: Zaktualizuj
         we_need_your_current_password_to_confirm_your_changes: potrzebujemy Twojego bieżącego hasła aby potwierdzić zmiany
       new:
@@ -94,7 +95,7 @@ pl:
         already_signed_out: Już się wylogowałeś wcześniej
     shared:
       links:
-        back: 
+        back:
         didn_t_receive_confirmation_instructions: Nie otrzymałeś instrukcji aktywacji konta?
         didn_t_receive_unlock_instructions: Nie otrzymałeś instrukcji odblokowania konta?
         forgot_your_password: Zapomniałeś hasło?
