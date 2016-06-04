@@ -32,8 +32,8 @@ Burger.create(name: "PONURY ŻNIWIARZ", composition: "warzywa, burger 200g, ser,
 Burger.create(name: "DIRTY HARRY", composition: "warzywa, burger 200g, ser, remoulada, bekon, cebula krążki + sos BBQ, salsa fresca, colesław, fryty", price: 26, how_many_mark: 5, average: rand(3.75..5), limited: false)
 Burger.create(name: "KUSZENIE GAŹDZINY", composition: "warzywa, burger 200g, oscypek, żurawina, roszponka, krążki cebulowe + sos BBQ, salsa fresca, colesław, fryty", price: 26, how_many_mark: 5, average: rand(3.75..5), limited: false)
 Burger.create(name: "GENDER BURGER", composition: "burger 200g, pulled pork, bekon, cheddar + sos BBQ, salsa fresca, colesław, fryty", price: 26, how_many_mark: 5, average: rand(3.75..5), limited: false)
-Burger.create(name: "RIB-EYE STEAK", composition: "300g steka Antrykot + sos BBQ, salsa fresca, colesław, fryty", price: 39, how_many_mark: 5, average: rand(3.75..5), limited: false)
-Burger.create(name: "TOP LION STEAK", composition: "300g steka Rostbef + sos BBQ, salsa fresca, colesław, fryty", price: 39, how_many_mark: 5, average: rand(3.75..5), limited: false)
+Burger.create(name: "*RIB EYE", composition: "stek z antrykotu 350g (hereford), fryty, colesław, salsa fresca, BBQ", price: 49, how_many_mark: 5, average: rand(3.75..5), limited: false)
+Burger.create(name: "*NEW YORK", composition: "stek z rostbefu 350g (hereford), fryty, colesław, salsa fresca, BBQ", price: 49, how_many_mark: 5, average: rand(3.75..5), limited: false)
 Burger.create(name: "SOFT TACO Z WOŁOWINĄ", composition: "3 tortille pszenne, papryka, wołowina, cebula, ser, guacamole, salsa, śmietana, fryty", price: 21, how_many_mark: 5, average: rand(3.75..5), limited: false)
 Burger.create(name: "SOFT TACO Z KUR WIELU", composition: "3 tortille pszenne, papryka, kurczak, cebula, ser, guacamole, salsa, śmietana, fryty", price: 21, how_many_mark: 5, average: rand(3.75..5), limited: false)
 
@@ -62,8 +62,8 @@ EnglishBurger.create(name: "PONURY ŻNIWIARZ", composition: "200 g/0.44 lb groun
 EnglishBurger.create(name: "DIRTY HARRY", composition: "200 g/0.44 lb ground beef, cheese, bacon, onion rings, remoulade, vegetables + homemade fries, coleslaw, salsa fresca and BBQ sauce", price: 26, how_many_mark: 5, average: rand(3.75..5), limited: false)
 EnglishBurger.create(name: "KUSZENIE GAŹDZINY", composition: "200 g/0.44 lb ground beef, cheese, onion rings, traditional Polish smoked sheep cheese ‘Oscypek’, cranberry sauce, corn salad, vegetables + homemade fries, coleslaw, salsa fresca and BBQ sauce", price: 26, how_many_mark: 5, average: rand(3.75..5), limited: false)
 EnglishBurger.create(name: "GENDER BURGER", composition: "200 g/0.44 lb ground beef, cheddar, bacon, pulled pork + homemade fries, coleslaw, salsa fresca and BBQ sauce", price: 26, how_many_mark: 5, average: rand(3.75..5), limited: false)
-EnglishBurger.create(name: "RIB-EYE STEAK", composition: "300 gr/0.66 lb entrecote steak + homemade fries, coleslaw, salsa fresca and BBQ sauce", price: 39, how_many_mark: 5, average: rand(3.75..5), limited: false)
-EnglishBurger.create(name: "TOP LION STEAK", composition: "300 gr/0.66 lb roast beef steak + homemade fries, coleslaw, salsa fresca and BBQ sauce", price: 39, how_many_mark: 5, average: rand(3.75..5), limited: false)
+EnglishBurger.create(name: "*RIB EYE", composition: "rib eye steak (entrecote) 350g/0.77lb, fries, coleslaw, salsa fresca, BBQ sauce", price: 49, how_many_mark: 5, average: rand(3.75..5), limited: false)
+EnglishBurger.create(name: "*NEW YORK", composition: "new yourk steak (roast beef) 350g/0.77lb, fries, coleslaw, salsa fresca, BBQ sauce", price: 49, how_many_mark: 5, average: rand(3.75..5), limited: false)
 EnglishBurger.create(name: "SOFT TACO Z WOŁOWINĄ", composition: "3 wheat tortillas, beef, vegetables, pepper, onion, cheese, guacamole, salsa fresca, cream, homemade fries", price: 21, how_many_mark: 5, average: rand(3.75..5), limited: false)
 EnglishBurger.create(name: "SOFT TACO Z KUR WIELU", composition: "3 wheat tortillas, chicken, vegetables, pepper, onion, cheese, guacamole, salsa fresca, cream, homemade fries", price: 21, how_many_mark: 5, average: rand(3.75..5), limited: false)
 
