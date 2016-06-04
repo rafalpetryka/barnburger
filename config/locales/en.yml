@@ -19,6 +19,14 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
+  short_days:
+    mon: "Mon"
+    tue: "Tue"
+    wed: "Wed"
+    thu: "Thu"
+    fri: "Fri"
+    sat: "Sat"
+    sun: "Sun"
   real_story:
     title: "True story bro"
     description: "All the burgers are prepared daily, on the spot with freshly seasonal ground beef of the highest quality - the <span>Charolais</span> breed. Our rolls are enriched by dietary fiber. We throw our own BBQ sauce, salsa fresca, chips/fries and coleslaw into the burgers. Steaks cut from maturing race <span>Hereford</span>. Homemade fries fried in oil – WE DO NOT FILTER – we exchange it. Just like that… And additionally we have soft taco with beef or chicken"
@@ -50,9 +58,6 @@ en:
     zlota:
       opening_hours:
         title: "Złota 9"
-        mon_fri: "Mon-Fri"
-        sat: "Sat"
-        sun: "Sun"
         order_up_to: "order up to"
       address:
         title: "Address"

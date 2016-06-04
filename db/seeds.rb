@@ -66,3 +66,7 @@ EnglishBurger.create(name: "RIB-EYE STEAK", composition: "300 gr/0.66 lb entreco
 EnglishBurger.create(name: "TOP LION STEAK", composition: "300 gr/0.66 lb roast beef steak + homemade fries, coleslaw, salsa fresca and BBQ sauce", price: 39, how_many_mark: 5, average: rand(3.75..5), limited: false)
 EnglishBurger.create(name: "SOFT TACO Z WOŁOWINĄ", composition: "3 wheat tortillas, beef, vegetables, pepper, onion, cheese, guacamole, salsa fresca, cream, homemade fries", price: 21, how_many_mark: 5, average: rand(3.75..5), limited: false)
 EnglishBurger.create(name: "SOFT TACO Z KUR WIELU", composition: "3 wheat tortillas, chicken, vegetables, pepper, onion, cheese, guacamole, salsa fresca, cream, homemade fries", price: 21, how_many_mark: 5, average: rand(3.75..5), limited: false)
+
+OpeningHour.delete_all
+OpeningHour.create(place: 'zlota', monday: [1200, 2200, 2130], tuesday: [1200, 2200, 2130], wednesday: [1200, 2200, 2130], thursday: [1200, 2200, 2130], friday: [1200, 2200, 2130], saturday: [1300, 2200, 2130], sunday: [1300, 2100, 2030])
+OpeningHour.create(place: 'zgoda', monday: [1200, 2200, 2130], tuesday: [1200, 2200, 2130], wednesday: [1200, 2200, 2130], thursday: [1200, 2200, 2130], friday: [1200, 2200, 2130], saturday: [1300, 2200, 2130], sunday: [1300, 2100, 2030])

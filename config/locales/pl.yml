@@ -1,4 +1,12 @@
 pl:
+  short_days:
+    mon: "Pon"
+    tue: "Wt"
+    wed: "Śr"
+    thu: "Czw"
+    fri: "Pt"
+    sat: "Sob"
+    sun: "Nd"
   real_story:
     title: "Prawdziwa historia"
     description: "Wszystkie burgery przygotowujemy codziennie na miejscu ze świeżo mielonej sezonowanej wołowiny najwyższej jakości rasy <span>Charolais</span>. Nasze bulki wzbogacone są błonnikiem. Do burgerów dorzucamy własny sos BBQ, salsę fresca, fryty oraz sałatkę Colesław. Steki kroimy z dojrzewającej wołowiny rasy <span>Hereford</span>. Domowej roboty fryty smażymy na oleju – NIE FILTRUJEMY – my go wymieniamy. Po prostu… A dodatkowo mamy soft taco z wołowiną lub kurczakiem"
@@ -20,9 +28,6 @@ pl:
     zgoda:
       opening_hours:
         title: "Zgoda 5"
-        mon_fri: "Pon-Pt"
-        sat: "Sob"
-        sun: "Nd"
         order_up_to: "grillujemy do"
       address:
         title: "Adres"

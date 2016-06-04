@@ -460,9 +460,7 @@
 				<div class="kontakt-text">
 					<p><%= t "contact.zlota.opening_hours.title" %></p>
 					<p><%= t 'contact.opening_hours' %></p>
-					<%= t "contact.zlota.opening_hours.mon_fri" %>: 12<sup>00</sup>-22<sup>00</sup> <span>(<%= t "contact.zlota.opening_hours.order_up_to" %> 21:30)</span>
-					<br><%= t "contact.zlota.opening_hours.sat" %>: 13<sup>00</sup>-22<sup>00</sup> <span>(<%= t "contact.zlota.opening_hours.order_up_to" %> 21:30)</span>
-					<br><%= t "contact.zlota.opening_hours.sun" %>: 13<sup>00</sup>-21<sup>00</sup> <span>(<%= t "contact.zlota.opening_hours.order_up_to" %> 20:30)</span>
+					<%= opening_hours("zlota").html_safe %>
 					<p><%= t "contact.zlota.address.title" %></p>
 					<%= t "contact.zlota.address.description" %>
 					<br>Tel.: <a href="tel:888222750">888 222 750</a>
@@ -471,9 +469,7 @@
 				<div class="kontakt-text">
 					<p><%= t "contact.zgoda.opening_hours.title" %></p>
 					<p><%= t 'contact.opening_hours' %></p>
-					<%= t "contact.zgoda.opening_hours.mon_fri" %>: 12<sup>00</sup>-22<sup>00</sup> <span>(<%= t "contact.zgoda.opening_hours.order_up_to" %> 21:30)</span>
-					<br><%= t "contact.zgoda.opening_hours.sat" %>: 13<sup>00</sup>-22<sup>00</sup> <span>(<%= t "contact.zgoda.opening_hours.order_up_to" %> 21:30)</span>
-					<br><%= t "contact.zgoda.opening_hours.sun" %>: 13<sup>00</sup>-21<sup>00</sup> <span>(<%= t "contact.zgoda.opening_hours.order_up_to" %> 20:30)</span>
+					<%= opening_hours("zlota").html_safe %>
 					<p><%= t "contact.zgoda.address.title" %></p>
 					<%= t "contact.zgoda.address.description" %>
 					<br>Tel.: <a href="tel:571414121">571 414 121</a>

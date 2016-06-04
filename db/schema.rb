@@ -110,4 +110,17 @@ ActiveRecord::Schema.define(version: 20150315212042) do
     t.text     "text_with_link"
   end
 
+  create_table "opening_hours", force: :cascade do |t|
+    t.string   "place"
+    t.string   "monday",                  array: true
+    t.string   "tuesday",                 array: true
+    t.string   "wednesday",               array: true
+    t.string   "thursday",                array: true
+    t.string   "friday",                  array: true
+    t.string   "saturday",                array: true
+    t.string   "sunday",                  array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
