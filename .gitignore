@@ -11,5 +11,13 @@
 /log/*
 !/log/.keep
 /tmp
-/public/assets/*
+/public/uploads
+/.bundle
+/db/*.sqlite3
+/log/*.log
+config/database.yml
+config/secrets.yml
+config/google_analytics.yml
+.DS_Store
+public/assets/**
 .byebug_history
