@@ -7,15 +7,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="UTF-8">
 		<title>Barn Burger® &#127828; Warszawa ul. Złota 9 | Zgoda 5</title>
-		<script type="text/javascript" src="/assets/jquery-2.1.1.js"></script>
-		<script type="text/javascript" src="/assets/lightbox.min.js"></script>
-		<script type="text/javascript" src="/assets/jquery.stellar.min.js"></script>
-		<script type="text/javascript" src="/assets/waypoints.js"></script>
-		<script type="text/javascript" src="/assets/jquery.easing.1.3.js"></script>
-		<script type="text/javascript" src="/assets/main.js"></script>
-		<script type="text/javascript" src="/assets/gallery.js"></script>
-		<script type="text/javascript" src="/assets/notify.min.js"></script>
-		<script type="text/javascript" src="/assets/jquery.cookiesdirective.js"></script>
 		<style>
 		.notifyjs-dark-base{
 			white-space: nowrap;
@@ -41,14 +32,6 @@
         	height: 22px;
         }
 		</style>
-		<link rel="stylesheet" type="text/css" href="/assets/reset.css" media="screen">
-		<link rel="stylesheet" type="text/css" href="/assets/starrating.css" media="screen">
-		<link rel="stylesheet" type="text/css" href="/assets/lightbox.css">
-		<!-- <link rel='stylesheet' media='screen and (max-width: 640px)' href='/assets/small.css'> -->
-		<link rel='stylesheet' media='screen and (min-width: 1px) and (max-width: 620px)' href='/assets/small.css'>
-		<link rel='stylesheet' media='screen and (min-width: 620px) and (max-width: 849px)' href='/assets/medium.css'>
-		<link rel='stylesheet' media='screen and (min-width: 850px)' href='/assets/large.css'>
-		<!-- <link rel='stylesheet' href='/assets/large.css'> -->
 	  <% favicon_link_tag 'favicon/apple-icon-57x57.png', rel: 'apple-touch-icon', size: '57x57' %>
 	  <% favicon_link_tag 'favicon/apple-icon-60x60.png', rel: 'apple-touch-icon', size: '60x60' %>
 	  <% favicon_link_tag 'favicon/apple-icon-72x72.png', rel: 'apple-touch-icon', size: '72x72' %>
@@ -67,7 +50,7 @@
 	  <% favicon_link_tag 'favicon/apple-icon-180x180.png', rel: 'apple-touch-icon', type: 'image/png', size: '57x57' %>
 	  <% favicon_link_tag 'favicon/apple-icon-180x180.png', rel: 'apple-touch-icon', type: 'image/png', size: '57x57' %>
 	  <% favicon_link_tag 'favicon/apple-icon-180x180.png', rel: 'apple-touch-icon', type: 'image/png', size: '57x57' %>
-	  <link href="/assets/favicon/favicon.ico" rel="shortcut icon" />
+	  <% favicon_link_tag 'favicon/favicon.ico', rel: 'shortcut icon' %>
 	  <link rel="manifest" href="/assets/favicon/manifest.json">
 	  <meta name="msapplication-TileColor" content="#ffffff">
 	  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
@@ -156,11 +139,11 @@
 				</nav>
 				<br><br><br>
 				<div class="english_version">
-				<%= link_to image_tag('en.jpg'), "http://localhost:3000/?locale=en", locale: "en" %>
-				<%= link_to image_tag('pl.jpg'), "http://localhost:3000/?locale=pl", locale: "pl" %>
+				<%= link_to image_tag('en.jpg'), root_path(locale: "en") %>
+				<%= link_to image_tag('pl.jpg'), root_path(locale: "pl") %>
 				</div>
 				<!-- <%= link_to_unless_current "Polski", locale: "pl" %> -->
-				<img src="/assets/logo.png" id="home-logo" alt="logo">
+				<%= image_tag 'logo.png', id: 'home-logo' %>
 				<% unless flash.blank? %>
 						<% flash.each do |key, value| %>
 							<script>
@@ -375,81 +358,82 @@
 				<div class="galeria-napis"><%= t "gallery.title" %></div>
 				<div class="galeria-1">
 					<div class="tytul"><%= t "gallery.menu" %></div>
-					<a href="/assets/slide3/menu/01.jpg" data-lightbox="menu">
+					<%= link_to asset_path('slide3/menu/01.jpg'), data: {lightbox: :menu} do %>
 						<div id="zdjecia1">
-							<img class="active" src="/assets/slide3/menu/min/01.jpg" alt="">
-							<img src="/assets/slide3/menu/min/02.jpg" alt="">
-							<img src="/assets/slide3/menu/min/03.jpg" alt="">
+							<%= image_tag 'slide3/menu/min/01.jpg', class: 'active' %>
+							<%= image_tag 'slide3/menu/min/02.jpg' %>
+							<%= image_tag 'slide3/menu/min/03.jpg' %>
 						</div>
-					</a>
-					<a href="/assets/slide3/menu/02.jpg" data-lightbox="menu"></a>
-					<a href="/assets/slide3/menu/03.jpg" data-lightbox="menu"></a>
-					<a href="/assets/slide3/menu/04.jpg" data-lightbox="menu"></a>
-					<a href="/assets/slide3/menu/05.jpg" data-lightbox="menu"></a>
-					<a href="/assets/slide3/menu/06.jpg" data-lightbox="menu"></a>
-					<a href="/assets/slide3/menu/07.jpg" data-lightbox="menu"></a>
-					<a href="/assets/slide3/menu/08.jpg" data-lightbox="menu"></a>
-					<a href="/assets/slide3/menu/09.jpg" data-lightbox="menu"></a>
-					<a href="/assets/slide3/menu/10.jpg" data-lightbox="menu"></a>
-					<a href="/assets/slide3/menu/11.jpg" data-lightbox="menu"></a>
-					<a href="/assets/slide3/menu/12.jpg" data-lightbox="menu"></a>
-					<a href="/assets/slide3/menu/13.jpg" data-lightbox="menu"></a>
-					<a href="/assets/slide3/menu/14.jpg" data-lightbox="menu"></a>
+					<% end %>
+					<a href="<%= asset_path('slide3/menu/02.jpg') %>" data-lightbox="menu"></a>
+					<a href="<%= asset_path('slide3/menu/03.jpg') %>" data-lightbox="menu"></a>
+					<a href="<%= asset_path('slide3/menu/04.jpg') %>" data-lightbox="menu"></a>
+					<a href="<%= asset_path('slide3/menu/05.jpg') %>" data-lightbox="menu"></a>
+					<a href="<%= asset_path('slide3/menu/06.jpg') %>" data-lightbox="menu"></a>
+					<a href="<%= asset_path('slide3/menu/07.jpg') %>" data-lightbox="menu"></a>
+					<a href="<%= asset_path('slide3/menu/08.jpg') %>" data-lightbox="menu"></a>
+					<a href="<%= asset_path('slide3/menu/09.jpg') %>" data-lightbox="menu"></a>
+					<a href="<%= asset_path('slide3/menu/10.jpg') %>" data-lightbox="menu"></a>
+					<a href="<%= asset_path('slide3/menu/11.jpg') %>" data-lightbox="menu"></a>
+					<a href="<%= asset_path('slide3/menu/12.jpg') %>" data-lightbox="menu"></a>
+					<a href="<%= asset_path('slide3/menu/13.jpg') %>" data-lightbox="menu"></a>
+					<a href="<%= asset_path('slide3/menu/14.jpg') %>" data-lightbox="menu"></a>
 				</div>
 				<div class="galeria-2">
 					<div class="tytul"><%= t "gallery.place" %></div>
-					<a href="/assets/slide3/lokal/01.jpg" data-lightbox="lokal">
+					<%= link_to asset_path('slide3/lokal/01.jpg'), data: {lightbox: :lokal} do %>
 						<div id="zdjecia2">
-							<img class="active" src="/assets/slide3/lokal/min/01.jpg" alt="">
-							<img src="/assets/slide3/lokal/min/02.jpg" alt="">
-							<img src="/assets/slide3/lokal/min/03.jpg" alt="">
+							<%= image_tag 'slide3/lokal/min/01.jpg', class: 'active' %>
+							<%= image_tag 'slide3/lokal/min/02.jpg' %>
+							<%= image_tag 'slide3/lokal/min/03.jpg' %>
 						</div>
-					</a>
-					<a href="/assets/slide3/lokal/02.jpg" data-lightbox="lokal"></a>
-					<a href="/assets/slide3/lokal/03.jpg" data-lightbox="lokal"></a>
-					<a href="/assets/slide3/lokal/04.jpg" data-lightbox="lokal"></a>
-					<a href="/assets/slide3/lokal/05.jpg" data-lightbox="lokal"></a>
-					<a href="/assets/slide3/lokal/06.jpg" data-lightbox="lokal"></a>
-					<a href="/assets/slide3/lokal/07.jpg" data-lightbox="lokal"></a>
-					<a href="/assets/slide3/lokal/08.jpg" data-lightbox="lokal"></a>
-					<a href="/assets/slide3/lokal/09.jpg" data-lightbox="lokal"></a>
+					<% end %>
+					<a href="<%= asset_path('slide3/lokal/02.jpg') %>" data-lightbox="lokal"></a>
+					<a href="<%= asset_path('slide3/lokal/03.jpg') %>" data-lightbox="lokal"></a>
+					<a href="<%= asset_path('slide3/lokal/04.jpg') %>" data-lightbox="lokal"></a>
+					<a href="<%= asset_path('slide3/lokal/05.jpg') %>" data-lightbox="lokal"></a>
+					<a href="<%= asset_path('slide3/lokal/06.jpg') %>" data-lightbox="lokal"></a>
+					<a href="<%= asset_path('slide3/lokal/07.jpg') %>" data-lightbox="lokal"></a>
+					<a href="<%= asset_path('slide3/lokal/08.jpg') %>" data-lightbox="lokal"></a>
+					<a href="<%= asset_path('slide3/lokal/09.jpg') %>" data-lightbox="lokal"></a>
+
 				</div>
 				<div class="galeria-3">
 					<div class="tytul"><%= t "gallery.championships" %></div>
-					<a href="/assets/slide3/mistrzostwa/01.jpg" data-lightbox="mistrzostwa">
+					<%= link_to asset_path('slide3/mistrzostwa/01.jpg'), data: {lightbox: :mistrzostwa} do %>
 						<div id="zdjecia3">
-							<img class="active" src="/assets/slide3/mistrzostwa/min/01.jpg" alt="">
-							<img src="/assets/slide3/mistrzostwa/min/02.jpg" alt="">
-							<img src="/assets/slide3/mistrzostwa/min/03.jpg" alt="">
+							<%= image_tag 'slide3/mistrzostwa/min/01.jpg', class: 'active' %>
+							<%= image_tag 'slide3/mistrzostwa/min/02.jpg' %>
+							<%= image_tag 'slide3/mistrzostwa/min/03.jpg' %>
 						</div>
-					</a>
-					<a href="/assets/slide3/mistrzostwa/02.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/03.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/04.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/05.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/06.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/07.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/08.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/09.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/10.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/11.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/12.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/13.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/14.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/15.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/16.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/17.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/18.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/19.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/20.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/21.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/22.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/23.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/24.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/25.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/26.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/27.jpg" data-lightbox="mistrzostwa"></a>
-					<a href="/assets/slide3/mistrzostwa/28.jpg" data-lightbox="mistrzostwa"></a>
+					<% end %>
+					<a href="<%= asset_path('slide3/mistrzostwa/02.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/03.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/04.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/05.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/06.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/07.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/08.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/09.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/10.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/11.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/12.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/13.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/14.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/15.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/16.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/17.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/18.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/19.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/20.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/21.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/22.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/23.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/24.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/25.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/26.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/27.jpg') %>" data-lightbox="mistrzostwa"></a>
+					<a href="<%= asset_path('slide3/mistrzostwa/28.jpg') %>" data-lightbox="mistrzostwa"></a>
 				</div>
 			</div>
 			<div class="slide" id="pasibrzuch" data-slide="4" data-stellar-background-ratio="0.5">

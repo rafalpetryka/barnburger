@@ -1,3 +1,4 @@
+@media (min-width: 620px) and (max-width: 849px) {
 html, body {
     width: 100%;
     height: 100%;
@@ -6,20 +7,19 @@ html, body {
     background-color: #000;
 }
 h2{
-    font-family: DKCrayonCrumble;
-    margin-left: 10%;
+    font-family: DKCrayonCrumble !important;
+    margin-left: 10% !important;
     width: 80%;
     float: left;
     display: inline-block;
-    font-family: DKCrayonCrumble;
     color: #FFFFEC;
     text-shadow: 0 0 15px #000, 0 0 5px #000, 0 0 2px black;
-    font-size: 100%;
-    font-size: 2vh;
-    line-height: 120%;
+    font-size: 100% !important;
+    font-size: 2vh !important;
+    line-height: 120% !important;
     text-align: center;
-    margin-bottom: 3%;
-    font-weight: 100;
+    margin-bottom: 3% !important;
+    font-weight: 100 !important;
 }
 a {
     color: #e38e55;
@@ -36,13 +36,13 @@ span {
 }
 @font-face {
     font-family: DKCrayonCrumble;
-    src: url(/assets/DKCrayonCrumble.eot);
-    src: url(/assets/DKCrayonCrumble.eot?#iefix) format("embedded-opentype"), url(/assets/DKCrayonCrumble.woff) format("woff"), url(/assets/DKCrayonCrumble.ttf) format("truetype"), url(/assets/DKCrayonCrumble.svg#svgFontName) format("svg")
+    src: asset_url('DKCrayonCrumble.eot');
+    src: asset_url('DKCrayonCrumble.eot?#iefix') format("embedded-opentype"), asset_url('DKCrayonCrumble.woff') format("woff"), asset_url('DKCrayonCrumble.ttf') format("truetype"), asset_url('DKCrayonCrumble.svg#svgFontName') format("svg")
 }
 @font-face {
     font-family: CabinSketch;
-    src: url(/assets/CabinSketch-Bold.eot);
-    src: url(/assets/CabinSketch-Bold.eot?#iefix) format("embedded-opentype"), url(/assets/CabinSketch-Bold.woff) format("woff"), url(/assets/CabinSketch-Bold.ttf) format("truetype"), url(/assets/CabinSketch-Bold.svg#svgFontName) format("svg")
+    src: asset_url('CabinSketch-Bold.eot');
+    src: asset_url('CabinSketch-Bold.eot?#iefix') format("embedded-opentype"), asset_url('CabinSketch-Bold.woff') format("woff"), asset_url('CabinSketch-Bold.ttf') format("truetype"), asset_url('CabinSketch-Bold.svg#svgFontName') format("svg")
 }
 .navigation {
     height: 46px;
@@ -177,7 +177,7 @@ span {
     bottom: 2%;
     left: 50%;
     margin-left: -25px;
-    background-image: url(/assets/arrow.png);
+    background-image: asset_url('arrow.png');
     -webkit-filter: drop-shadow(0 0 5px #000);
     filter: drop-shadow(0 0 5px #000);
     -webkit-filter: brightness(100%);
@@ -253,11 +253,11 @@ opacity: 0;
 #home {
     margin-top: 0;
     height: auto;
-    background-image: url(/assets/slide1/wood_med.jpg);
+    background-image: asset_url('slide1/wood_med.jpg');
     float: left;
     background-size: cover;
     background-repeat: repeat-y;
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/bg1.jpg',sizingMethod='scale')";
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='asset_url('bg1.jpg')',sizingMethod='scale')";
     display: block;
     /*text-align: center;*/
     z-index: 2
@@ -360,7 +360,7 @@ overflow: none;
 }
 #menu {
     float: left;
-    background-image: url(/assets/slide2/bg_med.jpg);
+    background-image: asset_url('slide2/bg_med.jpg');
     background-size: cover;
     background-repeat: repeat-y;
     z-index: 2;
@@ -550,7 +550,7 @@ float: left;
     cursor: pointer;
 }
 #galeria {
-    background-image: url(/assets/slide3/bg_med.jpg);
+    background-image: asset_url('slide3/bg_med.jpg');
     z-index: 2;
     float: left;
     height: auto;
@@ -709,7 +709,7 @@ z-index: 3
     text-shadow: 0 0 5px black, 0 0 10px black
 }
 #pasibrzuch {
-    background-image: url(/assets/slide4/bg_med.jpg);
+    background-image: asset_url('slide4/bg_med.jpg');
     z-index: 2;
     float: left;
     height: auto;
@@ -742,7 +742,7 @@ z-index: 3
     margin-bottom: 120px;
 }
 #kontakt {
-    background-image: url(/assets/slide5/bg_med.jpg);
+    background-image: asset_url('slide5/bg_med.jpg');
     background-size: cover;
     background-repeat: repeat-y;
     z-index: 2;
@@ -839,4 +839,5 @@ z-index: 3
 }
 ::-webkit-scrollbar-thumb:window-inactive {
     background: rgba(128, 128, 128, 0.4);
+}
 }
