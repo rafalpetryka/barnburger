@@ -9,9 +9,17 @@ module OpeningHoursHelper
         first_day = day if first_day.nil?
       else
         if first_day.nil?
-          return_html += I18n.t("short_days.#{day.to_s.first(3)}") + ": #{hours(day, 0)}<sup>#{minutes(day, 0)}</sup>-#{hours(day, 1)}<sup>#{minutes(day, 1)}</sup> <span>" + I18n.t('contact.zlota.opening_hours.order_up_to') + " #{hours(day,2)}:#{minutes(day,2)})</span><br>"
+          if @opening_hours.send(day)[0] == 'nieczynne'
+            return_html += t("short_days.#{day.to_s.first(3)}") + ': ' + t('contact.closed') + '<br>'
+          else
+            return_html += t("short_days.#{day.to_s.first(3)}") + ": #{hours(day, 0)}<sup>#{minutes(day, 0)}</sup>-#{hours(day, 1)}<sup>#{minutes(day, 1)}</sup> <span>(" + t('contact.zlota.opening_hours.order_up_to') + " #{hours(day,2)}:#{minutes(day,2)})</span><br>"
+          end
         else
-          return_html += I18n.t("short_days.#{first_day.to_s.first(3)}") + "-" + t("short_days.#{day.to_s.first(3)}") + ": #{hours(day, 0)}<sup>#{minutes(day, 0)}</sup>-#{hours(day, 1)}<sup>#{minutes(day, 1)}</sup> <span>" + I18n.t('contact.zlota.opening_hours.order_up_to') + " #{hours(day, 2)}:#{minutes(day, 2)})</span><br>"
+          if @opening_hours.send(day)[0] == 'nieczynne'
+            return_html += t("short_days.#{first_day.to_s.first(3)}") + "-" + t("short_days.#{day.to_s.first(3)}") + ": " + t('contact.closed') + "<br>"
+          else
+            return_html += t("short_days.#{first_day.to_s.first(3)}") + "-" + t("short_days.#{day.to_s.first(3)}") + ": #{hours(day, 0)}<sup>#{minutes(day, 0)}</sup>-#{hours(day, 1)}<sup>#{minutes(day, 1)}</sup> <span>(" + t('contact.zlota.opening_hours.order_up_to') + " #{hours(day, 2)}:#{minutes(day, 2)})</span><br>"
+          end
           first_day = nil
         end
       end

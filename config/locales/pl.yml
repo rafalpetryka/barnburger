@@ -24,6 +24,7 @@ pl:
     title: "Pasibrzuch"
     text: "Chcesz zmierzyć się z BYPASSEM, a dodatkowo wygrać atrakcyjna nagrodę? Dołącz do ponad 100 pasibrzuchów, wejdź na <a href='http://www.pasibrzuch.barnburger.pl' target='_blank'>pasibrzuch.barnburger.pl</a>, zapoznaj się z regulaminem i aktualnym rekordem"
   contact:
+    closed: "nieczynne"
     opening_hours: "Godziny otwarcia"
     title: "Kontakt"
     zgoda:

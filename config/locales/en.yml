@@ -44,6 +44,7 @@ en:
     title: "Pasibrzuch"
     text: "Do you wanna deal with BYPASS, plus win an attractive price? Join to more then 100 of people, visit <a href='http://www.pasibrzuch.barnburger.pl' target='_blank'>pasibrzuch.barnburger.pl</a>, read the rules, and check out current record"
   contact:
+    closed: "closed"
     opening_hours: "Opening hours"
     title: "Contact"
     zgoda:
