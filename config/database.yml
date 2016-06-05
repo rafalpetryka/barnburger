@@ -21,6 +21,14 @@ development:
   username: postgres
   password: postgres
 
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: barnburger_test
+  pool: 5
+  username: postgres
+  password: postgres
+
 production:
   <<: *default
   database: barnburger_production
