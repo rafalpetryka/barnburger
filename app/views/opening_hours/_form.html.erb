@@ -1,0 +1,30 @@
+<div class="form">
+  <%= form_for @opening_hour do |f| %>
+    <% if @opening_hour.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% @opening_hour.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <p>
+      <%= f.label :place, "Lokal: #{@opening_hour.place}" %>
+      <table>
+        <% @days_of_week.each do |key, val| %>
+        <tr>
+            <td><%= val %></td>
+            <td>od <%= select_tag "#{key}_11", options_for_select(@hours, @opening_hour[key].first.first(2)) %>
+            <%= select_tag "#{key}_12", options_for_select(@minutes, @opening_hour[key].first.last(2)) %></td>
+            <td>do <%= select_tag "#{key}_21", options_for_select(@hours, @opening_hour[key].second.first(2)) %>
+            <%= select_tag "#{key}_22", options_for_select(@minutes, @opening_hour[key].second.last(2)) %></td>
+            <td>grill do <%= select_tag "#{key}_31", options_for_select(@hours, @opening_hour[key].last.first(2)) %>
+            <%= select_tag "#{key}_32", options_for_select(@minutes, @opening_hour[key].last.last(2)) %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= f.submit "Wyślij" %>
+    </p>
+  <% end %>
+</div>

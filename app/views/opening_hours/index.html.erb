@@ -1,0 +1,34 @@
+<table>
+
+    <tbody>
+
+    <div class="napis">
+        Lista godzin otwarcia
+    </div>
+        <tr bgcolor="#111">
+            <td>Lokal</td>
+            <td>Poniedziałek</td>
+            <td>Wtorek</td>
+            <td>Środa</td>
+            <td>Czwartek</td>
+            <td>Piątek</td>
+            <td>Sobota</td>
+            <td>Niedziela</td>
+            <td></td>
+        </tr>
+        <% @opening_hours.each do |opening_hour| %>
+            <tr>
+                <td><%= opening_hour.place %></td>
+                <% [:monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday].each do |val| %>
+                    <td>
+                        od <%= opening_hour.send(val).first.first(2) + ':' + opening_hour.send(val).first.last(2) %>
+                        do <%= opening_hour.send(val).second.first(2) + ':' + opening_hour.send(val).second.last(2) %>
+                        , grill do <%= opening_hour.send(val).last.first(2) + ':' + opening_hour.send(val).last.last(2) %>
+                    </td>
+                <% end %>
+                <td><%= link_to "Edytuj", edit_opening_hour_path(opening_hour) %></td>
+            </tr>
+        <% end %>
+
+    </tbody>
+</table>
