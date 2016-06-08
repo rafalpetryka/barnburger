@@ -358,6 +358,9 @@ overflow: none;
     padding: 0;
     margin: 0
 }
+.star-rating input, .star-rating .current-rating input:hover {
+    top: 0px;
+}
 #menu {
     float: left;
     background-image: asset_url('slide2/bg_med.jpg');
