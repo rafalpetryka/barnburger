@@ -1,0 +1,10 @@
+enviroment: production
+chdir: /var/www/barnburger.pl/current/
+address: 127.0.0.1
+user: root
+port: 3000
+pid: /var/www/barnburger.pl/current/tmp/thin.pid
+log: /var/www/barnburger.pl/current/log/thin.log
+timeout: 30
+max_conns: 1024
+max_presistent_cons: 512
