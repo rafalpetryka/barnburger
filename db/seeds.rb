@@ -70,3 +70,10 @@ EnglishBurger.create(name: "SOFT TACO Z KUR WIELU", composition: "3 wheat tortil
 OpeningHour.delete_all
 OpeningHour.create(place: 'zlota', monday: [1200, 2200, 2130], tuesday: [1200, 2200, 2130], wednesday: [1200, 2200, 2130], thursday: [1200, 2200, 2130], friday: [1200, 2200, 2130], saturday: [1300, 2200, 2130], sunday: [1300, 2100, 2030])
 OpeningHour.create(place: 'zgoda', monday: [1200, 2200, 2130], tuesday: [1200, 2200, 2130], wednesday: [1200, 2200, 2130], thursday: [1200, 2200, 2130], friday: [1200, 2200, 2130], saturday: [1300, 2200, 2130], sunday: [1300, 2100, 2030])
+
+HomeDescription.create(
+  polish_title: 'Prawdziwa historia',
+  polish_text: 'Wszystkie burgery przygotowujemy codziennie na miejscu ze świeżo mielonej sezonowanej wołowiny najwyższej jakości rasy <span>Charolais</span>. Nasze bulki wzbogacone są błonnikiem. Do burgerów dorzucamy własny sos BBQ, salsę fresca, fryty oraz sałatkę Colesław. Steki kroimy z dojrzewającej wołowiny rasy <span>Hereford</span>. Domowej roboty fryty smażymy na oleju – NIE FILTRUJEMY – my go wymieniamy. Po prostu… A dodatkowo mamy soft taco z wołowiną lub kurczakiem',
+  english_title: 'True story bro',
+  english_text: 'All the burgers are prepared daily, on the spot with freshly seasonal ground beef of the highest quality - the <span>Charolais</span> breed. Our rolls are enriched by dietary fiber. We throw our own BBQ sauce, salsa fresca, chips/fries and coleslaw into the burgers. Steaks cut from maturing race <span>Hereford</span>. Homemade fries fried in oil – WE DO NOT FILTER – we exchange it. Just like that… And additionally we have soft taco with beef or chicken'
+)

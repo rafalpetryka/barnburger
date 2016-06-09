@@ -39,13 +39,10 @@ describe 'check opening hours' do
   end
 end
 describe 'Update opening hours' do
-  let!(:admin){ Admin.create(email: "a@a.com", password: "password") }
   let!(:opening_hour){ FactoryGirl.create(:opening_hour) }
   def check_hours_from_monday
     visit opening_hours_path
-    fill_in "Email", with: admin.email
-    fill_in "Hasło", with: admin.password
-    click_on "Log in"
+    login
     expect(page).to have_content "Poniedziałek Wtorek Środa Czwartek Piątek Sobota Niedziela zgoda od 12:00 do 22:00 , grill do 21:30"
   end
   def update_monday

@@ -1,4 +1,4 @@
-<html lang="pl">
+	<html lang="pl">
 	<head>
 		<meta name="description" content="Strona internetowa Barn Burger">
 		<meta name="keywords" content="Barn, Burger, Burgery, Burgers, Warszawa, Warsaw, Najlepszy burger, Najlepsze burgery, The best burger, The best burgers">
@@ -154,8 +154,8 @@
 				    	<% end %>
 				<% end %>
 				<div class="prawdziwa-historia">
-					<div class="tytul"><%= t "real_story.title" %></div>
-					<p><%= raw t "real_story.description" %></p>
+					<div class="tytul"><%= @home_description_title %></div>
+					<p><%= @home_description_text.html_safe %></p>
 				</div>
 				<div class="aktualnosci">
 					<div class="tytul"><%= t "news.title" %></div>

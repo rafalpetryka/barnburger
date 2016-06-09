@@ -1,5 +1,7 @@
 class HomeDescriptionsController < ApplicationController
   before_action :find_home_description, only: [:update, :edit]
+  before_action :authenticate_admin!
+  layout 'news_layout'
   def index
     @home_description = HomeDescription.last
   end
