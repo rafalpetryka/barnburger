@@ -1,0 +1,27 @@
+<table>
+
+    <tbody>
+
+    <div class="napis">
+        Lista opisów ze strony głównej
+    </div>
+        <% if @home_description.present? %>
+            <tr bgcolor="#111">
+                <td>Tytuł po Polsku</td>
+                <td>Opis po Polsku</td>
+                <td>Tytuł po Angielsku</td>
+                <td>Opis po Angielsku</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><%= @home_description.polish_title %></td>
+                <td><%= @home_description.polish_text %></td>
+                <td><%= @home_description.english_title %></td>
+                <td><%= @home_description.english_text %></td>
+                <td><%= link_to "Edytuj", edit_home_description_path(@home_description) %></td>
+            </tr>
+        <% else %>
+            Brak utworzonych opisów
+        <% end %>
+    </tbody>
+</table>

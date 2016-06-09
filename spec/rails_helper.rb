@@ -56,3 +56,9 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include Capybara::DSL
 end
+def login
+  admin = Admin.create(email: "a@a.com", password: "password")
+  fill_in "Email", with: admin.email
+  fill_in "Hasło", with: admin.password
+  click_on "Log in"
+end

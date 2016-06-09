@@ -1,0 +1,32 @@
+<div class="form">
+  <%= form_for @home_description do |f| %>
+    <% if @home_description.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% @home_description.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <p>
+      <%= f.label :polish_title, "Tytuł po Polsku" %><br>
+      <%= f.text_field :polish_title, placeholder: @home_description.polish_title %>
+    </p>
+    <p>
+      <%= f.label :polish_text, "Opis po Polsku" %><br>
+      <%= f.cktext_area :polish_text %>
+    </p>
+    <p>
+      <%= f.label :english_title, "Tytuł po Angielsku" %><br>
+      <%= f.text_field :english_title, placeholder: @home_description.english_title %>
+    </p>
+    <p>
+      <%= f.label :english_text, "Opis po Angielsku" %><br>
+      <%= f.cktext_area :english_text %>
+    </p>
+    <p>
+      <%= f.submit "Aktualizuj", class: "send_button"%>
+    </p>
+  <% end %>
+</div>

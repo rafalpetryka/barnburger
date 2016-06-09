@@ -30,7 +30,7 @@ class EnglishBurgersController < ApplicationController
 		# @english_burger = EnglishBurger.where(name: "NAGI INSTYNKT").first
 		# @english_burger.average = (@english_burger.average * @english_burger.how_many_mark + @mark) / (@english_burger.how_many_mark + 1)
 		# @english_burger.how_many_mark = @english_burger.how_many_mark+1
-		
+
 		# if @english_burger.save
 		# 	flash[:success] = @english_burger.name + " otrzymał od Ciebie " + @mark.to_s
 		# 	redirect_to :back
@@ -65,16 +65,16 @@ class EnglishBurgersController < ApplicationController
 	def update
 		check_mark
 		@english_burger = EnglishBurger.find(params[:id])
-		
+
 		unless @mark == 0
 			unless cookies[@english_burger.name].blank?
-				
+
 				if cookies[@english_burger.name].to_i == @mark.to_i
 					puts "-----------------"
 					puts "if"
 					puts "-----------------"
 					flash[:success] = "Your mark "+ @english_burger.name + " is the same as before " + @mark.to_s
-				else 
+				else
 					puts "-----------------"
 					puts "else"
 					puts "-----------------"
@@ -91,7 +91,7 @@ class EnglishBurgersController < ApplicationController
 					puts "-----------------"
 				cookies[@english_burger.name] = {
 			    	:value => @mark.to_s
-			    } 
+			    }
 				flash[:success] = @english_burger.name + " received " + @mark.to_s + " from You"
 				@english_burger.average = (@english_burger.average * @english_burger.how_many_mark + @mark) / (@english_burger.how_many_mark + 1)
 				@english_burger.how_many_mark = @english_burger.how_many_mark+1
