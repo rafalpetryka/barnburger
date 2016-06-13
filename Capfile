@@ -28,7 +28,3 @@ Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 
 require 'capistrano/bundler'
 require 'capistrano/rails'
-
-
-set :rvm_type, :user
-set :rvm_ruby_version, '2.2.3p173'
