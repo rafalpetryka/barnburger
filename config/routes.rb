@@ -11,6 +11,5 @@ Rails.application.routes.draw do
   get 'privacy' => 'main#privacy'
   get 'main/index' => 'main#index'
   get 'manager' => 'manager#index'
-  get "menu" => redirect("http://localhost:3000/#menu")
   root 'main#index'
 end
