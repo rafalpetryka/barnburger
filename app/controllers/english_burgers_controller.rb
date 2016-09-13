@@ -104,7 +104,7 @@ class EnglishBurgersController < ApplicationController
 					puts "save"
 					puts "-----------------"
 				# flash[:success] = @english_burger.name + " otrzymał od Ciebie " + @mark.to_s
-				redirect_to menu_path
+				redirect_to root_path(anchor: 'menu')
 			end
 		else
 			if @english_burger.update(english_burger_params)
