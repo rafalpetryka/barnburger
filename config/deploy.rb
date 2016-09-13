@@ -29,14 +29,13 @@ set :deploy_to, '/var/www/barnburger.pl'
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system')
 
-set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-set :ssh_options, { :forward_agent => true, :port => 42941 }
+set :linked_files, %w(config/database.yml)
+set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system)
+set :ssh_options, forward_agent: true, port: 42_941
 
 # set :rvm_type, :user
 set :rvm_ruby_version, '2.1.5p273'
 set :rvm_custom_path, '/usr/local/rvm'
-
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -63,5 +62,4 @@ namespace :deploy do
   #     # end
   #   end
   # end
-
 end

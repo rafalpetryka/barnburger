@@ -3,7 +3,7 @@ describe 'home descriptions' do
   before(:each) do
     FactoryGirl.create(:home_description)
   end
-  context "show in root_path" do
+  context 'show in root_path' do
     it 'in English' do
       visit root_path(locale: 'en')
       expect(page).to have_content 'English title English text'
@@ -28,16 +28,16 @@ describe 'home descriptions' do
       visit home_descriptions_path
       login
       click_on 'Edytuj'
-      fill_in "Tytuł po Polsku", with: "Tytuł po Polsku"
-      fill_in 'Opis po Polsku', with: "<p>Opis po Polsku</p>"
+      fill_in 'Tytuł po Polsku', with: 'Tytuł po Polsku'
+      fill_in 'Opis po Polsku', with: '<p>Opis po Polsku</p>'
       fill_in 'Tytuł po Angielsku', with: 'Tytuł po Angielsku'
       fill_in 'Opis po Angielsku', with: '<p>Opis po Angielsku</p>'
       click_on 'Aktualizuj'
-      expect(page).to have_content("Tytuł po Polsku <p>Opis po Polsku</p> Tytuł po Angielsku <p>Opis po Angielsku</p>")
+      expect(page).to have_content('Tytuł po Polsku <p>Opis po Polsku</p> Tytuł po Angielsku <p>Opis po Angielsku</p>')
       visit root_path(locale: 'en')
-      expect(page).to have_content("Tytuł po Angielsku Opis po Angielsku")
+      expect(page).to have_content('Tytuł po Angielsku Opis po Angielsku')
       visit root_path(locale: 'pl')
-      expect(page).to have_content("Tytuł po Polsku Opis po Polsku")
+      expect(page).to have_content('Tytuł po Polsku Opis po Polsku')
     end
   end
 end

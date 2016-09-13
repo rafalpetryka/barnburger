@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 gem 'ckeditor', '~> 4.1', '>= 4.1.6'
-gem "thin"
-#gem "unicorn-rails"
+gem 'thin'
+# gem "unicorn-rails"
 # gem 'htmlbeautifier'
 # gem 'bootstrap-sass'
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 gem 'devise'
 gem 'execjs'
-#gem 'therubyracer'
+# gem 'therubyracer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
@@ -43,7 +43,7 @@ group :development, :test do
   gem 'capybara', '~> 2.7', '>= 2.7.1'
   gem 'factory_girl_rails', '~> 4.7'
   gem 'rspec-rails', '~> 3.4'
-  gem "better_errors"
+  gem 'better_errors'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -58,5 +58,4 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1', '>= 1.1.4'
   gem 'capistrano-rails', '~> 1.1', '>= 1.1.6'
   gem 'capistrano-rvm', '~> 0.1.2'
-
 end

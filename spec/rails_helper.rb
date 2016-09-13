@@ -2,7 +2,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -57,8 +57,8 @@ RSpec.configure do |config|
   config.include Capybara::DSL
 end
 def login
-  admin = Admin.create(email: "a@a.com", password: "password")
-  fill_in "Email", with: admin.email
-  fill_in "Hasło", with: admin.password
-  click_on "Log in"
+  admin = Admin.create(email: 'a@a.com', password: 'password')
+  fill_in 'Email', with: admin.email
+  fill_in 'Hasło', with: admin.password
+  click_on 'Log in'
 end

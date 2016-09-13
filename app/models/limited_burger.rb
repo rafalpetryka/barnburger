@@ -1,3 +1,3 @@
 class LimitedBurger < ActiveRecord::Base
-	has_many :burgers
+  has_many :burgers
 end
