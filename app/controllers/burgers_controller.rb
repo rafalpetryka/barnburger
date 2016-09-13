@@ -2,7 +2,7 @@ class BurgersController < ApplicationController
 	# skip_before_action :verify_authenticity_token
 	layout "news_layout"
 	# before_action :check_cookie
-	before_action :authenticate_admin!, only: [:new, :create, :find_burger, :destroy, :edit]
+	before_action :authenticate_admin!, only: [:new, :create, :find_burger, :destroy, :edit, :index]
 
 	def index
 		@burgers = Burger.all
@@ -30,7 +30,7 @@ class BurgersController < ApplicationController
 		# @burger = Burger.where(name: "NAGI INSTYNKT").first
 		# @burger.average = (@burger.average * @burger.how_many_mark + @mark) / (@burger.how_many_mark + 1)
 		# @burger.how_many_mark = @burger.how_many_mark+1
-		
+
 		# if @burger.save
 		# 	flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
 		# 	redirect_to :back
@@ -65,16 +65,16 @@ class BurgersController < ApplicationController
 	def update
 		check_mark
 		@burger = Burger.find(params[:id])
-		
+
 		unless @mark == 0
 			unless cookies[@burger.name].blank?
-				
+
 				if cookies[@burger.name].to_i == @mark.to_i
 					puts "-----------------"
 					puts "if"
 					puts "-----------------"
 					flash[:success] = "Twoja ocena "+ @burger.name + " nie zmieniła się " + @mark.to_s
-				else 
+				else
 					puts "-----------------"
 					puts "else"
 					puts "-----------------"
@@ -91,7 +91,7 @@ class BurgersController < ApplicationController
 					puts "-----------------"
 				cookies[@burger.name] = {
 			    	:value => @mark.to_s
-			    } 
+			    }
 				flash[:success] = @burger.name + " otrzymał od Ciebie " + @mark.to_s
 				@burger.average = (@burger.average * @burger.how_many_mark + @mark) / (@burger.how_many_mark + 1)
 				@burger.how_many_mark = @burger.how_many_mark+1
