@@ -7,17 +7,21 @@
 # Ignore bundler config.
 /.bundle
 
+/config/database.yml
+/config/secrets.yml
+/config/app.yml
+
 # Ignore all logfiles and tempfiles.
 /log/*
+/tmp/*
 !/log/.keep
-/tmp
-/public/uploads
-/.bundle
-/db/*.sqlite3
-/log/*.log
-config/database.yml
-config/secrets.yml
-config/google_analytics.yml
-.DS_Store
-public/assets/**
+!/tmp/.keep
+/public/uploads/*
+/public/assets/*
+.idea*
+
+# Ignore Byebug command history file.
 .byebug_history
+
+.ruby-gemset
+.powrc
