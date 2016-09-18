@@ -1,5 +1,5 @@
 .star-rating, .star-rating input:hover, .star-rating input:active, .star-rating .current-rating {
-    background: url(/assets/star.png) left -1000px repeat-x;
+    background: asset-url('star.png') left -1000px repeat-x;
     display: inline-block;
 }
 input {
