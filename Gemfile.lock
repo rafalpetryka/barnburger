@@ -59,6 +59,8 @@ GEM
       capistrano (~> 3.1)
       sshkit (~> 1.2)
     capistrano-harrow (0.5.1)
+    capistrano-passenger (0.2.0)
+      capistrano (~> 3.0)
     capistrano-rails (1.1.6)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -88,7 +90,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
-    daemons (1.2.3)
+    daemons (1.2.4)
     debug_inspector (0.0.2)
     devise (4.1.1)
       bcrypt (~> 3.0)
@@ -237,13 +239,13 @@ DEPENDENCIES
   byebug
   capistrano (~> 3.5)
   capistrano-bundler (~> 1.1, >= 1.1.4)
+  capistrano-passenger
   capistrano-rails (~> 1.1, >= 1.1.6)
   capistrano-rvm (~> 0.1.2)
   capybara (~> 2.7, >= 2.7.1)
   ckeditor (~> 4.1, >= 4.1.6)
   coffee-rails (~> 4.1.0)
   devise
-  execjs
   factory_girl_rails (~> 4.7)
   jbuilder (~> 2.0)
   jquery-rails
@@ -260,4 +262,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.12.3
+   1.12.5

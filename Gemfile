@@ -6,7 +6,6 @@ gem 'thin'
 # gem 'bootstrap-sass'
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 gem 'devise'
-gem 'execjs'
 # gem 'therubyracer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -58,4 +57,5 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1', '>= 1.1.4'
   gem 'capistrano-rails', '~> 1.1', '>= 1.1.6'
   gem 'capistrano-rvm', '~> 0.1.2'
+  gem 'capistrano-passenger'
 end
