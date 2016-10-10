@@ -57,4 +57,4 @@
 set :stage, :production
 
 # Replace 127.0.0.1 with your server's IP address!
-server 'raphael.ideasfactory.pl', user: 'root', roles: %w(web app)
+server 'if.ideasfactory.pl', user: 'root', roles: %w(web app)

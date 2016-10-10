@@ -1,14 +1,14 @@
 # config valid only for current version of Capistrano
 lock '3.5.0'
 
-set :application, 'barnburger.pl'
+set :application, 'new.barnburger.pl'
 set :repo_url, 'git@github.com:rafalpetryka/barnburger.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/barnburger.pl'
+set :deploy_to, '/var/www/new.barnburger.pl/web'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -29,12 +29,12 @@ set :deploy_to, '/var/www/barnburger.pl'
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system')
 
-set :linked_files, %w(config/database.yml)
+set :linked_files, %w(config/database.yml config/secrets.yml)
 set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system)
-set :ssh_options, forward_agent: true, port: 42_941
+set :ssh_options, forward_agent: true, port: 21_820
 
 # set :rvm_type, :user
-set :rvm_ruby_version, '2.1.5p273'
+set :rvm_ruby_version, '2.1.5'
 set :rvm_custom_path, '/usr/local/rvm'
 
 # Default value for default_env is {}
