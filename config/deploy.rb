@@ -34,7 +34,7 @@ set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 set :ssh_options, forward_agent: true, port: 21_820
 
 # set :rvm_type, :user
-set :rvm_ruby_version, '2.1.5'
+set :rvm_ruby_version, '2.1.8'
 set :rvm_custom_path, '/usr/local/rvm'
 
 # Default value for default_env is {}

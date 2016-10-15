@@ -247,6 +247,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.7)
   jbuilder (~> 2.0)
   jquery-rails
+  libv8
   pg
   rails (= 4.2.0)
   rails-i18n (~> 4.0.0)
@@ -254,7 +255,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
-  therubyracer
+  therubyracer (= 0.12.2)
   thin
   turbolinks
   uglifier (>= 1.3.0)

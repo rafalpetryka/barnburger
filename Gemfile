@@ -7,7 +7,8 @@ gem 'thin'
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 gem 'devise'
 gem 'execjs'
-gem 'therubyracer'
+gem 'libv8'
+gem 'therubyracer', '0.12.2', platforms: :ruby
 # gem 'therubyracer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
