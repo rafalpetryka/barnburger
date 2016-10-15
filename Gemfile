@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'ckeditor', '~> 4.1', '>= 4.1.6'
+gem 'ckeditor', '~> 4.1', github: 'mkaszubowski/ckeditor'
 gem 'thin'
 # gem "unicorn-rails"
 # gem 'htmlbeautifier'
