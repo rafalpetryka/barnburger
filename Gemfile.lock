@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/mkaszubowski/ckeditor.git
+  remote: https://github.com/mkaszubowski/ckeditor.git
   revision: c9b5ea842222976c2d7f646f2d1210f4cb619fc2
   specs:
     ckeditor (4.1.3)
