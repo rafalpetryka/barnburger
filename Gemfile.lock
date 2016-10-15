@@ -251,6 +251,7 @@ DEPENDENCIES
   ckeditor (~> 4.1)!
   coffee-rails (~> 4.1.0)
   devise
+  execjs
   factory_girl_rails (~> 4.7)
   jbuilder (~> 2.0)
   jquery-rails
